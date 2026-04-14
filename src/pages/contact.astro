@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { industries, SITE } from "../data/site";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Book a free 15-minute call with AI Growth Sprint."
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Contact</p>
+      <h1>Book a free 15-minute call.</h1>
+      <p>
+        Tell us what your team spends too much time on. We will map the first
+        workflows AI can speed up and whether a workshop makes sense.
+      </p>
+      <div class="button-row">
+        <!-- TODO: Replace with Daniel's real Calendly URL before launch -->
+        <a class="button" href="https://calendly.com/" rel="noopener noreferrer" target="_blank">Open Calendly</a>
+        <a class="button button-secondary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      </div>
+    </div>
+    <form class="panel panel-pad" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="eyebrow">Quick enquiry</p>
+      <label>
+        Name
+        <input name="name" autocomplete="name" required />
+      </label>
+      <label>
+        Email
+        <input name="email" type="email" autocomplete="email" required />
+      </label>
+      <label>
+        Company
+        <input name="company" autocomplete="organization" />
+      </label>
+      <label>
+        Industry
+        <select name="industry" required>
+          <option value="">Choose one</option>
+          {industries.map((industry) => <option value={industry.slug}>{industry.title}</option>)}
+        </select>
+      </label>
+      <label>
+        Team size
+        <input name="team-size" />
+      </label>
+      <label>
+        What takes your team the most time?
+        <textarea name="time-drain" rows="5"></textarea>
+      </label>
+      <button class="button" type="submit">Send enquiry</button>
+    </form>
+  </section>
+</BaseLayout>
+
+<style>
+  form {
+    display: grid;
+    gap: 16px;
+  }
+
+  label {
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    background: var(--paper-soft);
+    color: var(--ink);
+    font: inherit;
+    padding: 12px 14px;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+</style>

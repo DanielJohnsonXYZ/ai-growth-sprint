@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Trust, Security, and Responsible Use"
+  description="How AI Growth Sprint handles data, review boundaries, hallucination risk, and safe AI use in training."
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Trust and security</p>
+      <h1>AI drafts. Humans review.</h1>
+      <p>
+        Practical AI adoption only works if the team knows what not to paste
+        into tools, how to check outputs, and where professional judgment stays
+        firmly with people.
+      </p>
+      <a class="button" href="/contact/">Book a free 15-minute call</a>
+    </div>
+    <aside class="panel panel-pad">
+      <h2>Responsible use is part of the training.</h2>
+      <p class="lead">Especially for legal, accounting, healthcare, and property workflows.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="grid grid-3">
+      {[
+        ["Data handling", "We teach teams when not to paste sensitive information into public tools and how to work from safe summaries."],
+        ["Accuracy", "AI can sound confident when it is wrong. Every output needs review before use."],
+        ["Professional judgment", "Legal, clinical, tax, valuation, pricing, and compliance decisions stay human-led."],
+        ["Client communication", "AI can draft. The team approves tone, facts, promises, and commitments."],
+        ["Internal process", "AI can turn messy notes into structure, but process owners approve final SOPs."],
+        ["Tool choice", "The workshop can adapt to the tools the team is allowed to use."],
+      ].map(([title, body]) => (
+        <article class="card">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <p class="eyebrow">Sector boundaries</p>
+      <h2>Admin and drafting support, not expert replacement.</h2>
+      <p class="lead">
+        Healthcare examples focus on admin and patient communication support.
+        Legal examples focus on drafting and review support. Accounting examples
+        focus on reporting, onboarding, and research support. Property examples
+        keep valuations and regulated statements under agency review.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

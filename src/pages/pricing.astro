@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { packages } from "../data/site";
+---
+
+<BaseLayout
+  title="Pricing"
+  description="Compare AI Growth Sprint workshop, open cohort, and 4-week programme options."
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Pricing</p>
+      <h1>Three packages. One clear next step.</h1>
+      <p>
+        Choose by team size, customization needs, and how much support you want
+        after the first session. Every option includes practical workflows and a
+        free 15-minute fit call first.
+      </p>
+      <a class="button" href="/contact/">Book a free 15-minute call</a>
+    </div>
+    <aside class="panel panel-pad">
+      <h2>Buyer fit matters.</h2>
+      <p class="lead">The call helps confirm which option makes sense before anyone commits budget.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="grid grid-3">
+      {packages.map((item, index) => (
+        <article class={index === 0 ? "card card-featured" : "card"}>
+          <p class="eyebrow">{item.price}</p>
+          <h2>{item.name}</h2>
+          <p>{item.fit}</p>
+          <ul class="checklist">
+            {item.includes.map((line) => <li>{line}</li>)}
+          </ul>
+          <a href="/contact/">Discuss this option</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">Which option is right?</p>
+        <h2>Use the depth of support as the deciding factor.</h2>
+      </div>
+      <div class="grid grid-3">
+        <article class="card"><strong>Fastest adoption</strong><p>Choose Team Workshop when a whole team needs a shared way of working.</p></article>
+        <article class="card"><strong>Lowest commitment</strong><p>Choose Open Cohort when the buyer is smaller or not ready for a private session.</p></article>
+        <article class="card"><strong>Deepest implementation</strong><p>Choose 4-Week Programme when workflows need repetition, review, and coaching.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel panel-pad">
+      <p class="eyebrow">Still deciding?</p>
+      <h2>See what changes after the training.</h2>
+      <p class="lead">Review workflow examples, time-saved snapshots, and the proof we have collected so far.</p>
+      <div class="button-row" style="margin-top: 24px">
+        <a class="button" href="/results/">See results</a>
+        <a class="button button-secondary" href="/how-it-works/">How it works</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

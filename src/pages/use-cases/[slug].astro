@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getIndustry, SITE, useCases } from "../../data/site";
+
+export function getStaticPaths() {
+  return useCases.map((useCase) => ({
+    params: { slug: useCase.slug },
+    props: { useCase },
+  }));
+}
+
+const { useCase } = Astro.props;
+const relatedIndustries = useCase.relatedIndustries.map((slug: string) => getIndustry(slug)).filter(Boolean);
+const schema = {
+  "@type": "Service",
+  name: `AI training for ${useCase.title.toLowerCase()}`,
+  provider: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  areaServed: "United Kingdom",
+  serviceType: "AI workflow training",
+};
+---
+
+<BaseLayout title={useCase.metaTitle} description={useCase.metaDescription} schema={schema}>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">{useCase.title}</p>
+      <h1>{useCase.hero}</h1>
+      <p>{useCase.problem}</p>
+      <div class="hero-actions">
+        <a class="button" href="/contact/">Book a free 15-minute call</a>
+        <a class="button button-secondary" href="/">Browse featured industries</a>
+      </div>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">Cross-industry workflow</p>
+      <h2>One workflow, many sectors.</h2>
+      <p class="lead">See how different industries tackle the same task with AI-assisted drafting and human review.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Before and after examples</p>
+      <h2>Draft faster. Review before use.</h2>
+    </div>
+    <div class="grid grid-3">
+      {useCase.examples.map((example) => (
+        <article class="card card-featured">
+          <p class="eyebrow">{example.industry}</p>
+          <div class="data-strip">
+            <div><span>Before</span><strong>{example.current}</strong></div>
+            <div><span>After</span><strong>{example.ai}</strong></div>
+            <div><span>Review</span><strong>{example.review}</strong></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="section-header">
+      <p class="eyebrow">Related industries</p>
+      <h2>Where this workflow shows up.</h2>
+    </div>
+    <div class="grid grid-3">
+      {relatedIndustries.map((industry) => (
+        <article class="card">
+          <h3>{industry?.shortName}</h3>
+          <p>{industry?.hero}</p>
+          <a href={`/industries/${industry?.slug}/`}>View industry page</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel panel-pad">
+      <p class="eyebrow">See the evidence</p>
+      <h2>Real results, clearly labelled.</h2>
+      <p class="lead">
+        We only publish proof that has been approved. Testimonials and case studies
+        are added as they come in — nothing invented.
+      </p>
+      <a class="button" style="margin-top: 24px" href="/results/">See results so far</a>
+    </div>
+  </section>
+</BaseLayout>

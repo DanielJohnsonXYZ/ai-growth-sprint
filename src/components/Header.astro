@@ -1,0 +1,227 @@
+---
+import { SITE } from "../data/site";
+
+const navItems = [
+  { href: "/how-it-works/", label: "How it works" },
+  { href: "/pricing/", label: "Pricing" },
+  { href: "/results/", label: "Results" },
+  { href: "/trust-security/", label: "Trust" },
+  { href: "/resources/", label: "Resources" },
+];
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label={`${SITE.name} home`}>
+    <span class="brand-mark">AI</span>
+    <span>
+      <strong>AI Growth Sprint</strong>
+      <small>Practical workflow training</small>
+    </span>
+  </a>
+  <nav aria-label="Main navigation">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+  <a class="button button-small" href={SITE.bookingUrl}>Book a call</a>
+
+  <!-- Mobile hamburger button -->
+  <button
+    class="hamburger"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-nav"
+  >
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <nav>
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <a class="button mobile-nav-cta" href={SITE.bookingUrl}>Book a call</a>
+  </div>
+</header>
+
+<style>
+  /* Hamburger button — hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Animate to X when open */
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Backdrop */
+  .mobile-nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-nav-backdrop.is-visible {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Mobile nav panel */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(320px, 85vw);
+    height: 100dvh;
+    background: var(--paper);
+    z-index: 1000;
+    padding: 96px 28px 40px;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    transform: translateX(0);
+  }
+
+  .mobile-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-nav nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+  }
+
+  .mobile-nav nav a:hover {
+    background: var(--paper-soft);
+    color: var(--moss);
+  }
+
+  .mobile-nav-cta {
+    margin-top: 24px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  @media (max-width: 980px) {
+    .hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  function initMobileNav() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+
+    if (!hamburger || !mobileNav || !backdrop) return;
+
+    function openMenu() {
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Close menu');
+      backdrop.classList.add('is-visible');
+      mobileNav.classList.add('is-open');
+      // Force reflow so the transition plays after display:flex is applied
+      mobileNav.offsetHeight;
+      mobileNav.style.transform = 'translateX(0)';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      mobileNav.style.transform = '';
+      backdrop.classList.remove('is-visible');
+      document.body.style.overflow = '';
+      // Wait for transition then hide
+      setTimeout(() => {
+        mobileNav.classList.remove('is-open');
+      }, 300);
+    }
+
+    function isOpen() {
+      return hamburger.getAttribute('aria-expanded') === 'true';
+    }
+
+    hamburger.addEventListener('click', () => {
+      if (isOpen()) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
+        closeMenu();
+        hamburger.focus();
+      }
+    });
+  }
+
+  // Run on initial load
+  initMobileNav();
+
+  // Re-run after Astro client-side navigation (View Transitions)
+  document.addEventListener('astro:after-swap', initMobileNav);
+</script>

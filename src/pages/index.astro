@@ -1,0 +1,195 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { industries, packages, priorityIndustries, SITE, useCases } from "../data/site";
+
+const featuredUseCases = useCases.filter((useCase) =>
+  ["proposals-and-tenders", "client-reporting", "documentation-and-sops"].includes(useCase.slug),
+);
+const schema = {
+  "@type": "Service",
+  name: "AI workflow training for UK SME teams",
+  provider: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  areaServed: "United Kingdom",
+  serviceType: "AI training and workflow implementation",
+};
+---
+
+<BaseLayout
+  title="Practical AI Training for UK SME Teams"
+  description="Hands-on AI workflow training for teams buried in admin, proposals, reporting, follow-up, and documentation."
+  schema={schema}
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Practical AI training for UK SME teams</p>
+      <h1>Your team wastes hours on work AI can help draft in minutes.</h1>
+      <p>
+        We show your team how to use AI on the real admin, proposal, reporting,
+        follow-up, and documentation work already eating the week. No jargon. No
+        theory-only workshop. Real workflows, built in one day.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="/contact/">Book a free 15-minute call</a>
+        <a class="button button-secondary" href="/how-it-works/">See how it works</a>
+      </div>
+    </div>
+    <aside class="panel panel-pad proof-meter" aria-label="Example time saved">
+      <p class="eyebrow">What changes</p>
+      <h2>Drafts get faster. Review stays human.</h2>
+      <div class="meter-row">
+        <span><strong>Tender response</strong><em>6 hours to 90 minutes</em></span>
+        <div class="meter" role="meter" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" aria-label="Tender response time savings: 6 hours to 90 minutes"><i style="width: 74%"></i></div>
+      </div>
+      <div class="meter-row">
+        <span><strong>Client report</strong><em>3 hours to 30 minutes</em></span>
+        <div class="meter" role="meter" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Client report time savings: 3 hours to 30 minutes"><i style="width: 82%"></i></div>
+      </div>
+      <div class="meter-row">
+        <span><strong>Follow-up batch</strong><em>same-day drafts</em></span>
+        <div class="meter" role="meter" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" aria-label="Follow-up batch time savings: same-day drafts"><i style="width: 67%"></i></div>
+      </div>
+      <p class="tag pending">Proof snapshots added as source material is approved.</p>
+    </aside>
+  </section>
+
+  <section class="section section-tight">
+    <div class="flow-cue" aria-label="Site conversion flow">
+      <article>
+        <p class="eyebrow">Hero</p>
+        <strong>Name the time drain</strong>
+        <p>Admin, proposals, reports, follow-ups, and documentation.</p>
+      </article>
+      <article>
+        <p class="eyebrow">Result</p>
+        <strong>Show the before and after</strong>
+        <p>Drafts get faster while review stays human.</p>
+      </article>
+      <article>
+        <p class="eyebrow">Example</p>
+        <strong>Make it sector-specific</strong>
+        <p>Construction, accounting, and property lead the proof path.</p>
+      </article>
+      <article>
+        <p class="eyebrow">CTA</p>
+        <strong>Book the 15-minute call</strong>
+        <p>One clear action across the whole site.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Outcomes before tools</p>
+      <h2>Start with the work that already costs you time.</h2>
+      <p>
+        The training is about practical adoption: the team learns where AI helps,
+        where it should not be trusted, and how to review every output before it
+        reaches a client, patient, candidate, supplier, or regulator.
+      </p>
+    </div>
+    <div class="grid grid-3">
+      {([
+        ["Write proposal and tender first drafts", "Stop rebuilding from old docs under deadline pressure."],
+        ["Turn notes into client-ready reports", "Draft management commentary, progress reports, and market updates faster."],
+        ["Draft follow-ups that do not sound generic", "Send timely, on-tone messages without typing each one from scratch."],
+        ["Create SOPs from messy process notes", "Capture process knowledge before it walks out the door."],
+        ["Summarize research into useful briefings", "Compress a morning of research into a first-pass brief for review."],
+        ["Build onboarding and admin checklists", "Reduce the repeated setup work that delays new clients and projects."],
+      ] as const).map(([title, body], index) => (
+        <article class={index === 0 ? "card card-featured" : "card"}>
+          <strong>{title}</strong>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="section-header">
+      <p class="eyebrow">Industries we work with</p>
+      <h2>Built for teams that run on paperwork, not products.</h2>
+      <p>
+        We work with office-heavy industries where the admin load is high
+        and the return on saved hours is easy to measure.
+      </p>
+    </div>
+    <div class="grid grid-3">
+      {priorityIndustries.map((industry) => (
+        <article class="card highlight">
+          <p class="eyebrow">{industry.shortName}</p>
+          <h3>{industry.shortName}</h3>
+          <p>{industry.hero}</p>
+          <a href={`/industries/${industry.slug}/`}>View industry page</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <div class="section-header">
+        <p class="eyebrow">Common workflows</p>
+        <h2>Some teams search by task, not industry.</h2>
+        <p>
+          These workflows show up across multiple sectors. If the task
+          sounds familiar, the training will help.
+        </p>
+      </div>
+      <div class="grid">
+        {featuredUseCases.map((useCase) => (
+          <article class="card">
+            <h3>{useCase.title}</h3>
+            <p>{useCase.problem}</p>
+            <a href={`/use-cases/${useCase.slug}/`}>Explore workflow</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">Built-in safeguards</p>
+        <h2>AI drafts. Humans review. That is the rule.</h2>
+        <p>
+          Every workflow includes clear review boundaries. The workshop teaches
+          where AI helps, what not to paste into public tools, and when expert
+          review is non-negotiable — especially for legal, accounting, healthcare,
+          and property teams.
+        </p>
+      </div>
+      <div class="button-row">
+        <a class="button" href="/trust-security/">Read trust and security</a>
+        <a class="button button-secondary" href="/results/">See proof system</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Packages</p>
+      <h2>Three ways to buy, one clear next step.</h2>
+      <p>
+        Choose by team size, depth of support, and how much customization
+        you need. Every option starts with a free call.
+      </p>
+    </div>
+    <div class="grid grid-3">
+      {packages.map((item, index) => (
+        <article class={index === 0 ? "card card-featured" : "card"}>
+          <h3>{item.name}</h3>
+          <strong>{item.price}</strong>
+          <p>{item.fit}</p>
+          <ul class="checklist">
+            {item.includes.map((line) => <li>{line}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+    <div class="button-row" style="margin-top: 28px">
+      <a class="button" href="/pricing/">Compare packages</a>
+      <a class="button button-secondary" href="/contact/">Book the call</a>
+    </div>
+  </section>
+</BaseLayout>

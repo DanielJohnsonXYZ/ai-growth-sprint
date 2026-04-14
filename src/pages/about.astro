@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+  "@type": "Person",
+  name: "Daniel Johnson",
+  jobTitle: "Founder and AI workflow training lead",
+  worksFor: { "@type": "Organization", name: "AI Growth Sprint" },
+};
+---
+
+<BaseLayout
+  title="About"
+  description="About Daniel and the practical teaching philosophy behind AI Growth Sprint."
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">About</p>
+      <h1>Practical AI training from an operator, not a theorist.</h1>
+      <p>
+        AI Growth Sprint is built around a simple idea: teams do not need a
+        lecture on AI theory. They need to learn how to do their actual work
+        faster and safer with AI-assisted workflows.
+      </p>
+      <a class="button" href="/contact/">Book a free 15-minute call</a>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">Credentials</p>
+      <h2>Google for Startups, Techstars, Cambridge, Imperial, UK Space Agency.</h2>
+      <p class="lead">Daniel has trained and mentored teams across programmes backed by these organisations.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="grid grid-3">
+      <article class="card"><h3>Growth operator</h3><p>10+ years in growth marketing and startup support.</p></article>
+      <article class="card"><h3>Founder experience</h3><p>Two startup exits and hands-on mentoring across founder teams.</p></article>
+      <article class="card"><h3>Practical teacher</h3><p>The workshop is built around real workflows, not abstract AI theory.</p></article>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <p class="eyebrow">See the work</p>
+      <h2>What teams actually build in a session.</h2>
+      <p class="lead">Review workflow examples and the results we have collected so far.</p>
+      <div class="button-row" style="margin-top: 24px">
+        <a class="button" href="/results/">See results</a>
+        <a class="button button-secondary" href="/how-it-works/">How it works</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

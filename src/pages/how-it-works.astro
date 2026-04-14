@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="How It Works"
+  description="How AI Growth Sprint designs and delivers hands-on AI workflow training for SME teams."
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">How it works</p>
+      <h1>One day to build workflows your team can use tomorrow.</h1>
+      <p>
+        The workshop is built around your actual work: the documents, emails,
+        reports, proposals, and admin tasks your team already handles every week.
+      </p>
+      <a class="button" href="/contact/">Book a free 15-minute call</a>
+    </div>
+    <aside class="panel panel-pad">
+      <h2>Not a lecture.</h2>
+      <p class="lead">Your team practices on real tasks, leaves with templates, and gets 30-day follow-up support.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="grid grid-4">
+      {[
+        ["1", "Quick call", "You tell us what your team does all day. We identify the tasks AI can speed up."],
+        ["2", "Custom build", "We design a workshop around your industry, tools, and actual workflows."],
+        ["3", "Workshop day", "Your team uses AI on real work and leaves with 5+ repeatable workflows."],
+        ["4", "30-day check-in", "We help answer questions, troubleshoot, and make sure the work sticks."],
+      ].map(([step, title, body]) => (
+        <article class="card">
+          <p class="eyebrow">Step {step}</p>
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="split">
+      <div class="section-header">
+        <p class="eyebrow">What your team leaves with</p>
+        <h2>Useful assets, not a slide deck nobody opens again.</h2>
+      </div>
+      <div class="grid">
+        {["A workbook with every workflow written out step by step", "Copy-ready prompt and review templates", "Before/after workflow examples for your team", "A post-workshop action checklist", "30 days of email support"].map((item) => (
+          <article class="card">
+            <strong>{item}</strong>
+            <p>Built to be reused after the session, not just discussed during it.</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel panel-pad">
+      <p class="eyebrow">Trust note</p>
+      <h2>We teach review boundaries from the start.</h2>
+      <p class="lead">
+        The rule is simple: AI drafts, humans review. We cover what not to paste
+        into public tools, how to check outputs, and where AI should never be
+        treated as final authority.
+      </p>
+      <div class="button-row" style="margin-top: 24px">
+        <a class="button" href="/trust-security/">Read trust and security</a>
+        <a class="button button-secondary" href="/pricing/">Compare packages</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
