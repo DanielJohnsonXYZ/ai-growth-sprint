@@ -12,16 +12,15 @@ import { industries, SITE } from "../data/site";
       <p class="eyebrow">Contact</p>
       <h1>Book a free 15-minute call.</h1>
       <p>
-        Tell us what your team spends too much time on. We will map the first
-        workflows AI can speed up and whether a workshop makes sense.
+        Tell us where AI feels useful but risky. We will map the first safe
+        workflows, the approval rules you need, and whether a workshop makes sense.
       </p>
       <div class="button-row">
-        <!-- TODO: Replace with Daniel's real Calendly URL before launch -->
-        <a class="button" href="https://calendly.com/" rel="noopener noreferrer" target="_blank">Open Calendly</a>
+        <a class="button" href="#quick-enquiry">Use quick enquiry form</a>
         <a class="button button-secondary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </div>
     </div>
-    <form class="panel panel-pad" name="contact" method="POST" data-netlify="true">
+    <form id="quick-enquiry" class="panel panel-pad" name="contact" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="contact" />
       <p class="eyebrow">Quick enquiry</p>
       <label>
@@ -48,7 +47,7 @@ import { industries, SITE } from "../data/site";
         <input name="team-size" />
       </label>
       <label>
-        What takes your team the most time?
+        Where could AI help, and what would you be nervous about?
         <textarea name="time-drain" rows="5"></textarea>
       </label>
       <button class="button" type="submit">Send enquiry</button>

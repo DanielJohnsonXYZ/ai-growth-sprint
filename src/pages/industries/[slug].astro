@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getUseCase, industries, SITE } from "../../data/site";
+import { getUseCase, industries, packages, SITE } from "../../data/site";
 
 export function getStaticPaths() {
   return industries.map((industry) => ({
@@ -11,6 +11,21 @@ export function getStaticPaths() {
 
 const { industry } = Astro.props;
 const relatedUseCases = industry.relatedUseCases.map((slug: string) => getUseCase(slug)).filter(Boolean);
+const relatedUseCaseCards = relatedUseCases.map((useCase) => ({
+  useCase,
+  example: useCase?.examples.find((example) =>
+    example.industry === industry.shortName ||
+    example.industry === industry.title ||
+    industry.title.includes(example.industry) ||
+    example.industry.includes(industry.shortName)
+  ),
+}));
+const isAccounting = industry.slug === "accounting";
+const sectorPainTitle = isAccounting
+  ? "Every tax deadline creates the same quality-control drag."
+  : `Why ${industry.shortName.toLowerCase()} teams feel the pain.`;
+const midCtaLabel = isAccounting ? "See which workflow fits your firm" : "Book a free 15-minute call";
+const primaryPackage = packages[0];
 const schema = {
   "@type": "Service",
   name: `AI training for ${industry.title}`,
@@ -24,7 +39,7 @@ const schema = {
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">AI training for {industry.shortName.toLowerCase()}</p>
-      <h1>AI Training for {industry.title} - {industry.hero}</h1>
+      <h1>{industry.hero}</h1>
       <p>{industry.subhero}</p>
       <div class="hero-actions">
         <a class="button" href="/contact/">Book a free 15-minute call</a>
@@ -33,27 +48,32 @@ const schema = {
     </div>
     <aside class="panel panel-pad">
       <p class="eyebrow">Why {industry.shortName.toLowerCase()}</p>
-      <h2>A sector built for this training.</h2>
+      <h2>{sectorPainTitle}</h2>
       <p class="lead">{industry.stat}</p>
     </aside>
   </section>
 
   <section class="section section-tight">
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       <article class="card card-featured">
-        <p class="eyebrow">Who it is for</p>
+        <p class="eyebrow">{isAccounting ? "Firm fit" : "Who it is for"}</p>
         <h3>{industry.audience}</h3>
         <p>{industry.size}</p>
       </article>
       <article class="card">
         <p class="eyebrow">Results</p>
-        <h3>Proof collection in progress</h3>
-        <p>Named testimonials and case studies will be added as they are approved. No invented proof.</p>
+        <h3>Case studies added as completed</h3>
+        <p>{industry.proofNote}</p>
+      </article>
+      <article class="card">
+        <p class="eyebrow">Pricing signal</p>
+        <h3>{primaryPackage.price}</h3>
+        <p>Best fit for a private workshop with a team working through real workflows.</p>
       </article>
       <article class="card">
         <p class="eyebrow">Next step</p>
-        <h3>Book a free 15-minute call</h3>
-        <p>Tell us what your team spends too long on. We will map the first workflows worth automating.</p>
+        <h3>{midCtaLabel}</h3>
+        <p>Tell us where AI feels useful but risky. We will map the first workflows worth adopting safely.</p>
       </article>
     </div>
   </section>
@@ -61,10 +81,11 @@ const schema = {
   <section class="section">
     <div class="section-header">
       <p class="eyebrow">5 workflows</p>
-      <h2>Where AI can speed up the work.</h2>
+      <h2>Where AI can make the work safer and faster.</h2>
       <p>
-        Each workflow is designed as a draft-and-review process. AI helps create
-        the first version. The team stays responsible for facts, judgment, and sign-off.
+        Each workflow is designed as a prepare-and-approve process. AI helps
+        create the working version. The team stays responsible for facts,
+        judgment, tone, and sign-off.
       </p>
     </div>
     <div class="workflow">
@@ -118,13 +139,14 @@ const schema = {
   <section class="section">
     <div class="section-header">
       <p class="eyebrow">Related use cases</p>
-      <h2>Same workflows, connected across sectors.</h2>
+      <h2>{isAccounting ? "Accounting examples, not generic use cases." : "Same workflows, connected across sectors."}</h2>
     </div>
     <div class="grid grid-3">
-      {relatedUseCases.map((useCase) => (
-        <article class="card">
-          <h3>{useCase?.title}</h3>
-          <p>{useCase?.problem}</p>
+      {relatedUseCaseCards.map(({ useCase, example }) => (
+        <article class="card card-interactive">
+          <p class="eyebrow">{useCase?.title}</p>
+          <h3>{example ? example.current : useCase?.hero}</h3>
+          <p>{example ? `${example.ai} ${example.review}` : useCase?.problem}</p>
           <a href={`/use-cases/${useCase?.slug}/`}>View use case</a>
         </article>
       ))}
@@ -134,8 +156,8 @@ const schema = {
   <section class="section section-tight">
     <div class="panel panel-pad">
       <p class="eyebrow">Next step</p>
-      <h2>Want to see which {industry.shortName.toLowerCase()} workflows AI can speed up first?</h2>
-      <p class="lead">Book a short call. Bring the tasks your team spends too much time on.</p>
+      <h2>Want to see where AI could help {industry.shortName.toLowerCase()} without creating a mess?</h2>
+      <p class="lead">Book a short call. Bring the tasks your team wants to improve and the risks you want controlled.</p>
       <a class="button" style="margin-top: 24px" href="/contact/">Book a free 15-minute call</a>
     </div>
   </section>

@@ -5,7 +5,7 @@ import { packages } from "../data/site";
 
 <BaseLayout
   title="Pricing"
-  description="Compare AI Growth Sprint workshop, open cohort, and 4-week programme options."
+  description="Compare AI Growth Sprint options for safe, practical AI adoption that sticks."
 >
   <section class="page-hero">
     <div class="page-copy">
@@ -13,8 +13,8 @@ import { packages } from "../data/site";
       <h1>Three packages. One clear next step.</h1>
       <p>
         Choose by team size, customization needs, and how much support you want
-        after the first session. Every option includes practical workflows and a
-        free 15-minute fit call first.
+        after the first session. Every option includes practical workflows,
+        approval rules, and a free 15-minute fit call first.
       </p>
       <a class="button" href="/contact/">Book a free 15-minute call</a>
     </div>
@@ -27,9 +27,11 @@ import { packages } from "../data/site";
   <section class="section">
     <div class="grid grid-3">
       {packages.map((item, index) => (
-        <article class={index === 0 ? "card card-featured" : "card"}>
-          <p class="eyebrow">{item.price}</p>
+        <article class={index === 0 ? "card pricing-card recommended" : "card pricing-card"}>
+          {index === 0 && <span class="badge">Most teams start here</span>}
+          <p class="eyebrow">Package {index + 1}</p>
           <h2>{item.name}</h2>
+          <strong class="price">{item.price}</strong>
           <p>{item.fit}</p>
           <ul class="checklist">
             {item.includes.map((line) => <li>{line}</li>)}
@@ -40,14 +42,14 @@ import { packages } from "../data/site";
     </div>
   </section>
 
-  <section class="section section-tight">
+  <section class="section section-tight chapter">
     <div class="panel panel-pad">
       <div class="section-header">
         <p class="eyebrow">Which option is right?</p>
         <h2>Use the depth of support as the deciding factor.</h2>
       </div>
       <div class="grid grid-3">
-        <article class="card"><strong>Fastest adoption</strong><p>Choose Team Workshop when a whole team needs a shared way of working.</p></article>
+        <article class="card"><strong>Fastest adoption</strong><p>Choose Team Workshop when a whole team needs a shared, safe way of working.</p></article>
         <article class="card"><strong>Lowest commitment</strong><p>Choose Open Cohort when the buyer is smaller or not ready for a private session.</p></article>
         <article class="card"><strong>Deepest implementation</strong><p>Choose 4-Week Programme when workflows need repetition, review, and coaching.</p></article>
       </div>
@@ -55,13 +57,13 @@ import { packages } from "../data/site";
   </section>
 
   <section class="section">
-    <div class="panel panel-pad">
-      <p class="eyebrow">Still deciding?</p>
-      <h2>See what changes after the training.</h2>
-      <p class="lead">Review workflow examples, time-saved snapshots, and the proof we have collected so far.</p>
+    <div class="panel panel-pad trust-panel">
+      <p class="eyebrow">Need confidence first?</p>
+      <h2>Check the approval boundaries before choosing a package.</h2>
+      <p class="lead">See how the workshop handles sensitive data, hallucination risk, and human sign-off before anything reaches a client.</p>
       <div class="button-row" style="margin-top: 24px">
-        <a class="button" href="/results/">See results</a>
-        <a class="button button-secondary" href="/how-it-works/">How it works</a>
+        <a class="button" href="/trust-security/">Read trust rules</a>
+        <a class="button button-secondary" href="/results/">See workflow examples</a>
       </div>
     </div>
   </section>

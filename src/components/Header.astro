@@ -15,7 +15,7 @@ const navItems = [
     <span class="brand-mark">AI</span>
     <span>
       <strong>AI Growth Sprint</strong>
-      <small>Practical workflow training</small>
+      <small>Safe AI adoption</small>
     </span>
   </a>
   <nav aria-label="Main navigation">
@@ -173,6 +173,9 @@ const navItems = [
     const backdrop = document.getElementById('mobile-nav-backdrop');
 
     if (!hamburger || !mobileNav || !backdrop) return;
+
+    if (hamburger.dataset.navReady === 'true') return;
+    hamburger.dataset.navReady = 'true';
 
     function openMenu() {
       hamburger.setAttribute('aria-expanded', 'true');
