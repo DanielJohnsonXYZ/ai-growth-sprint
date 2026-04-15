@@ -32,18 +32,18 @@ import { priorityIndustries, useCases } from "../data/site";
     </div>
     <div class="grid grid-3">
       {[
-        ["Tender draft", "6-8 hours", "About 90 minutes", "Construction proof pending"],
+        ["Tender response", "6-8 hours", "About 90 minutes", "Construction proof pending"],
         ["Client report", "3 hours", "About 30 minutes", "Accounting proof pending"],
-        ["Follow-up batch", "One-day backlog", "Same-day drafts", "Property proof pending"],
+        ["Follow-up batch", "One-day backlog", "Same-day responses", "Property proof pending"],
       ].map(([name, before, after, proof]) => (
         <article class="card card-featured">
           <p class="eyebrow">{name}</p>
           <div class="data-strip">
             <div><span>Before</span><strong>{before}</strong></div>
             <div><span>After</span><strong>{after}</strong></div>
-            <div><span>Method</span><strong>Draft then review</strong></div>
+            <div><span>Method</span><strong>Prepare then approve</strong></div>
           </div>
-          <p>AI helps create the draft. A human reviews before anything is sent.</p>
+          <p>AI helps prepare a usable first pass. A person approves before anything is sent.</p>
           <span class="tag pending">{proof}</span>
         </article>
       ))}

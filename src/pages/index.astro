@@ -5,6 +5,11 @@ import { industries, packages, priorityIndustries, SITE, useCases } from "../dat
 const featuredUseCases = useCases.filter((useCase) =>
   ["proposals-and-tenders", "client-reporting", "documentation-and-sops"].includes(useCase.slug),
 );
+const primaryOutcomes = [
+  "Create proposal and tender first passes",
+  "Turn notes into client-ready reports",
+  "Prepare follow-ups that do not sound generic",
+];
 const schema = {
   "@type": "Service",
   name: "AI workflow training for UK SME teams",
@@ -15,88 +20,67 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Practical AI Training for UK SME Teams"
-  description="Hands-on AI workflow training for teams buried in admin, proposals, reporting, follow-up, and documentation."
+  title="Safe AI Adoption for UK SME Teams"
+  description="Practical AI adoption training for UK SME teams that need safe, repeatable workflows, human quality control, and habits that stick."
   schema={schema}
 >
   <section class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Practical AI training for UK SME teams</p>
-      <h1>Your team wastes hours on work AI can help draft in minutes.</h1>
+      <p class="eyebrow">Safe AI adoption for 10-50 person UK SMEs</p>
+      <h1>Make AI safe enough to stick.</h1>
       <p>
-        We show your team how to use AI on the real admin, proposal, reporting,
-        follow-up, and documentation work already eating the week. No jargon. No
-        theory-only workshop. Real workflows, built in one day.
+        We help founders and ops leads introduce AI without bad outputs reaching
+        clients, sensitive data leaking into tools, or training being forgotten
+        by Monday. Your team leaves with practical rules, real workflows, and a
+        quality-control system they can keep using.
       </p>
       <div class="hero-actions">
         <a class="button" href="/contact/">Book a free 15-minute call</a>
         <a class="button button-secondary" href="/how-it-works/">See how it works</a>
       </div>
     </div>
-    <aside class="panel panel-pad proof-meter" aria-label="Example time saved">
-      <p class="eyebrow">What changes</p>
-      <h2>Drafts get faster. Review stays human.</h2>
-      <div class="meter-row">
-        <span><strong>Tender response</strong><em>6 hours to 90 minutes</em></span>
-        <div class="meter" role="meter" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" aria-label="Tender response time savings: 6 hours to 90 minutes"><i style="width: 74%"></i></div>
+    <aside class="panel panel-pad proof-meter" aria-label="Trust and workflow examples">
+      <p class="eyebrow">Rules before tools</p>
+      <h2>AI prepares. People approve.</h2>
+      <div class="stat-stack">
+        <div><span>Client-facing work</span><strong>Human sign-off</strong></div>
+        <div><span>Sensitive data</span><strong>Safe summaries only</strong></div>
+        <div><span>Workshop day</span><strong>Monday workflows</strong></div>
       </div>
-      <div class="meter-row">
-        <span><strong>Client report</strong><em>3 hours to 30 minutes</em></span>
-        <div class="meter" role="meter" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Client report time savings: 3 hours to 30 minutes"><i style="width: 82%"></i></div>
-      </div>
-      <div class="meter-row">
-        <span><strong>Follow-up batch</strong><em>same-day drafts</em></span>
-        <div class="meter" role="meter" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" aria-label="Follow-up batch time savings: same-day drafts"><i style="width: 67%"></i></div>
-      </div>
-      <p class="tag pending">Proof snapshots added as source material is approved.</p>
+      <p class="proof-note">This is not tool training. It is a safe operating system for AI adoption.</p>
     </aside>
   </section>
 
-  <section class="section section-tight">
-    <div class="flow-cue" aria-label="Site conversion flow">
-      <article>
-        <p class="eyebrow">Hero</p>
-        <strong>Name the time drain</strong>
-        <p>Admin, proposals, reports, follow-ups, and documentation.</p>
-      </article>
-      <article>
-        <p class="eyebrow">Result</p>
-        <strong>Show the before and after</strong>
-        <p>Drafts get faster while review stays human.</p>
-      </article>
-      <article>
-        <p class="eyebrow">Example</p>
-        <strong>Make it sector-specific</strong>
-        <p>Construction, accounting, and property lead the proof path.</p>
-      </article>
-      <article>
-        <p class="eyebrow">CTA</p>
-        <strong>Book the 15-minute call</strong>
-        <p>One clear action across the whole site.</p>
-      </article>
+  <section class="section section-tight trust-ribbon" aria-label="Trust principles">
+    <p><strong>Built for cautious operators:</strong> stop bad outputs, protect sensitive data, and turn AI into a working habit instead of a one-day novelty.</p>
+    <div class="tag-list" aria-label="Priority proof sectors">
+      <span class="tag">Construction</span>
+      <span class="tag">Accounting</span>
+      <span class="tag">Property</span>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section chapter">
     <div class="section-header">
       <p class="eyebrow">Outcomes before tools</p>
-      <h2>Start with the work that already costs you time.</h2>
+      <h2>Start with the risks that make teams hesitate.</h2>
       <p>
-        The training is about practical adoption: the team learns where AI helps,
-        where it should not be trusted, and how to review every output before it
-        reaches a client, patient, candidate, supplier, or regulator.
+        The training is about adoption that sticks: when to use AI, when not to,
+        what never goes into public tools, and how people keep control of tone,
+        facts, commitments, and professional judgment.
       </p>
     </div>
     <div class="grid grid-3">
       {([
-        ["Write proposal and tender first drafts", "Stop rebuilding from old docs under deadline pressure."],
-        ["Turn notes into client-ready reports", "Draft management commentary, progress reports, and market updates faster."],
-        ["Draft follow-ups that do not sound generic", "Send timely, on-tone messages without typing each one from scratch."],
+        ["Create proposal and tender first passes", "Stop rebuilding from old docs under deadline pressure."],
+        ["Turn notes into client-ready reports", "Prepare management commentary, progress reports, and market updates faster."],
+        ["Prepare follow-ups that do not sound generic", "Send timely, on-tone messages without typing each one from scratch."],
         ["Create SOPs from messy process notes", "Capture process knowledge before it walks out the door."],
         ["Summarize research into useful briefings", "Compress a morning of research into a first-pass brief for review."],
         ["Build onboarding and admin checklists", "Reduce the repeated setup work that delays new clients and projects."],
       ] as const).map(([title, body], index) => (
-        <article class={index === 0 ? "card card-featured" : "card"}>
+        <article class={primaryOutcomes.includes(title) ? "card card-featured card-interactive" : "card card-quiet"}>
+          <p class="eyebrow">{index + 1 < 10 ? `0${index + 1}` : index + 1}</p>
           <strong>{title}</strong>
           <p>{body}</p>
         </article>
@@ -115,10 +99,11 @@ const schema = {
     </div>
     <div class="grid grid-3">
       {priorityIndustries.map((industry) => (
-        <article class="card highlight">
+        <article class="card highlight card-interactive">
           <p class="eyebrow">{industry.shortName}</p>
           <h3>{industry.shortName}</h3>
           <p>{industry.hero}</p>
+          <p class="mini-proof">{industry.proofNote}</p>
           <a href={`/industries/${industry.slug}/`}>View industry page</a>
         </article>
       ))}
@@ -137,7 +122,7 @@ const schema = {
       </div>
       <div class="grid">
         {featuredUseCases.map((useCase) => (
-          <article class="card">
+          <article class="card card-interactive">
             <h3>{useCase.title}</h3>
             <p>{useCase.problem}</p>
             <a href={`/use-cases/${useCase.slug}/`}>Explore workflow</a>
@@ -151,12 +136,12 @@ const schema = {
     <div class="panel panel-pad">
       <div class="section-header">
         <p class="eyebrow">Built-in safeguards</p>
-        <h2>AI drafts. Humans review. That is the rule.</h2>
+        <h2>AI prepares. People approve. That is the rule.</h2>
         <p>
-          Every workflow includes clear review boundaries. The workshop teaches
-          where AI helps, what not to paste into public tools, and when expert
-          review is non-negotiable — especially for legal, accounting, healthcare,
-          and property teams.
+          Every workflow includes clear approval boundaries. The workshop teaches
+          where AI helps, what never to paste into public tools, and when human
+          judgment is non-negotiable, especially for legal, accounting, healthcare,
+          property, and other trust-sensitive teams.
         </p>
       </div>
       <div class="button-row">
@@ -177,9 +162,10 @@ const schema = {
     </div>
     <div class="grid grid-3">
       {packages.map((item, index) => (
-        <article class={index === 0 ? "card card-featured" : "card"}>
+        <article class={index === 0 ? "card pricing-card recommended" : "card pricing-card"}>
+          {index === 0 && <span class="badge">Recommended first</span>}
           <h3>{item.name}</h3>
-          <strong>{item.price}</strong>
+          <strong class="price">{item.price}</strong>
           <p>{item.fit}</p>
           <ul class="checklist">
             {item.includes.map((line) => <li>{line}</li>)}
