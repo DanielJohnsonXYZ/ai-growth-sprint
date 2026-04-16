@@ -5,23 +5,23 @@ import { industries, SITE } from "../data/site";
 
 <BaseLayout
   title="Contact"
-  description="Book a free 15-minute call with AI Growth Sprint."
+  description="Book a free 15-minute call to see where AI could help your team without creating a mess."
 >
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">Contact</p>
       <h1>Book a free 15-minute call.</h1>
       <p>
-        Tell us what your team spends too much time on. We will map the first
-        workflows AI can speed up and whether a workshop makes sense.
+        Tell us where your team spends the most time and where AI feels useful
+        but risky. We'll figure out which tasks are worth tackling first and
+        whether a session makes sense.
       </p>
       <div class="button-row">
-        <!-- TODO: Replace with Daniel's real Calendly URL before launch -->
-        <a class="button" href="https://calendly.com/" rel="noopener noreferrer" target="_blank">Open Calendly</a>
+        <a class="button" href="#quick-enquiry">Use the enquiry form</a>
         <a class="button button-secondary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </div>
     </div>
-    <form class="panel panel-pad" name="contact" method="POST" data-netlify="true">
+    <form id="quick-enquiry" class="panel panel-pad" name="contact" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="contact" />
       <p class="eyebrow">Quick enquiry</p>
       <label>
@@ -48,7 +48,7 @@ import { industries, SITE } from "../data/site";
         <input name="team-size" />
       </label>
       <label>
-        What takes your team the most time?
+        Where does your team spend the most time, and what would you want AI to help with?
         <textarea name="time-drain" rows="5"></textarea>
       </label>
       <button class="button" type="submit">Send enquiry</button>

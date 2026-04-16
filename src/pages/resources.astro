@@ -5,21 +5,22 @@ import { postLaunchArticles } from "../data/site";
 
 <BaseLayout
   title="Resources"
-  description="Post-launch resource hub for AI Growth Sprint industry articles and workflow guides."
+  description="Industry-specific guides and workflow examples for UK SME teams using AI."
 >
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">Resources</p>
-      <h1>Guides, examples, and practical AI advice.</h1>
+      <h1>Guides, examples, and practical advice.</h1>
       <p>
         Industry-specific articles and workflow guides are being published
-        on a rolling basis. Check back regularly for new content.
+        on a rolling basis. Starting with construction, accounting, and
+        property — the industries we work with most.
       </p>
       <a class="button" href="/contact/">Book a free 15-minute call</a>
     </div>
     <aside class="panel panel-pad">
-      <h2>New articles every month.</h2>
-      <p class="lead">Starting with construction, accounting, and property — the industries where we have the most proof.</p>
+      <h2>New articles coming regularly.</h2>
+      <p class="lead">Practical stuff based on real work, not generic AI advice.</p>
     </aside>
   </section>
 
@@ -31,9 +32,9 @@ import { postLaunchArticles } from "../data/site";
     <div class="grid grid-3">
       {postLaunchArticles.map((title, index) => (
         <article class="card">
-          <span class="tag pending">Post-launch</span>
+          <span class="tag pending">Coming soon</span>
           <h3>{title}</h3>
-          <p>{index < 3 ? "Priority article for first outreach sectors." : "Roll out after the first proof and search data."}</p>
+          <p>{index < 3 ? "One of the first articles we're publishing." : "Coming after the first batch."}</p>
         </article>
       ))}
     </div>

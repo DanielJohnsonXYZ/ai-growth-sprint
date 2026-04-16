@@ -5,31 +5,33 @@ import { packages } from "../data/site";
 
 <BaseLayout
   title="Pricing"
-  description="Compare AI Growth Sprint workshop, open cohort, and 4-week programme options."
+  description="Three options depending on team size and how much support you need. Every option starts with a free call."
 >
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">Pricing</p>
-      <h1>Three packages. One clear next step.</h1>
+      <h1>Three options, depending on what your team needs.</h1>
       <p>
-        Choose by team size, customization needs, and how much support you want
-        after the first session. Every option includes practical workflows and a
-        free 15-minute fit call first.
+        Choose by team size, how much customisation you need, and whether you
+        want ongoing support after the first session. Every option starts with
+        a free call to make sure it's the right fit.
       </p>
       <a class="button" href="/contact/">Book a free 15-minute call</a>
     </div>
     <aside class="panel panel-pad">
-      <h2>Buyer fit matters.</h2>
-      <p class="lead">The call helps confirm which option makes sense before anyone commits budget.</p>
+      <h2>The call helps you decide.</h2>
+      <p class="lead">No commitment. We'll talk through what your team needs and which option makes sense before anyone spends anything.</p>
     </aside>
   </section>
 
   <section class="section">
     <div class="grid grid-3">
       {packages.map((item, index) => (
-        <article class={index === 0 ? "card card-featured" : "card"}>
-          <p class="eyebrow">{item.price}</p>
+        <article class={index === 0 ? "card pricing-card recommended" : "card pricing-card"}>
+          {index === 0 && <span class="badge">Most teams start here</span>}
+          <p class="eyebrow">Package {index + 1}</p>
           <h2>{item.name}</h2>
+          <strong class="price">{item.price}</strong>
           <p>{item.fit}</p>
           <ul class="checklist">
             {item.includes.map((line) => <li>{line}</li>)}
@@ -40,28 +42,28 @@ import { packages } from "../data/site";
     </div>
   </section>
 
-  <section class="section section-tight">
+  <section class="section section-tight chapter">
     <div class="panel panel-pad">
       <div class="section-header">
-        <p class="eyebrow">Which option is right?</p>
-        <h2>Use the depth of support as the deciding factor.</h2>
+        <p class="eyebrow">Which one is right?</p>
+        <h2>It depends on how deep you want to go.</h2>
       </div>
       <div class="grid grid-3">
-        <article class="card"><strong>Fastest adoption</strong><p>Choose Team Workshop when a whole team needs a shared way of working.</p></article>
-        <article class="card"><strong>Lowest commitment</strong><p>Choose Open Cohort when the buyer is smaller or not ready for a private session.</p></article>
-        <article class="card"><strong>Deepest implementation</strong><p>Choose 4-Week Programme when workflows need repetition, review, and coaching.</p></article>
+        <article class="card"><strong>Team Workshop</strong><p>Best when a whole team needs to get on the same page quickly. One day, tailored to your work.</p></article>
+        <article class="card"><strong>Open Cohort</strong><p>Best for smaller teams or individuals who want to start without committing to a private session.</p></article>
+        <article class="card"><strong>4-Week Programme</strong><p>Best when your team wants ongoing support to actually embed this into how they work day to day.</p></article>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="panel panel-pad">
-      <p class="eyebrow">Still deciding?</p>
-      <h2>See what changes after the training.</h2>
-      <p class="lead">Review workflow examples, time-saved snapshots, and the proof we have collected so far.</p>
+    <div class="panel panel-pad trust-panel">
+      <p class="eyebrow">Want to understand the approach first?</p>
+      <h2>See how we handle trust, security, and quality control.</h2>
+      <p class="lead">We cover what shouldn't go into public tools, where accuracy matters, and how your team stays in control of everything that goes out.</p>
       <div class="button-row" style="margin-top: 24px">
-        <a class="button" href="/results/">See results</a>
-        <a class="button button-secondary" href="/how-it-works/">How it works</a>
+        <a class="button" href="/trust-security/">How we handle trust and security</a>
+        <a class="button button-secondary" href="/results/">See results so far</a>
       </div>
     </div>
   </section>

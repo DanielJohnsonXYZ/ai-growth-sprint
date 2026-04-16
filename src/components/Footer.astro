@@ -5,17 +5,25 @@ import { industries, SITE, useCases } from "../data/site";
 <footer class="site-footer">
   <div class="footer-statement">
     <p class="eyebrow">AI Growth Sprint</p>
-    <h2>Teach the team to use AI on the work that already eats the week.</h2>
+    <h2>Use AI to save time, win more work, and reduce admin.</h2>
     <p>
-      Practical AI workflow training for UK SME teams. No jargon, no theory-only workshops,
-      and no fake proof.
+      Practical AI training for UK SME teams. Built around your real work,
+      not generic examples.
     </p>
-    <a class="button" href={SITE.bookingUrl}>Book a free 15-minute call</a>
+    <div class="footer-trust">
+      <span>Your team reviews everything</span>
+      <span>Construction, accounting, and property</span>
+      <span>Nothing made up</span>
+    </div>
+    <div class="button-row">
+      <a class="button" href={SITE.bookingUrl}>Book a free 15-minute call</a>
+      <a class="button button-secondary" href="/trust-security/">Trust and security</a>
+    </div>
   </div>
 
   <div class="footer-links" aria-label="Footer navigation">
     <div>
-      <h3>Decide</h3>
+      <h3>Learn more</h3>
       <a href="/how-it-works/">How it works</a>
       <a href="/pricing/">Pricing</a>
       <a href="/results/">Results</a>
@@ -23,7 +31,7 @@ import { industries, SITE, useCases } from "../data/site";
       <a href="/contact/">Contact</a>
     </div>
     <div>
-      <h3>First sectors</h3>
+      <h3>Industries</h3>
       {industries
         .filter((industry) => industry.outreachPhase === "Phase 1")
         .map((industry) => <a href={`/industries/${industry.slug}/`}>{industry.shortName}</a>)}

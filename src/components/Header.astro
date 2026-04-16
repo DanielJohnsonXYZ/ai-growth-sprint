@@ -173,6 +173,8 @@ const navItems = [
     const backdrop = document.getElementById('mobile-nav-backdrop');
 
     if (!hamburger || !mobileNav || !backdrop) return;
+    if (hamburger.dataset.navReady === 'true') return;
+    hamburger.dataset.navReady = 'true';
 
     function openMenu() {
       hamburger.setAttribute('aria-expanded', 'true');

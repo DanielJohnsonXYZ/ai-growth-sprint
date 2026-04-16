@@ -28,20 +28,20 @@ const schema = {
       <p>{useCase.problem}</p>
       <div class="hero-actions">
         <a class="button" href="/contact/">Book a free 15-minute call</a>
-        <a class="button button-secondary" href="/">Browse featured industries</a>
+        <a class="button button-secondary" href="/">See all industries</a>
       </div>
     </div>
     <aside class="panel panel-pad">
-      <p class="eyebrow">Cross-industry workflow</p>
-      <h2>One workflow, many sectors.</h2>
-      <p class="lead">See how different industries tackle the same task with AI-assisted drafting and human review.</p>
+      <p class="eyebrow">Same task, different industries</p>
+      <h2>This comes up everywhere.</h2>
+      <p class="lead">See how different teams handle the same task with AI — and where human review stays in place.</p>
     </aside>
   </section>
 
   <section class="section">
     <div class="section-header">
-      <p class="eyebrow">Before and after examples</p>
-      <h2>Draft faster. Review before use.</h2>
+      <p class="eyebrow">Before and after</p>
+      <h2>What this looks like in practice.</h2>
     </div>
     <div class="grid grid-3">
       {useCase.examples.map((example) => (
@@ -59,15 +59,15 @@ const schema = {
 
   <section class="section section-tight">
     <div class="section-header">
-      <p class="eyebrow">Related industries</p>
-      <h2>Where this workflow shows up.</h2>
+      <p class="eyebrow">Industries where this comes up</p>
+      <h2>Same workflow, different teams.</h2>
     </div>
     <div class="grid grid-3">
       {relatedIndustries.map((industry) => (
         <article class="card">
           <h3>{industry?.shortName}</h3>
           <p>{industry?.hero}</p>
-          <a href={`/industries/${industry?.slug}/`}>View industry page</a>
+          <a href={`/industries/${industry?.slug}/`}>See {industry?.shortName.toLowerCase()} examples</a>
         </article>
       ))}
     </div>
@@ -75,13 +75,13 @@ const schema = {
 
   <section class="section">
     <div class="panel panel-pad">
-      <p class="eyebrow">See the evidence</p>
-      <h2>Real results, clearly labelled.</h2>
+      <p class="eyebrow">See the results</p>
+      <h2>What teams are seeing so far.</h2>
       <p class="lead">
-        We only publish proof that has been approved. Testimonials and case studies
-        are added as they come in — nothing invented.
+        Workflow examples and time savings from real teams. Named case studies
+        added as they're confirmed — nothing invented.
       </p>
-      <a class="button" style="margin-top: 24px" href="/results/">See results so far</a>
+      <a class="button" style="margin-top: 24px" href="/results/">See results</a>
     </div>
   </section>
 </BaseLayout>

@@ -4,31 +4,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="How It Works"
-  description="How AI Growth Sprint designs and delivers hands-on AI workflow training for SME teams."
+  description="We start with how your team already works, then show you where AI actually saves time and what needs checking before anything goes out."
 >
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">How it works</p>
-      <h1>One day to build workflows your team can use tomorrow.</h1>
+      <h1>We start with your work, not a list of tools.</h1>
       <p>
-        The workshop is built around your actual work: the documents, emails,
-        reports, proposals, and admin tasks your team already handles every week.
+        The session is built around the documents, emails, reports, and admin
+        your team already handles every week. We show you where AI saves time,
+        where it doesn't, and what needs checking before anything goes out.
       </p>
       <a class="button" href="/contact/">Book a free 15-minute call</a>
     </div>
     <aside class="panel panel-pad">
       <h2>Not a lecture.</h2>
-      <p class="lead">Your team practices on real tasks, leaves with templates, and gets 30-day follow-up support.</p>
+      <p class="lead">Your team works on real tasks, leaves with reusable workflows, and gets 30 days of follow-up support.</p>
     </aside>
   </section>
 
   <section class="section">
     <div class="grid grid-4">
       {[
-        ["1", "Quick call", "You tell us what your team does all day. We identify the tasks AI can speed up."],
-        ["2", "Custom build", "We design a workshop around your industry, tools, and actual workflows."],
-        ["3", "Workshop day", "Your team uses AI on real work and leaves with 5+ repeatable workflows."],
-        ["4", "30-day check-in", "We help answer questions, troubleshoot, and make sure the work sticks."],
+        ["1", "Quick call", "You tell us where the time goes and what feels risky. We figure out which tasks to start with."],
+        ["2", "Built around your work", "We design the session around your industry, your tools, and the tasks your team actually does."],
+        ["3", "Workshop day", "Your team uses AI on real work and leaves with workflows they can start using straight away."],
+        ["4", "30-day check-in", "We answer questions, troubleshoot anything that isn't working, and make sure it sticks."],
       ].map(([step, title, body]) => (
         <article class="card">
           <p class="eyebrow">Step {step}</p>
@@ -39,17 +40,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <section class="section section-tight">
+  <section class="section section-tight chapter">
     <div class="split">
       <div class="section-header">
         <p class="eyebrow">What your team leaves with</p>
-        <h2>Useful assets, not a slide deck nobody opens again.</h2>
+        <h2>Things you'll actually use after the session, not a slide deck nobody opens again.</h2>
       </div>
       <div class="grid">
-        {["A workbook with every workflow written out step by step", "Copy-ready prompt and review templates", "Before/after workflow examples for your team", "A post-workshop action checklist", "30 days of email support"].map((item) => (
-          <article class="card">
-            <strong>{item}</strong>
-            <p>Built to be reused after the session, not just discussed during it.</p>
+        {[
+          ["A workbook with every workflow written out step by step", "So your team can refer back to it without guessing."],
+          ["Prompt templates and approval checklists", "Ready to use, not just discussed."],
+          ["Before and after examples from your real work", "So you can see the difference clearly."],
+          ["A post-workshop adoption checklist", "To keep things moving after the session."],
+          ["30 days of email support", "For when something comes up and you want a quick answer."],
+        ].map(([title, body]) => (
+          <article class="card card-interactive">
+            <strong>{title}</strong>
+            <p>{body}</p>
           </article>
         ))}
       </div>
@@ -58,16 +65,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <section class="section">
     <div class="panel panel-pad">
-      <p class="eyebrow">Trust note</p>
-      <h2>We teach review boundaries from the start.</h2>
+      <p class="eyebrow">Keeping things under control</p>
+      <h2>Your team still reviews everything before it goes out.</h2>
       <p class="lead">
-        The rule is simple: AI drafts, humans review. We cover what not to paste
-        into public tools, how to check outputs, and where AI should never be
-        treated as final authority.
+        We cover what shouldn't go into public tools, how to check outputs
+        properly, and where your team's judgment is the thing that matters —
+        not the AI's.
       </p>
       <div class="button-row" style="margin-top: 24px">
-        <a class="button" href="/trust-security/">Read trust and security</a>
-        <a class="button button-secondary" href="/pricing/">Compare packages</a>
+        <a class="button" href="/trust-security/">How we handle trust and security</a>
+        <a class="button button-secondary" href="/pricing/">Compare options</a>
       </div>
     </div>
   </section>

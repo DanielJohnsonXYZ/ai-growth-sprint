@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getUseCase, industries, SITE } from "../../data/site";
+import { getUseCase, industries, packages, SITE } from "../../data/site";
 
 export function getStaticPaths() {
   return industries.map((industry) => ({
@@ -11,6 +11,16 @@ export function getStaticPaths() {
 
 const { industry } = Astro.props;
 const relatedUseCases = industry.relatedUseCases.map((slug: string) => getUseCase(slug)).filter(Boolean);
+const relatedUseCaseCards = relatedUseCases.map((useCase) => ({
+  useCase,
+  example: useCase?.examples.find((example) =>
+    example.industry === industry.shortName ||
+    example.industry === industry.title ||
+    industry.title.includes(example.industry) ||
+    example.industry.includes(industry.shortName)
+  ),
+}));
+const primaryPackage = packages[0];
 const schema = {
   "@type": "Service",
   name: `AI training for ${industry.title}`,
@@ -24,36 +34,41 @@ const schema = {
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">AI training for {industry.shortName.toLowerCase()}</p>
-      <h1>AI Training for {industry.title} - {industry.hero}</h1>
+      <h1>{industry.hero}</h1>
       <p>{industry.subhero}</p>
       <div class="hero-actions">
         <a class="button" href="/contact/">Book a free 15-minute call</a>
-        <a class="button button-secondary" href="/how-it-works/">How it works</a>
+        <a class="button button-secondary" href="/how-it-works/">See how it works</a>
       </div>
     </div>
     <aside class="panel panel-pad">
       <p class="eyebrow">Why {industry.shortName.toLowerCase()}</p>
-      <h2>A sector built for this training.</h2>
+      <h2>Where the time goes.</h2>
       <p class="lead">{industry.stat}</p>
     </aside>
   </section>
 
   <section class="section section-tight">
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       <article class="card card-featured">
-        <p class="eyebrow">Who it is for</p>
+        <p class="eyebrow">Who this is for</p>
         <h3>{industry.audience}</h3>
         <p>{industry.size}</p>
       </article>
       <article class="card">
         <p class="eyebrow">Results</p>
-        <h3>Proof collection in progress</h3>
-        <p>Named testimonials and case studies will be added as they are approved. No invented proof.</p>
+        <h3>Case studies being collected</h3>
+        <p>Named examples added as they're confirmed. Nothing made up.</p>
+      </article>
+      <article class="card">
+        <p class="eyebrow">Starting from</p>
+        <h3>{primaryPackage.price}</h3>
+        <p>For a private workshop built around your team's actual work.</p>
       </article>
       <article class="card">
         <p class="eyebrow">Next step</p>
-        <h3>Book a free 15-minute call</h3>
-        <p>Tell us what your team spends too long on. We will map the first workflows worth automating.</p>
+        <h3>Book a quick call</h3>
+        <p>Tell us where the time goes. We'll figure out which tasks are worth tackling first.</p>
       </article>
     </div>
   </section>
@@ -61,10 +76,10 @@ const schema = {
   <section class="section">
     <div class="section-header">
       <p class="eyebrow">5 workflows</p>
-      <h2>Where AI can speed up the work.</h2>
+      <h2>Where AI actually saves time.</h2>
       <p>
-        Each workflow is designed as a draft-and-review process. AI helps create
-        the first version. The team stays responsible for facts, judgment, and sign-off.
+        Each workflow follows the same pattern: AI helps put together a first
+        pass, and your team checks it before anything goes out.
       </p>
     </div>
     <div class="workflow">
@@ -94,14 +109,14 @@ const schema = {
   <section class="section section-tight">
     <div class="split">
       <div class="panel panel-pad">
-        <p class="eyebrow">Trust block</p>
-        <h2>Safe use for {industry.shortName}.</h2>
+        <p class="eyebrow">Keeping things under control</p>
+        <h2>How this works safely for {industry.shortName.toLowerCase()}.</h2>
         <p class="lead">{industry.trustNote}</p>
-        <a class="button" style="margin-top: 24px" href="/trust-security/">Read trust and security</a>
+        <a class="button" style="margin-top: 24px" href="/trust-security/">Trust and security</a>
       </div>
       <div>
         <div class="section-header">
-          <p class="eyebrow">Sector insights</p>
+          <p class="eyebrow">Why this industry</p>
           <h2>What makes {industry.shortName.toLowerCase()} different.</h2>
         </div>
         <div class="grid">
@@ -117,15 +132,16 @@ const schema = {
 
   <section class="section">
     <div class="section-header">
-      <p class="eyebrow">Related use cases</p>
-      <h2>Same workflows, connected across sectors.</h2>
+      <p class="eyebrow">Related workflows</p>
+      <h2>These tasks come up across most {industry.shortName.toLowerCase()} teams.</h2>
     </div>
     <div class="grid grid-3">
-      {relatedUseCases.map((useCase) => (
-        <article class="card">
-          <h3>{useCase?.title}</h3>
-          <p>{useCase?.problem}</p>
-          <a href={`/use-cases/${useCase?.slug}/`}>View use case</a>
+      {relatedUseCaseCards.map(({ useCase, example }) => (
+        <article class="card card-interactive">
+          <p class="eyebrow">{useCase?.title}</p>
+          <h3>{example ? example.current : useCase?.hero}</h3>
+          <p>{example ? `${example.ai} ${example.review}` : useCase?.problem}</p>
+          <a href={`/use-cases/${useCase?.slug}/`}>See examples</a>
         </article>
       ))}
     </div>
@@ -134,8 +150,8 @@ const schema = {
   <section class="section section-tight">
     <div class="panel panel-pad">
       <p class="eyebrow">Next step</p>
-      <h2>Want to see which {industry.shortName.toLowerCase()} workflows AI can speed up first?</h2>
-      <p class="lead">Book a short call. Bring the tasks your team spends too much time on.</p>
+      <h2>Want to see where AI could help your {industry.shortName.toLowerCase()} team?</h2>
+      <p class="lead">Book a short call. Tell us where the time goes and we'll figure out which tasks to start with.</p>
       <a class="button" style="margin-top: 24px" href="/contact/">Book a free 15-minute call</a>
     </div>
   </section>
