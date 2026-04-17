@@ -1,17 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
 
 const schema = {
   "@type": "Person",
   name: "Daniel Johnson",
   jobTitle: "Founder and AI workflow training lead",
-  worksFor: { "@type": "Organization", name: "AI Growth Sprint" },
+  worksFor: { "@type": "Organization", name: SITE.name },
 };
 ---
 
 <BaseLayout
   title="About"
-  description="About Daniel and the practical teaching philosophy behind AI Growth Sprint."
+  description={`About Daniel and the practical teaching philosophy behind ${SITE.name}.`}
   schema={schema}
 >
   <section class="page-hero">
@@ -19,7 +20,7 @@ const schema = {
       <p class="eyebrow">About</p>
       <h1>Practical AI training from an operator, not a theorist.</h1>
       <p>
-        AI Growth Sprint is built around a simple idea: teams do not need a
+        {SITE.name} is built around a simple idea: teams do not need a
         lecture on AI theory. They need rules, workflows, and confidence so AI
         becomes a safe habit rather than a risky experiment.
       </p>

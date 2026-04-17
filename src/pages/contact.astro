@@ -5,7 +5,7 @@ import { industries, SITE } from "../data/site";
 
 <BaseLayout
   title="Contact"
-  description="Book a free 15-minute call with AI Growth Sprint."
+  description={`Book a free 15-minute call with ${SITE.name}.`}
 >
   <section class="page-hero">
     <div class="page-copy">
@@ -20,8 +20,15 @@ import { industries, SITE } from "../data/site";
         <a class="button button-secondary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </div>
     </div>
-    <form id="quick-enquiry" class="panel panel-pad" name="contact" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contact" />
+    <form id="quick-enquiry" class="panel panel-pad" action={SITE.formEndpoint} method="POST">
+      <input type="hidden" name="_subject" value={`${SITE.name} enquiry`} />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value={`${SITE.url}/contact/thanks/`} />
+      <label class="sr-only">
+        Leave this field empty
+        <input name="_honey" tabindex="-1" autocomplete="off" />
+      </label>
       <p class="eyebrow">Quick enquiry</p>
       <label>
         Name
@@ -89,5 +96,10 @@ import { industries, SITE } from "../data/site";
 
   button {
     cursor: pointer;
+  }
+
+  .sr-only {
+    position: absolute;
+    left: -9999px;
   }
 </style>

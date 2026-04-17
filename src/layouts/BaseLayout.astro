@@ -7,9 +7,10 @@ type Props = {
   title: string;
   description?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 };
 
-const { title, description = SITE.description, schema = [] } = Astro.props;
+const { title, description = SITE.description, schema = [], noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).toString();
 const schemas = Array.isArray(schema) ? schema : [schema];
 const organizationSchema = {
@@ -46,6 +47,7 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={pageTitle} />

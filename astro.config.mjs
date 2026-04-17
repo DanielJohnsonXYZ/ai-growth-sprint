@@ -2,7 +2,11 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://aigrowthsprint.co.uk",
+  site: process.env.PUBLIC_SITE_URL ?? "https://humanapprovedai.com",
   devToolbar: { enabled: false },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.endsWith("/contact/thanks/"),
+    }),
+  ],
 });

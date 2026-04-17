@@ -1,11 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { postLaunchArticles } from "../data/site";
+import { postLaunchArticles, SITE } from "../data/site";
 ---
 
 <BaseLayout
   title="Resources"
-  description="Post-launch resource hub for AI Growth Sprint industry articles and workflow guides."
+  description={`Post-launch resource hub for ${SITE.name} industry articles and workflow guides.`}
 >
   <section class="page-hero">
     <div class="page-copy">

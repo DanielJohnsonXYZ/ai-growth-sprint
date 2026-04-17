@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description={`This ${SITE.name} page could not be found.`}
+  noindex
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">404</p>
+      <h1>This page is not available.</h1>
+      <p>
+        The useful routes are still here: how the workshop works, pricing,
+        trust rules, and the contact page.
+      </p>
+      <div class="button-row">
+        <a class="button" href="/">Go home</a>
+        <a class="button button-secondary" href="/contact/">Book a call</a>
+      </div>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">No dead-end demos</p>
+      <h2>Sample outputs live inside the proper pages.</h2>
+      <p class="lead">
+        Start with the process page for workshop examples, or the results page
+        for approved proof and clearly labelled pending material.
+      </p>
+    </aside>
+  </section>
+</BaseLayout>

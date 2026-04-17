@@ -1,11 +1,16 @@
+const siteUrl = (import.meta.env.PUBLIC_SITE_URL ?? "https://humanapprovedai.com").replace(/\/$/, "");
+
 export const SITE = {
-  name: "AI Growth Sprint",
+  name: import.meta.env.PUBLIC_SITE_NAME ?? "Human Approved AI",
   description:
     "Safe AI adoption training for UK SME teams that need practical workflows, clear approval rules, and habits that stick.",
-  url: "https://aigrowthsprint.co.uk",
+  url: siteUrl,
   bookingUrl: "/contact/",
-  email: "hello@aigrowthsprint.co.uk",
-  phone: ""
+  email: import.meta.env.PUBLIC_CONTACT_EMAIL ?? "daniel@wescalestartups.com",
+  formEndpoint:
+    import.meta.env.PUBLIC_FORM_ENDPOINT ??
+    "https://formsubmit.co/daniel@wescalestartups.com",
+  phone: "",
 };
 
 export const packages = [

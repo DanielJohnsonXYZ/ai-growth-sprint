@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
 ---
 
 <BaseLayout
   title="How It Works"
-  description="How AI Growth Sprint makes AI adoption safe, practical, and permanent for SME teams."
+  description={`How ${SITE.name} makes AI adoption safe, practical, and permanent for SME teams.`}
 >
   <section class="page-hero">
     <div class="page-copy">

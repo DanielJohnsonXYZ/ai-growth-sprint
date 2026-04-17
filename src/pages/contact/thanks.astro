@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../data/site";
+---
+
+<BaseLayout
+  title="Thanks"
+  description={`Thanks for contacting ${SITE.name}.`}
+  noindex
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Enquiry sent</p>
+      <h1>Thanks, we have your message.</h1>
+      <p>
+        Daniel will reply from {SITE.email}. If anything is urgent, email
+        directly and include the workflows you want to make safer.
+      </p>
+      <div class="button-row">
+        <a class="button" href="/">Back to homepage</a>
+        <a class="button button-secondary" href={`mailto:${SITE.email}`}>Email Daniel</a>
+      </div>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">Next step</p>
+      <h2>We will look for the safest useful workflow first.</h2>
+      <p class="lead">
+        The aim is not a flashy AI demo. It is one repeatable habit the team can
+        use without creating data, quality, or client-risk problems.
+      </p>
+    </aside>
+  </section>
+</BaseLayout>

@@ -1,11 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { packages } from "../data/site";
+import { packages, SITE } from "../data/site";
 ---
 
 <BaseLayout
   title="Pricing"
-  description="Compare AI Growth Sprint options for safe, practical AI adoption that sticks."
+  description={`Compare ${SITE.name} options for safe, practical AI adoption that sticks.`}
 >
   <section class="page-hero">
     <div class="page-copy">

@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
 ---
 
 <BaseLayout
   title="Trust, Security, and Responsible Use"
-  description="How AI Growth Sprint handles data, approval boundaries, hallucination risk, and safe AI adoption."
+  description={`How ${SITE.name} handles data, approval boundaries, hallucination risk, and safe AI adoption.`}
 >
   <section class="page-hero">
     <div class="page-copy">

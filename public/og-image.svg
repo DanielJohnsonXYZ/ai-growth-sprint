@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">AI Growth Sprint social preview</title>
+  <title id="title">Human Approved AI social preview</title>
   <desc id="desc">Safe AI adoption training for UK SME teams.</desc>
   <defs>
     <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
@@ -18,7 +18,7 @@
   <rect x="74" y="76" width="1052" height="478" rx="34" fill="#FFF9EF" fill-opacity="0.8" stroke="#101926" stroke-opacity="0.46" stroke-width="4"/>
   <rect x="98" y="100" width="96" height="96" rx="24" fill="#101926"/>
   <text x="146" y="160" text-anchor="middle" font-family="Atkinson Hyperlegible, Verdana, sans-serif" font-size="42" font-weight="700" fill="#D9A441">AI</text>
-  <text x="224" y="132" font-family="Atkinson Hyperlegible, Verdana, sans-serif" font-size="29" font-weight="700" fill="#101926" letter-spacing="2">AI GROWTH SPRINT</text>
+  <text x="224" y="132" font-family="Atkinson Hyperlegible, Verdana, sans-serif" font-size="29" font-weight="700" fill="#101926" letter-spacing="2">HUMAN APPROVED AI</text>
   <text x="224" y="172" font-family="Atkinson Hyperlegible, Verdana, sans-serif" font-size="24" fill="#344052">Safe AI adoption for UK SME teams</text>
   <text x="98" y="314" font-family="Georgia, serif" font-size="68" font-weight="700" fill="#101926">AI prepares.</text>
   <text x="98" y="392" font-family="Georgia, serif" font-size="68" font-weight="700" fill="#101926">People approve.</text>
