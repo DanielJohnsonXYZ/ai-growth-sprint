@@ -21,6 +21,12 @@ const relatedUseCaseCards = relatedUseCases.map((useCase) => ({
   ),
 }));
 const primaryPackage = packages[0];
+const leadMagnets: Record<string, string> = {
+  construction: "10 Ways Construction Firms Can Use AI to Win More Tenders",
+  accounting: "How Accountancy Firms Use AI to Save 10+ Hours Per Week",
+  property: "AI for Estate Agents: Faster Listings, Faster Follow-Up"
+};
+const leadMagnet = leadMagnets[industry.slug] ?? `Where AI Can Make or Save Money in a ${industry.shortName} Team`;
 const schema = {
   "@type": "Service",
   name: `AI training for ${industry.title}`,
@@ -37,7 +43,7 @@ const schema = {
       <h1>{industry.hero}</h1>
       <p>{industry.subhero}</p>
       <div class="hero-actions">
-        <a class="button" href="/contact/">Book a free 15-minute call</a>
+        <a class="button" href="/contact/">Book a free call</a>
         <a class="button button-secondary" href="/how-it-works/">See how it works</a>
       </div>
     </div>
@@ -107,6 +113,15 @@ const schema = {
   </section>
 
   <section class="section section-tight">
+    <div class="panel panel-pad lead-magnet-panel">
+      <p class="eyebrow">Free guide</p>
+      <h2>{leadMagnet}</h2>
+      <p class="lead">Useful if you want a quick, plain-English view of the best AI opportunities before booking training.</p>
+      <a class="button" style="margin-top: 24px" href={`/contact/?guide=${industry.slug}`}>Request the guide</a>
+    </div>
+  </section>
+
+  <section class="section section-tight">
     <div class="split">
       <div class="panel panel-pad">
         <p class="eyebrow">Keeping things under control</p>
@@ -152,7 +167,7 @@ const schema = {
       <p class="eyebrow">Next step</p>
       <h2>Want to see where AI could help your {industry.shortName.toLowerCase()} team?</h2>
       <p class="lead">Book a short call. Tell us where the time goes and we'll figure out which tasks to start with.</p>
-      <a class="button" style="margin-top: 24px" href="/contact/">Book a free 15-minute call</a>
+      <a class="button" style="margin-top: 24px" href="/contact/">Book a free call</a>
     </div>
   </section>
 </BaseLayout>

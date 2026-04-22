@@ -1,28 +1,28 @@
 export const SITE = {
-  name: "AI Growth Sprint",
+  name: "Human Approved AI",
   description:
-    "Use AI to save time, win more work, and reduce admin — without putting your business at risk. Practical training for UK SME teams.",
-  url: "https://aigrowthsprint.co.uk",
+    "Practical AI training for UK SME teams that want to save time, improve output, and keep final decisions human.",
+  url: "https://humanapprovedai.com",
   bookingUrl: "/contact/",
-  email: "hello@aigrowthsprint.co.uk",
+  email: "hello@humanapprovedai.com",
   phone: "",
 };
 
 export const packages = [
   {
-    name: "Team Workshop",
+    name: "AI Opportunity Workshop",
     price: "From £1,500/day",
-    fit: "Private training for a team that wants safe adoption and tailored workflows.",
+    fit: "Private training for a team that wants safe adoption, tailored workflows, and fast wins on real work.",
     includes: ["Up to 12 people", "Built around your real workflows", "Workbook, prompts, and approval rules", "30-day follow-up"],
   },
   {
-    name: "Open Cohort",
+    name: "Open SME Cohort",
     price: "£400–600 per person",
     fit: "A lower-commitment route for smaller teams and individuals.",
     includes: ["Industry-focused cohort", "Small group format", "Reusable workflow templates", "Follow-up support"],
   },
   {
-    name: "4-Week Programme",
+    name: "4-Week Implementation Programme",
     price: "£800–1,200 per person",
     fit: "Deeper support for teams that want adoption beyond one workshop day.",
     includes: ["Two sessions per week", "Implementation coaching", "Workflow refinement", "Adoption and approval check-ins"],

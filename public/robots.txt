@@ -10,4 +10,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://aigrowthsprint.co.uk/sitemap-index.xml
+Sitemap: https://humanapprovedai.com/sitemap-index.xml

@@ -14,14 +14,14 @@ const navItems = [
   <a class="brand" href="/" aria-label={`${SITE.name} home`}>
     <span class="brand-mark">AI</span>
     <span>
-      <strong>AI Growth Sprint</strong>
-      <small>Practical workflow training</small>
+      <strong>{SITE.name}</strong>
+      <small>Practical AI, human sign-off</small>
     </span>
   </a>
   <nav aria-label="Main navigation">
     {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
   </nav>
-  <a class="button button-small" href={SITE.bookingUrl}>Book a call</a>
+  <a class="button button-small" href={SITE.bookingUrl}>Book a free call</a>
 
   <!-- Mobile hamburger button -->
   <button
@@ -42,7 +42,7 @@ const navItems = [
     <nav>
       {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
-    <a class="button mobile-nav-cta" href={SITE.bookingUrl}>Book a call</a>
+    <a class="button mobile-nav-cta" href={SITE.bookingUrl}>Book a free call</a>
   </div>
 </header>
 

@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects
+# Attach both humanapprovedai.com and humanapprovedai.co.uk as custom domains.
+
+https://www.humanapprovedai.com/*  https://humanapprovedai.com/:splat  301
+https://humanapprovedai.co.uk/*    https://humanapprovedai.com/:splat  301
+https://www.humanapprovedai.co.uk/* https://humanapprovedai.com/:splat  301
+
+# Legacy pre-rebrand domains, if attached to this Pages project.
+https://aigrowthsprint.co.uk/*     https://humanapprovedai.com/:splat  301
+https://www.aigrowthsprint.co.uk/* https://humanapprovedai.com/:splat  301
