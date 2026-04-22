@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { guides, SITE } from "../../data/site";
+
+export function getStaticPaths() {
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: { guide },
+  }));
+}
+
+const { guide } = Astro.props;
+const schema = {
+  "@type": "Article",
+  headline: guide.title,
+  description: guide.metaDescription,
+  author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+};
+---
+
+<BaseLayout title={guide.title} description={guide.metaDescription} schema={schema}>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">{guide.audience}</p>
+      <h1>{guide.title}</h1>
+      <p>{guide.intro}</p>
+      <div class="button-row">
+        <a class="button" href="/contact/">Book a free call</a>
+        <a class="button button-secondary" href="/guides/">All guides</a>
+      </div>
+    </div>
+    <aside class="panel panel-pad">
+      <h2>How to use this guide.</h2>
+      <p class="lead">Pick one workflow, test it on real work, then set review rules before the team uses it repeatedly.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="grid grid-3">
+      {guide.sections.map((section) => (
+        <article class="card card-featured">
+          <h3>{section.title}</h3>
+          <p>{section.body}</p>
+          <div class="data-strip">
+            {section.prompts.map((prompt) => (
+              <div>
+                <span>Prompt</span>
+                <strong>{prompt}</strong>
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <p class="eyebrow">Next step</p>
+      <h2>{guide.nextStep}</h2>
+      <p class="lead">A workshop turns the idea into usable workflows, templates, and human approval rules for your actual team.</p>
+      <div class="button-row" style="margin-top: 24px">
+        <a class="button" href="/contact/">Book a free call</a>
+        <a class="button button-secondary" href="/trust-security/">Trust and security</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { guides } from "../../data/site";
+---
+
+<BaseLayout
+  title="AI Guides for UK SMEs"
+  description="Plain-English AI guides for UK SME teams in construction, accounting, property, and general admin-heavy businesses."
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Guides</p>
+      <h1>Practical AI guides for busy UK SME teams.</h1>
+      <p>Use these to spot where AI can save time, where human review matters, and which workflows are worth training first.</p>
+      <a class="button" href="/contact/">Book a free call</a>
+    </div>
+    <aside class="panel panel-pad">
+      <h2>No hype, no fake case studies.</h2>
+      <p class="lead">Every guide is built around visible work: tenders, reports, follow-ups, onboarding, documentation, and admin.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="grid grid-3">
+      {guides.map((guide) => (
+        <article class="card card-interactive">
+          <p class="eyebrow">{guide.audience}</p>
+          <h3>{guide.title}</h3>
+          <p>{guide.intro}</p>
+          <a href={`/guides/${guide.slug}/`}>Read guide</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

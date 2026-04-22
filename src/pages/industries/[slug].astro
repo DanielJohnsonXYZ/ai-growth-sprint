@@ -27,6 +27,12 @@ const leadMagnets: Record<string, string> = {
   property: "AI for Estate Agents: Faster Listings, Faster Follow-Up"
 };
 const leadMagnet = leadMagnets[industry.slug] ?? `Where AI Can Make or Save Money in a ${industry.shortName} Team`;
+const guideSlugByIndustry: Record<string, string> = {
+  construction: "construction-ai-tenders",
+  accounting: "accountancy-ai-admin",
+  property: "estate-agent-ai-follow-up"
+};
+const guideHref = `/guides/${guideSlugByIndustry[industry.slug] ?? "uk-sme-ai-opportunities"}/`;
 const schema = {
   "@type": "Service",
   name: `AI training for ${industry.title}`,
@@ -117,7 +123,10 @@ const schema = {
       <p class="eyebrow">Free guide</p>
       <h2>{leadMagnet}</h2>
       <p class="lead">Useful if you want a quick, plain-English view of the best AI opportunities before booking training.</p>
-      <a class="button" style="margin-top: 24px" href={`/contact/?guide=${industry.slug}`}>Request the guide</a>
+      <div class="button-row" style="margin-top: 24px">
+        <a class="button" href={guideHref}>Read the guide</a>
+        <a class="button button-secondary" href={`/contact/?guide=${industry.slug}`}>Ask about training</a>
+      </div>
     </div>
   </section>
 

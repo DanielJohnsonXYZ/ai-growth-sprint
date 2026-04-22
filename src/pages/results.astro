@@ -50,6 +50,27 @@ import { priorityIndustries, useCases } from "../data/site";
     </div>
   </section>
 
+  <section class="section section-tight chapter">
+    <div class="section-header">
+      <p class="eyebrow">ROI scenarios</p>
+      <h2>Where the business case usually comes from.</h2>
+      <p>These are planning examples, not guaranteed outcomes. The real numbers depend on your workflow, team size, and approval rules.</p>
+    </div>
+    <div class="grid grid-3">
+      {[
+        ["Five-person admin team", "Save 30 minutes per person per day on repeat writing and reporting tasks.", "Roughly 12.5 hours a week back."],
+        ["Construction estimator", "Reduce tender first-pass prep from most of a day to a structured review draft.", "More time for pricing quality and proof."],
+        ["Property branch", "Turn viewing notes into same-day follow-ups instead of a backlog.", "Faster response without losing local judgement."],
+      ].map(([title, assumption, value]) => (
+        <article class="card">
+          <h3>{title}</h3>
+          <p>{assumption}</p>
+          <strong>{value}</strong>
+        </article>
+      ))}
+    </div>
+  </section>
+
   <section class="section section-tight">
     <div class="section-header">
       <p class="eyebrow">Where we're collecting results first</p>

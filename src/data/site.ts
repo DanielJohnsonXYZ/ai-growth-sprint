@@ -29,6 +29,123 @@ export const packages = [
   },
 ];
 
+export type Guide = {
+  slug: string;
+  title: string;
+  audience: string;
+  metaDescription: string;
+  intro: string;
+  sections: {
+    title: string;
+    body: string;
+    prompts: string[];
+  }[];
+  nextStep: string;
+};
+
+export const guides: Guide[] = [
+  {
+    slug: "construction-ai-tenders",
+    title: "10 Ways Construction Firms Can Use AI to Win More Tenders",
+    audience: "Construction owners, estimators, and project teams",
+    metaDescription: "A practical AI guide for UK construction firms that want faster tender responses, RAMS first drafts, progress reports, and follow-ups.",
+    intro: "Construction teams usually do not need a new AI tool first. They need repeatable ways to turn existing project knowledge into faster first drafts that still get checked by the people responsible.",
+    sections: [
+      {
+        title: "Tender response first pass",
+        body: "Use AI to structure the answer, pull proof points from previous work, and create a draft your estimator or director can refine.",
+        prompts: ["Summarise the buyer's requirements in plain English.", "Create a response outline with missing information clearly marked."]
+      },
+      {
+        title: "RAMS and safety paperwork",
+        body: "Use approved inputs to prepare a site-specific first pass, then review for accuracy and compliance before use.",
+        prompts: ["Turn these project notes into a RAMS checklist.", "List the assumptions that need human confirmation."]
+      },
+      {
+        title: "Progress reports",
+        body: "Turn site notes, photo captions, and snag lists into a structured client update.",
+        prompts: ["Turn these rough updates into a concise client progress report.", "Separate completed work, risks, and next actions."]
+      }
+    ],
+    nextStep: "Bring one tender, one RAMS example, and one progress report to a workshop so the team can build reusable workflows from real work."
+  },
+  {
+    slug: "accountancy-ai-admin",
+    title: "How Accountancy Firms Use AI to Save 10+ Hours Per Week",
+    audience: "Partners, practice managers, bookkeepers, and tax teams",
+    metaDescription: "A practical AI guide for UK accountancy firms that want faster reports, onboarding, engagement letters, and admin while keeping review human.",
+    intro: "The biggest quick wins in accountancy are usually preparation tasks: reports, chasers, onboarding, proposals, and first-pass explanations that qualified people still approve.",
+    sections: [
+      {
+        title: "Client report commentary",
+        body: "AI can turn reviewed numbers and notes into a readable narrative first pass, making the accountant's job review and refinement rather than blank-page writing.",
+        prompts: ["Create a client-friendly summary from these reviewed notes.", "Flag any claim that needs technical confirmation."]
+      },
+      {
+        title: "Onboarding and KYC chasers",
+        body: "Create checklists and polite missing-information emails from a short client brief.",
+        prompts: ["Turn this onboarding status into a missing-information email.", "Create a checklist for the client and one for the internal team."]
+      },
+      {
+        title: "Engagement letters and proposals",
+        body: "Prepare tailored first passes from approved templates and scope notes while keeping fees, compliance wording, and final advice with partners.",
+        prompts: ["Draft a first-pass proposal from this scope.", "Mark every section that needs partner approval."]
+      }
+    ],
+    nextStep: "Start with one client report, one onboarding pack, and one proposal so the practice can build safe reusable workflows."
+  },
+  {
+    slug: "estate-agent-ai-follow-up",
+    title: "AI for Estate Agents: Faster Listings, Faster Follow-Up",
+    audience: "Estate agency owners, branch managers, negotiators, and lettings teams",
+    metaDescription: "A practical AI guide for estate agents who want faster listings, follow-ups, appraisal reports, and social content.",
+    intro: "Property teams win by being clear, fast, and locally credible. AI can help with first drafts and follow-up discipline, but local judgement stays with the agent.",
+    sections: [
+      {
+        title: "Listing descriptions",
+        body: "Turn property details into first-pass descriptions in different tones, then let negotiators refine for accuracy and local nuance.",
+        prompts: ["Write three listing description options from these property facts.", "Check the copy for unsupported claims."]
+      },
+      {
+        title: "Viewing and vendor follow-ups",
+        body: "Use short CRM notes to prepare timely follow-ups so opportunities do not wait until the quiet part of the week.",
+        prompts: ["Write a follow-up email from these viewing notes.", "Create a next-step message for a cautious vendor."]
+      },
+      {
+        title: "Social content from listings",
+        body: "Turn one listing into a small batch of posts and email snippets, then approve tone and claims before publishing.",
+        prompts: ["Create five social post ideas from this listing.", "Rewrite these in a warmer local agency tone."]
+      }
+    ],
+    nextStep: "Bring three listings and recent follow-up notes to a workshop and leave with reusable tone rules and approval steps."
+  },
+  {
+    slug: "uk-sme-ai-opportunities",
+    title: "Where AI Can Make or Save Money in a UK SME",
+    audience: "Owners and managers of UK SMEs",
+    metaDescription: "A practical guide for UK SMEs to find AI opportunities in admin, proposals, reporting, follow-ups, documentation, and research.",
+    intro: "A useful AI plan starts with work that already costs time or money. The goal is not to automate judgement. It is to speed up repeatable preparation while keeping people in control.",
+    sections: [
+      {
+        title: "Find repeated work",
+        body: "Look for tasks the team does every week: reports, emails, proposals, onboarding, research, or documentation.",
+        prompts: ["List the admin tasks we repeat every week.", "Group these tasks by time spent and business risk."]
+      },
+      {
+        title: "Find commercial drag",
+        body: "Look for delays that cost sales, margin, or service quality: slow follow-ups, late quotes, inconsistent reports, or missing documentation.",
+        prompts: ["Which delays cost us money or client trust?", "Turn these delays into a priority list."]
+      },
+      {
+        title: "Set approval rules",
+        body: "Decide what AI can draft, what humans must check, and what should never go into public tools.",
+        prompts: ["Create approval rules for customer-facing AI drafts.", "List data we should not put into public tools."]
+      }
+    ],
+    nextStep: "Start with one high-repeat task, one commercial bottleneck, and one clear approval rule."
+  }
+];
+
 export type Workflow = {
   name: string;
   now: string;

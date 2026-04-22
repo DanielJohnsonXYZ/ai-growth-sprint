@@ -21,8 +21,7 @@ import { industries, SITE } from "../data/site";
         <a class="button button-secondary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </div>
     </div>
-    <form id="quick-enquiry" class="panel panel-pad" name="contact" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contact" />
+    <form id="quick-enquiry" class="panel panel-pad" name="contact">
       <p class="eyebrow">Quick enquiry</p>
       <label>
         Name
@@ -55,6 +54,29 @@ import { industries, SITE } from "../data/site";
     </form>
   </section>
 </BaseLayout>
+
+<script define:vars={{ email: SITE.email }}>
+  const form = document.getElementById("quick-enquiry");
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const data = new FormData(form);
+    const subject = `Human Approved AI enquiry from ${data.get("company") || data.get("name") || "website"}`;
+    const body = [
+      `Name: ${data.get("name") || ""}`,
+      `Email: ${data.get("email") || ""}`,
+      `Company: ${data.get("company") || ""}`,
+      `Industry: ${data.get("industry") || ""}`,
+      `Team size: ${data.get("team-size") || ""}`,
+      "",
+      "Where the time goes / AI help wanted:",
+      `${data.get("time-drain") || ""}`,
+    ].join("\n");
+
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
 
 <style>
   form {

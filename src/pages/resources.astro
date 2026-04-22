@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { postLaunchArticles } from "../data/site";
+import { guides, postLaunchArticles } from "../data/site";
 ---
 
 <BaseLayout
@@ -12,16 +12,32 @@ import { postLaunchArticles } from "../data/site";
       <p class="eyebrow">Resources</p>
       <h1>Guides, examples, and practical advice.</h1>
       <p>
-        Industry-specific articles and workflow guides are being published
-        on a rolling basis. Starting with construction, accounting, and
-        property — the industries we work with most.
+        Start with one of the practical guides, then use the industry and
+        workflow examples to decide which tasks are worth training first.
       </p>
       <a class="button" href="/contact/">Book a free call</a>
     </div>
     <aside class="panel panel-pad">
-      <h2>New articles coming regularly.</h2>
-      <p class="lead">Practical stuff based on real work, not generic AI advice.</p>
+      <h2>Start with business results.</h2>
+      <p class="lead">Each guide is written around time saved, work improved, and approval staying human.</p>
     </aside>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Free guides</p>
+      <h2>Useful before a workshop.</h2>
+    </div>
+    <div class="grid grid-3">
+      {guides.map((guide) => (
+        <article class="card card-interactive">
+          <p class="eyebrow">{guide.audience}</p>
+          <h3>{guide.title}</h3>
+          <p>{guide.intro}</p>
+          <a href={`/guides/${guide.slug}/`}>Read guide</a>
+        </article>
+      ))}
+    </div>
   </section>
 
   <section class="section">

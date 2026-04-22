@@ -41,6 +41,32 @@ const schema = {
     </div>
   </section>
 
+  <section class="section section-tight chapter">
+    <div class="split">
+      <div class="section-header">
+        <p class="eyebrow">Founder story</p>
+        <h2>Why this is human-approved first.</h2>
+        <p>
+          The useful work is not showing a team a clever prompt. It is helping
+          them decide what AI should draft, what people must approve, and what
+          data should stay out of public tools.
+        </p>
+      </div>
+      <div class="grid">
+        {[
+          ["SME-first", "Built for busy owners, practice managers, estimators, negotiators, and operators who need time back."],
+          ["Not tool-led", "The training works with the tools your business is allowed to use. The workflow matters more than the software demo."],
+          ["Trust-led", "Sensitive categories get explicit boundaries around confidentiality, accuracy, compliance, and final approval."],
+        ].map(([title, body]) => (
+          <article class="card">
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section section-tight">
     <div class="panel panel-pad">
       <p class="eyebrow">See the work</p>
@@ -49,6 +75,7 @@ const schema = {
       <div class="button-row" style="margin-top: 24px">
         <a class="button" href="/results/">See results</a>
         <a class="button button-secondary" href="/how-it-works/">How it works</a>
+        <a class="button button-secondary" href="/guides/">Read the guides</a>
       </div>
     </div>
   </section>
