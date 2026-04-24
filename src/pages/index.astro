@@ -16,32 +16,31 @@ const schema = {
 
 <BaseLayout
   title="Practical AI Training for UK SME Teams"
-  description="Save hours every week on repetitive admin with practical AI training for UK SME teams. Built around real work, safe review, and human sign-off."
+  description="AI training for UK SME teams that helps staff save admin time, improve output quality, and keep humans in control."
   schema={schema}
 >
   <section class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Human Approved AI for UK SME teams</p>
-      <h1>Save hours every week on repetitive admin.</h1>
+      <p class="eyebrow">Training, not software. Practical, not theoretical.</p>
+      <h1>Practical AI Training for UK SME Teams</h1>
       <p>
-        Practical AI training for busy teams that want time back, better first
-        drafts, and clearer workflows without lowering standards or handing
-        decisions to a tool.
+        Train your staff to save hours each week using AI workflows that actually get adopted.
+        Your team works on real admin, reports, tenders, follow-ups, and documents while humans keep final control.
       </p>
       <div class="hero-actions">
-        <a class="button" href="/contact/">Book a free call</a>
-        <a class="button button-secondary" href="/how-it-works/">See how it works</a>
+        <a class="button" href="/contact/" data-cta="hero-book">Book Free Call</a>
+        <a class="button button-secondary" href="/how-it-works/" data-cta="hero-how">See How It Works</a>
       </div>
     </div>
     <aside class="panel panel-pad proof-meter" aria-label="What your team gets">
-      <p class="eyebrow">Start with business results</p>
-      <h2>We show you where AI makes or saves money first.</h2>
+      <p class="eyebrow">Human-approved workflow</p>
+      <h2>We identify where AI saves your team time fastest.</h2>
       <div class="stat-stack">
-        <div><span>Admin</span><strong>Cut repetitive work that eats the week</strong></div>
-        <div><span>Output</span><strong>Get first drafts faster, then review properly</strong></div>
-        <div><span>Control</span><strong>Keep final decisions with your team</strong></div>
+        <div><span>1. AI drafts</span><strong>Create useful first passes faster</strong></div>
+        <div><span>2. Team reviews</span><strong>Check facts, tone, risk, and quality</strong></div>
+        <div><span>3. Humans decide</span><strong>Final judgement stays with your staff</strong></div>
       </div>
-      <p class="proof-note">Your team reviews everything before it goes out. No handing work over to a tool and hoping for the best.</p>
+      <p class="proof-note">This is training for adoption, not an agency service and not another software subscription.</p>
     </aside>
   </section>
 
@@ -57,7 +56,7 @@ const schema = {
   <section class="section chapter">
     <div class="section-header">
       <p class="eyebrow">What this actually helps with</p>
-      <h2>Most teams do not need another tool. They need a faster way to get through the work they already have.</h2>
+      <h2>Most teams do not need another tool. They need a safer way to use AI on the work they already have.</h2>
       <p>
         Here are the areas where this usually makes a difference.
       </p>
@@ -83,7 +82,7 @@ const schema = {
   <section class="section section-tight">
     <div class="section-header">
       <p class="eyebrow">Who this is for</p>
-      <h2>Teams where a lot of time is spent on documents, communication, and coordination.</h2>
+      <h2>Teams losing time to documents, communication, and coordination.</h2>
     </div>
     <div class="grid grid-3">
       {([
@@ -115,9 +114,9 @@ const schema = {
     <div class="grid grid-4">
       {([
         ["1", "Free call", "You tell us where the time goes and what feels risky."],
-        ["2", "Identify AI opportunities", "We find the tasks where AI can save money, make money, or free the team up."],
-        ["3", "Tailored training", "Your team works on real documents, emails, reports, and admin tasks."],
-        ["4", "Human-approved workflows", "You leave with reusable prompts, approval rules, and a safer way to keep using AI."],
+        ["2", "Find the fastest time savings", "We identify where AI saves admin time without creating quality risk."],
+        ["3", "Train on real tasks", "Your team works on real documents, emails, reports, and admin tasks."],
+        ["4", "Set review rules", "You leave with reusable prompts, approval rules, and a safer way to keep using AI."],
       ] as const).map(([step, title, body]) => (
         <article class="card">
           <p class="eyebrow">Step {step}</p>
@@ -127,7 +126,7 @@ const schema = {
       ))}
     </div>
     <div class="button-row" style="margin-top: 28px">
-      <a class="button button-secondary" href="/how-it-works/">More about how it works</a>
+      <a class="button button-secondary" href="/how-it-works/" data-cta="process-how">See How It Works</a>
     </div>
   </section>
 
@@ -178,7 +177,7 @@ const schema = {
   <section class="section">
     <div class="section-header">
       <p class="eyebrow">Ways to work together</p>
-      <h2>Three options, depending on what your team needs.</h2>
+      <h2>Training packages built around adoption, not tool demos.</h2>
     </div>
     <div class="grid grid-3">
       {packages.map((item, index) => (
@@ -195,7 +194,29 @@ const schema = {
     </div>
     <div class="button-row" style="margin-top: 28px">
       <a class="button" href="/pricing/">Compare options</a>
-      <a class="button button-secondary" href="/contact/">Book a free call</a>
+      <a class="button button-secondary" href="/contact/" data-cta="packages-book">Book Free Call</a>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">Lead magnets</p>
+        <h2>Useful before you book training.</h2>
+        <p>Start with one practical resource: the AI Training Readiness Checklist, AI Workflow Audit Template, or Human-Approved Prompt Pack.</p>
+      </div>
+      <div class="grid grid-3">
+        {([
+          ["AI Training Readiness Checklist", "Check whether your team has the tasks, review rules, and owners needed for AI adoption."],
+          ["AI Workflow Audit Template", "Find the repeated admin tasks most likely to save time first."],
+          ["Human-Approved Prompt Pack", "Reusable prompts for drafts, summaries, follow-ups, and review checks."]
+        ] as const).map(([title, body]) => (
+          <article class="card">
+            <strong>{title}</strong>
+            <p>{body}</p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -208,7 +229,7 @@ const schema = {
           team is already doing, so it actually gets used.
         </p>
       </div>
-      <a class="button" href="/contact/">Book a free call</a>
+      <a class="button" href="/contact/" data-cta="final-book">Book Free Call</a>
     </div>
   </section>
 </BaseLayout>

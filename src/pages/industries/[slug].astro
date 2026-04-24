@@ -49,8 +49,8 @@ const schema = {
       <h1>{industry.hero}</h1>
       <p>{industry.subhero}</p>
       <div class="hero-actions">
-        <a class="button" href="/contact/">Book a free call</a>
-        <a class="button button-secondary" href="/how-it-works/">See how it works</a>
+        <a class="button" href="/contact/" data-cta="industry-book">Book Free Call</a>
+        <a class="button button-secondary" href="/how-it-works/" data-cta="industry-how">See How It Works</a>
       </div>
     </div>
     <aside class="panel panel-pad">
@@ -176,7 +176,7 @@ const schema = {
       <p class="eyebrow">Next step</p>
       <h2>Want to see where AI could help your {industry.shortName.toLowerCase()} team?</h2>
       <p class="lead">Book a short call. Tell us where the time goes and we'll figure out which tasks to start with.</p>
-      <a class="button" style="margin-top: 24px" href="/contact/">Book a free call</a>
+      <a class="button" style="margin-top: 24px" href="/contact/" data-cta="industry-final-book">Book Free Call</a>
     </div>
   </section>
 </BaseLayout>

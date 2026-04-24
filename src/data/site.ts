@@ -10,21 +10,21 @@ export const SITE = {
 
 export const packages = [
   {
-    name: "AI Opportunity Workshop",
+    name: "Team AI Workshop",
     price: "From £1,500/day",
-    fit: "Private training for a team that wants safe adoption, tailored workflows, and fast wins on real work.",
-    includes: ["Up to 12 people", "Built around your real workflows", "Workbook, prompts, and approval rules", "30-day follow-up"],
+    fit: "Recommended for SME teams that want practical training on real tasks and a safe way to start using AI together.",
+    includes: ["Up to 12 people", "Built around your real workflows", "Admin time-savers, prompt pack, and approval rules", "30-day follow-up"],
   },
   {
-    name: "Open SME Cohort",
+    name: "SME AI Cohort",
     price: "£400–600 per person",
-    fit: "A lower-commitment route for smaller teams and individuals.",
-    includes: ["Industry-focused cohort", "Small group format", "Reusable workflow templates", "Follow-up support"],
+    fit: "Best for smaller teams or managers who want a lower-commitment route before booking private training.",
+    includes: ["Industry-focused cohort", "Small group format", "Reusable workflow templates", "Human review checklist"],
   },
   {
-    name: "4-Week Implementation Programme",
-    price: "£800–1,200 per person",
-    fit: "Deeper support for teams that want adoption beyond one workshop day.",
+    name: "4-Week Adoption Programme",
+    price: "From £4,800/team",
+    fit: "Best when the team has tried AI already but needs workflows, standards, and follow-up support to make it stick.",
     includes: ["Two sessions per week", "Implementation coaching", "Workflow refinement", "Adoption and approval check-ins"],
   },
 ];

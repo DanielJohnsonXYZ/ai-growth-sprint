@@ -21,7 +21,7 @@ const navItems = [
   <nav aria-label="Main navigation">
     {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
   </nav>
-  <a class="button button-small" href={SITE.bookingUrl}>Book a free call</a>
+  <a class="button button-small" href={SITE.bookingUrl} data-cta="header-book">Book Free Call</a>
 
   <!-- Mobile hamburger button -->
   <button
@@ -42,7 +42,7 @@ const navItems = [
     <nav>
       {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
-    <a class="button mobile-nav-cta" href={SITE.bookingUrl}>Book a free call</a>
+    <a class="button mobile-nav-cta" href={SITE.bookingUrl} data-cta="mobile-book">Book Free Call</a>
   </div>
 </header>
 
