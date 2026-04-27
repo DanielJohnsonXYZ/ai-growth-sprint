@@ -1,235 +1,168 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { industries, packages, priorityIndustries, SITE, useCases } from "../data/site";
 
-const featuredUseCases = useCases.filter((useCase) =>
-  ["proposals-and-tenders", "client-reporting", "documentation-and-sops"].includes(useCase.slug),
-);
 const schema = {
   "@type": "Service",
-  name: "AI workflow training for UK SME teams",
-  provider: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  name: "AI training and workflow adoption for UK SMEs",
+  provider: { "@type": "Organization", name: "Human Approved AI", url: "https://humanapprovedai.com" },
   areaServed: "United Kingdom",
-  serviceType: "AI training and workflow implementation",
+  serviceType: "AI training, workflow implementation, and strategy",
 };
 ---
 
 <BaseLayout
-  title="Practical AI Training for UK SME Teams"
-  description="AI training for UK SME teams that helps staff save admin time, improve output quality, and keep humans in control."
+  title="Human Approved AI | AI Training & Workflow Adoption for UK SMEs"
+  description="Practical AI training, workflow systems, and strategy support for UK SMEs. Helping businesses adopt AI properly."
   schema={schema}
 >
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Training, not software. Practical, not theoretical.</p>
-      <h1>Practical AI Training for UK SME Teams</h1>
+      <h1>Practical AI for Real Businesses</h1>
       <p>
-        Train your staff to save hours each week using AI workflows that actually get adopted.
-        Your team works on real admin, reports, tenders, follow-ups, and documents while humans keep final control.
+        We help UK SMEs train teams, improve workflows, and adopt AI in ways
+        that save time, increase output, and actually make commercial sense.
       </p>
       <div class="hero-actions">
-        <a class="button" href="/contact/" data-cta="hero-book">Book Free Call</a>
-        <a class="button button-secondary" href="/how-it-works/" data-cta="hero-how">See How It Works</a>
+        <a class="button" href="/contact/" data-cta="hero-book">Book Free Discovery Call</a>
+        <a class="button button-secondary" href="/services/" data-cta="hero-services">See Services</a>
       </div>
     </div>
-    <aside class="panel panel-pad proof-meter" aria-label="What your team gets">
-      <p class="eyebrow">Human-approved workflow</p>
-      <h2>We identify where AI saves your team time fastest.</h2>
+    <aside class="panel panel-pad proof-meter" aria-label="What you get">
+      <p class="eyebrow">No jargon. No chaos.</p>
+      <h2>Helping business owners and teams use AI without expensive mistakes.</h2>
       <div class="stat-stack">
-        <div><span>1. AI drafts</span><strong>Create useful first passes faster</strong></div>
-        <div><span>2. Team reviews</span><strong>Check facts, tone, risk, and quality</strong></div>
-        <div><span>3. Humans decide</span><strong>Final judgement stays with your staff</strong></div>
+        <div><span>1. We assess</span><strong>Find where AI saves real time</strong></div>
+        <div><span>2. We train</span><strong>Team confidence and adoption built in</strong></div>
+        <div><span>3. We support</span><strong>Ongoing guidance to keep momentum</strong></div>
       </div>
-      <p class="proof-note">This is training for adoption, not an agency service and not another software subscription.</p>
+      <p class="proof-note">This is practical consultancy for established businesses, not software demos or generic theory.</p>
     </aside>
   </section>
 
-  <section class="section section-tight trust-ribbon" aria-label="Who we work with">
-    <p><strong>We work with teams where a lot of time is spent on documents, communication, and coordination.</strong> Construction, accounting, and property are where we have the most experience.</p>
-    <div class="tag-list" aria-label="Priority sectors">
-      <span class="tag">Construction</span>
-      <span class="tag">Accounting</span>
-      <span class="tag">Property</span>
+  <!-- TRUST STRIP -->
+  <section class="section section-tight trust-ribbon" aria-label="Trust strip">
+    <p><strong>Helping business owners and teams use AI without jargon, chaos, or expensive mistakes.</strong></p>
+  </section>
+
+  <!-- PROBLEM SECTION -->
+  <section class="section chapter">
+    <div class="section-header">
+      <h2>Most businesses know AI matters. Very few know what to do next.</h2>
+      <p>
+        You may have tested ChatGPT. Your team may be experimenting randomly.
+        Competitors may be talking about AI. But without a clear plan, most
+        businesses waste time, confuse staff, and adopt the wrong tools.
+      </p>
+      <p><strong>We help you turn AI into something practical, useful, and profitable.</strong></p>
     </div>
   </section>
 
-  <section class="section chapter">
+  <!-- SERVICES PREVIEW -->
+  <section class="section">
     <div class="section-header">
-      <p class="eyebrow">What this actually helps with</p>
-      <h2>Most teams do not need another tool. They need a safer way to use AI on the work they already have.</h2>
-      <p>
-        Here are the areas where this usually makes a difference.
-      </p>
+      <p class="eyebrow">How we help</p>
+      <h2>How We Help</h2>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       {([
-        ["Proposals and tenders", "Put together a solid first draft without starting from a blank page every time."],
-        ["Client reports", "Turn notes, calls, and updates into something structured your team can review and send."],
-        ["Follow-ups", "Write replies faster without everything sounding the same."],
-        ["Internal processes", "Turn rough notes into clear steps people can actually follow."],
-        ["Research", "Pull together a first pass instead of spending hours gathering everything manually."],
-        ["Admin", "Cut down the repetitive work that slows projects down."],
-      ] as const).map(([title, body], index) => (
-        <article class={index < 3 ? "card card-featured card-interactive" : "card card-quiet"}>
-          <p class="eyebrow">{index + 1 < 10 ? `0${index + 1}` : index + 1}</p>
+        ["AI Training", "Practical workshops that help teams use AI confidently."],
+        ["Workflow Systems", "Reduce repetitive admin and improve internal efficiency."],
+        ["Leadership Strategy", "Clear direction on where AI creates ROI."],
+        ["Ongoing Support", "Monthly guidance, training, and optimisation."],
+      ] as const).map(([title, body]) => (
+        <article class="card card-featured card-interactive">
           <strong>{title}</strong>
           <p>{body}</p>
         </article>
       ))}
     </div>
+    <div class="button-row" style="margin-top: 28px">
+      <a class="button button-secondary" href="/services/" data-cta="services-preview">See All Services</a>
+    </div>
   </section>
 
+  <!-- RESULTS SECTION -->
   <section class="section section-tight">
-    <div class="section-header">
-      <p class="eyebrow">Who this is for</p>
-      <h2>Teams losing time to documents, communication, and coordination.</h2>
-    </div>
-    <div class="grid grid-3">
-      {([
-        { industry: priorityIndustries.find(i => i.slug === "construction"), line: "Less time rebuilding tenders and paperwork under pressure." },
-        { industry: priorityIndustries.find(i => i.slug === "accounting"), line: "Less time on reporting, more time on client work that actually matters." },
-        { industry: priorityIndustries.find(i => i.slug === "property"), line: "Faster listings, updates, and follow-ups without losing quality." },
-      ] as const).map(({ industry, line }) => industry && (
-        <article class="card highlight card-interactive">
-          <p class="eyebrow">{industry.shortName}</p>
-          <h3>{industry.shortName}</h3>
-          <p>{line}</p>
-          <a href={`/industries/${industry.slug}/`}>See {industry.shortName.toLowerCase()} examples</a>
-        </article>
-      ))}
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">What good AI adoption looks like</p>
+        <h2>What Good AI Adoption Looks Like</h2>
+      </div>
+      <ul class="checklist">
+        <li>Save hours every week</li>
+        <li>Faster proposals, emails, reports, and admin</li>
+        <li>Better internal systems</li>
+        <li>Stronger team productivity</li>
+        <li>Less wasted experimentation</li>
+        <li>Clear commercial value</li>
+      </ul>
+      <div class="button-row" style="margin-top: 24px">
+        <a class="button button-secondary" href="/results/" data-cta="results-preview">See Results</a>
+      </div>
     </div>
   </section>
 
+  <!-- PROCESS SECTION -->
   <section class="section">
     <div class="section-header">
       <p class="eyebrow">How it works</p>
-      <h2>Clear next steps, no jargon.</h2>
-      <p>
-        We look at your day-to-day tasks and show you where AI actually saves
-        time, where it doesn't, and what should be checked properly before
-        anything is sent out. Everything is based on your real work, not
-        generic examples.
-      </p>
+      <h2>How It Works</h2>
     </div>
     <div class="grid grid-4">
       {([
-        ["1", "Free call", "You tell us where the time goes and what feels risky."],
-        ["2", "Find the fastest time savings", "We identify where AI saves admin time without creating quality risk."],
-        ["3", "Train on real tasks", "Your team works on real documents, emails, reports, and admin tasks."],
-        ["4", "Set review rules", "You leave with reusable prompts, approval rules, and a safer way to keep using AI."],
+        ["Step 1", "Discovery Call", "We understand your business and bottlenecks."],
+        ["Step 2", "Opportunity Plan", "We identify quick wins and priorities."],
+        ["Step 3", "Training + Implementation", "We train your people and improve workflows."],
+        ["Step 4", "Ongoing Growth", "Optional retained support to keep momentum."],
       ] as const).map(([step, title, body]) => (
         <article class="card">
-          <p class="eyebrow">Step {step}</p>
+          <p class="eyebrow">{step}</p>
           <h3>{title}</h3>
           <p>{body}</p>
         </article>
       ))}
     </div>
-    <div class="button-row" style="margin-top: 28px">
-      <a class="button button-secondary" href="/how-it-works/" data-cta="process-how">See How It Works</a>
-    </div>
   </section>
 
-  <section class="section">
-    <div class="split">
-      <div class="section-header">
-        <p class="eyebrow">Where teams usually use it</p>
-        <h2>Some teams think in terms of industry, others in terms of tasks.</h2>
-        <p>
-          These come up across most businesses we work with.
-        </p>
-      </div>
-      <div class="grid">
-        {featuredUseCases.map((useCase) => (
-          <article class="card card-interactive">
-            <h3>{useCase.title}</h3>
-            <p>{useCase.slug === "proposals-and-tenders"
-              ? "Getting to a first draft quickly so your team can focus on refining it."
-              : useCase.slug === "client-reporting"
-              ? "Turning scattered information into something clear and usable."
-              : "Writing things down properly without it turning into a time drain."}</p>
-            <a href={`/use-cases/${useCase.slug}/`}>See examples</a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
+  <!-- INDUSTRIES PREVIEW -->
   <section class="section section-tight">
-    <div class="panel panel-pad">
-      <div class="section-header">
-        <p class="eyebrow">Keeping things under control</p>
-      <h2>You're not handing work over to a tool and hoping for the best.</h2>
-        <p>
-          AI helps speed things up, but your team still reviews anything
-          important before it goes out. You'll also be clear on what shouldn't
-          be shared with public tools, where accuracy matters most, and how to
-          keep tone and standards consistent.
-        </p>
-      </div>
-      <div class="button-row">
-        <a class="button" href="/trust-security/">How we handle trust and security</a>
-        <a class="button button-secondary" href="/results/">See results so far</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
     <div class="section-header">
-      <p class="eyebrow">Ways to work together</p>
-      <h2>Training packages built around adoption, not tool demos.</h2>
+      <p class="eyebrow">Who this is for</p>
+      <h2>We tailor AI adoption to how your business operates.</h2>
     </div>
     <div class="grid grid-3">
-      {packages.map((item, index) => (
-        <article class={index === 0 ? "card pricing-card recommended" : "card pricing-card"}>
-          {index === 0 && <span class="badge">Most teams start here</span>}
-          <h3>{item.name}</h3>
-          <strong class="price">{item.price}</strong>
-          <p>{item.fit}</p>
-          <ul class="checklist">
-            {item.includes.map((line) => <li>{line}</li>)}
-          </ul>
+      {([
+        ["Accountants", "Reduce admin, improve client comms, streamline documents."],
+        ["Recruitment", "Candidate outreach, job ad creation, CRM workflows."],
+        ["Legal", "Drafting support, admin efficiency, internal knowledge tools."],
+        ["Property", "Enquiries, listings, marketing, operations."],
+        ["Manufacturing", "Reporting, SOPs, admin processes."],
+        ["Agencies", "Delivery systems, sales workflows, content operations."],
+      ] as const).map(([title, body]) => (
+        <article class="card card-interactive">
+          <p class="eyebrow">{title}</p>
+          <strong>{title}</strong>
+          <p>{body}</p>
         </article>
       ))}
     </div>
     <div class="button-row" style="margin-top: 28px">
-      <a class="button" href="/pricing/">Compare options</a>
-      <a class="button button-secondary" href="/contact/" data-cta="packages-book">Book Free Call</a>
+      <a class="button button-secondary" href="/industries/" data-cta="industries-preview">See All Industries</a>
     </div>
   </section>
 
+  <!-- FINAL CTA -->
   <section class="section section-tight">
     <div class="panel panel-pad">
       <div class="section-header">
-        <p class="eyebrow">Lead magnets</p>
-        <h2>Useful before you book training.</h2>
-        <p>Start with one practical resource: the AI Training Readiness Checklist, AI Workflow Audit Template, or Human-Approved Prompt Pack.</p>
-      </div>
-      <div class="grid grid-3">
-        {([
-          ["AI Training Readiness Checklist", "Check whether your team has the tasks, review rules, and owners needed for AI adoption."],
-          ["AI Workflow Audit Template", "Find the repeated admin tasks most likely to save time first."],
-          ["Human-Approved Prompt Pack", "Reusable prompts for drafts, summaries, follow-ups, and review checks."]
-        ] as const).map(([title, body]) => (
-          <article class="card">
-            <strong>{title}</strong>
-            <p>{body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-tight">
-    <div class="panel panel-pad">
-      <div class="section-header">
-      <h2>Most teams try AI a couple of times, then go back to doing things the old way.</h2>
+        <h2>AI doesn't need to be confusing.</h2>
         <p>
-          The difference here is simple — this is built around the work your
-          team is already doing, so it actually gets used.
+          If your business knows AI matters but doesn't know where to begin,
+          we'll make it simple.
         </p>
       </div>
-      <a class="button" href="/contact/" data-cta="final-book">Book Free Call</a>
+      <a class="button" href="/contact/" data-cta="final-book">Book Free Discovery Call</a>
     </div>
   </section>
 </BaseLayout>

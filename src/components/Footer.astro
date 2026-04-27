@@ -1,45 +1,48 @@
 ---
-import { industries, SITE, useCases } from "../data/site";
+import { SITE } from "../data/site";
 ---
 
 <footer class="site-footer">
   <div class="footer-statement">
     <p class="eyebrow">{SITE.name}</p>
-    <h2>Train your team to save time with AI while keeping decisions human.</h2>
+    <h2>Practical AI adoption for UK businesses that want real results, not hype.</h2>
     <p>
-      Practical AI training for UK SME teams. Built around your real tasks,
-      not generic tool demos.
+      Training, strategy, and implementation support built around how your
+      business actually works.
     </p>
     <div class="footer-trust">
-      <span>Your team reviews everything</span>
-      <span>Construction, accounting, and property</span>
-      <span>Nothing made up</span>
+      <span>Human-approved outputs</span>
+      <span>Plain-English advice</span>
+      <span>No product pitches</span>
     </div>
     <div class="button-row">
-      <a class="button" href={SITE.bookingUrl} data-cta="footer-book">Book Free Call</a>
-      <a class="button button-secondary" href="/how-it-works/" data-cta="footer-how">See How It Works</a>
+      <a class="button" href={SITE.bookingUrl} data-cta="footer-book">Book Free Discovery Call</a>
+      <a class="button button-secondary" href="/services/" data-cta="footer-services">See Services</a>
     </div>
   </div>
 
   <div class="footer-links" aria-label="Footer navigation">
     <div>
-      <h3>Learn more</h3>
-      <a href="/how-it-works/">How it works</a>
+      <h3>Services</h3>
+      <a href="/services/">All services</a>
       <a href="/pricing/">Pricing</a>
       <a href="/results/">Results</a>
-      <a href="/trust-security/">Trust and security</a>
+      <a href="/resources/">Resources</a>
       <a href="/contact/">Contact</a>
-      <a href="/guides/">Guides</a>
+    </div>
+    <div>
+      <h3>Company</h3>
+      <a href="/about/">About</a>
+      <a href="/industries/">Industries</a>
+      <a href="/contact/">Book a call</a>
     </div>
     <div>
       <h3>Industries</h3>
-      {industries
-        .filter((industry) => industry.outreachPhase === "Phase 1")
-        .map((industry) => <a href={`/industries/${industry.slug}/`}>{industry.shortName}</a>)}
-    </div>
-    <div>
-      <h3>Workflows</h3>
-      {useCases.slice(0, 4).map((useCase) => <a href={`/use-cases/${useCase.slug}/`}>{useCase.title}</a>)}
+      <a href="/industries/accounting/">Accounting</a>
+      <a href="/industries/recruitment/">Recruitment</a>
+      <a href="/industries/legal/">Legal</a>
+      <a href="/industries/property/">Property</a>
+      <a href="/industries/manufacturing/">Manufacturing</a>
     </div>
   </div>
 </footer>

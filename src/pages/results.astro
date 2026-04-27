@@ -1,41 +1,63 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { priorityIndustries, useCases } from "../data/site";
 ---
 
 <BaseLayout
-  title="Results"
-  description="Workflow examples and time savings from real teams. Named case studies added as they're confirmed."
+  title="Real Business Outcomes"
+  description="AI should create measurable improvements, not just excitement. See real outcomes from Human Approved AI's work with UK SMEs."
 >
+  <!-- HERO -->
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">Results</p>
-      <h1>What this looks like in practice.</h1>
+      <h1>Real Business Outcomes</h1>
       <p>
-        These are the kinds of time savings teams see when they start using AI
-        on the work they already do. Named case studies are being added as
-        they're confirmed — nothing made up.
+        AI should create measurable improvements, not just excitement.
       </p>
-      <a class="button" href="/contact/" data-cta="results-book">Book Free Call</a>
+      <a class="button" href="/contact/" data-cta="results-book">Book Free Discovery Call</a>
     </div>
     <aside class="panel panel-pad">
-      <p class="eyebrow">How we handle proof</p>
-      <h2>No invented quotes. No made-up numbers.</h2>
-      <p class="lead">Everything here is either confirmed or clearly marked as in progress. We'd rather show less than make things up.</p>
+      <p class="eyebrow">Our approach to proof</p>
+      <h2>No invented numbers. No made-up case studies.</h2>
+      <p class="lead">Everything here is confirmed or clearly marked as in progress. We'd rather show less than make things up.</p>
     </aside>
   </section>
 
+  <!-- EXAMPLE OUTCOMES -->
   <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">What we help businesses achieve</p>
+      <h2>Example outcomes from our work.</h2>
+    </div>
+    <div class="grid grid-4">
+      {([
+        ["Time saving", "Saved 10+ Hours Weekly", "Reduced admin burden through workflow redesign."],
+        ["Sales", "Faster Sales Response", "Improved speed to lead and follow-up consistency."],
+        ["Team adoption", "Better Staff Adoption", "Team confidence and usage increased after training."],
+        ["Operations", "Cleaner Internal Processes", "Less duplication, more consistency."],
+      ] as const).map(([eyebrow, title, body]) => (
+        <article class="card card-featured">
+          <p class="eyebrow">{eyebrow}</p>
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- WORKFLOW EXAMPLES -->
+  <section class="section section-tight chapter">
     <div class="section-header">
       <p class="eyebrow">Workflow examples</p>
       <h2>Before and after.</h2>
+      <p>These represent the kinds of improvements businesses typically see. Named case studies are added as they're confirmed.</p>
     </div>
     <div class="grid grid-3">
-      {[
-        ["Tender response", "6-8 hours", "About 90 minutes", "Construction"],
+      {([
+        ["Proposal writing", "4–6 hours", "Under 1 hour for a first pass", "Professional services"],
         ["Client report", "3 hours", "About 30 minutes", "Accounting"],
         ["Follow-up batch", "One-day backlog", "Same-day responses", "Property"],
-      ].map(([name, before, after, sector]) => (
+      ] as const).map(([name, before, after, sector]) => (
         <article class="card card-featured">
           <p class="eyebrow">{name}</p>
           <div class="data-strip">
@@ -50,56 +72,32 @@ import { priorityIndustries, useCases } from "../data/site";
     </div>
   </section>
 
-  <section class="section section-tight chapter">
-    <div class="section-header">
-      <p class="eyebrow">ROI scenarios</p>
-      <h2>Where the business case usually comes from.</h2>
-      <p>These are planning examples, not guaranteed outcomes. The real numbers depend on your workflow, team size, and approval rules.</p>
-    </div>
-    <div class="grid grid-3">
-      {[
-        ["Five-person admin team", "Save 30 minutes per person per day on repeat writing and reporting tasks.", "Roughly 12.5 hours a week back."],
-        ["Construction estimator", "Reduce tender first-pass prep from most of a day to a structured review draft.", "More time for pricing quality and proof."],
-        ["Property branch", "Turn viewing notes into same-day follow-ups instead of a backlog.", "Faster response without losing local judgement."],
-      ].map(([title, assumption, value]) => (
-        <article class="card">
-          <h3>{title}</h3>
-          <p>{assumption}</p>
-          <strong>{value}</strong>
-        </article>
-      ))}
-    </div>
-  </section>
-
+  <!-- WHAT GOOD LOOKS LIKE -->
   <section class="section section-tight">
-    <div class="section-header">
-      <p class="eyebrow">Where we're collecting results first</p>
-      <h2>Starting with the industries we know best.</h2>
-    </div>
-    <div class="grid grid-3">
-      {priorityIndustries.map((industry) => (
-        <article class="card">
-          <h3>{industry.shortName}</h3>
-          <p>Workflow examples and results from {industry.shortName.toLowerCase()} teams we've worked with.</p>
-          <a href={`/industries/${industry.slug}/`}>See {industry.shortName.toLowerCase()} examples</a>
-        </article>
-      ))}
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">What good AI adoption looks like</p>
+        <h2>What businesses aim for.</h2>
+      </div>
+      <ul class="checklist">
+        <li>Save hours every week</li>
+        <li>Faster proposals, emails, reports, and admin</li>
+        <li>Better internal systems</li>
+        <li>Stronger team productivity</li>
+        <li>Less wasted experimentation</li>
+        <li>Clear commercial value</li>
+      </ul>
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-header">
-      <p class="eyebrow">By workflow type</p>
-      <h2>The same tasks come up across different industries.</h2>
-    </div>
-    <div class="grid grid-3">
-      {useCases.map((useCase) => (
-        <article class="card">
-          <h3>{useCase.title}</h3>
-          <p>{useCase.problem}</p>
-          <a href={`/use-cases/${useCase.slug}/`}>See examples</a>
-        </article>
-      ))}
+  <!-- CTA -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <h2>Want results like these in your business?</h2>
+        <p>Book a free discovery call to find out where AI can save time and create value for you.</p>
+      </div>
+      <a class="button" href="/contact/" data-cta="results-final-book">Book Free Discovery Call</a>
     </div>
   </section>
 </BaseLayout>

@@ -1,62 +1,100 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { industries, SITE } from "../data/site";
+import { SITE } from "../data/site";
 ---
 
 <BaseLayout
-  title="Contact"
-  description="Book Free Call to see where AI training could save your team time without creating quality risk."
+  title="Book a Free Discovery Call"
+  description="A practical conversation about your business, your priorities, and where AI can create real value. No commitment, no jargon."
 >
+  <!-- HERO -->
   <section class="page-hero">
     <div class="page-copy">
-      <p class="eyebrow">Contact</p>
-      <h1>Book Free Call.</h1>
+      <p class="eyebrow">Book a Call</p>
+      <h1>Let's Find Where AI Fits Your Business</h1>
       <p>
-        Tell us where your team spends the most time and where AI feels useful
-        but risky. We'll figure out which tasks are worth tackling first and
-        whether a session makes sense.
+        A practical conversation about your business, your priorities, and where
+        AI can create real value. No commitment. No jargon. No product pitch.
       </p>
       <div class="button-row">
-        <a class="button" href="#quick-enquiry">Use the enquiry form</a>
+        <a class="button" href="#enquiry-form">Get in touch</a>
         <a class="button button-secondary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </div>
     </div>
-    <form id="quick-enquiry" class="panel panel-pad" name="contact">
-      <p class="eyebrow">Quick enquiry</p>
-      <label>
-        Name
-        <input name="name" autocomplete="name" required />
-      </label>
-      <label>
-        Email
-        <input name="email" type="email" autocomplete="email" required />
-      </label>
-      <label>
-        Company
-        <input name="company" autocomplete="organization" />
-      </label>
-      <label>
-        Industry
-        <select name="industry" required>
-          <option value="">Choose one</option>
-          {industries.map((industry) => <option value={industry.slug}>{industry.title}</option>)}
-        </select>
-      </label>
-      <label>
-        Team size
-        <input name="team-size" />
-      </label>
-      <label>
-        Where does your team spend the most time, and what would you want AI to help with?
-        <textarea name="time-drain" rows="5"></textarea>
-      </label>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">What to expect</p>
+      <h2>A useful conversation, whatever you decide.</h2>
+      <p class="lead">We'll look at your business honestly. If AI can help, we'll say how. If it can't, we'll say that too.</p>
+    </aside>
+  </section>
+
+  <!-- WHAT HAPPENS ON THE CALL -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">On the call</p>
+      <h2>What we cover in 30 minutes.</h2>
+    </div>
+    <div class="grid grid-4">
+      {([
+        ["Understand your situation", "We listen first. What your business does, how your team works, and where time gets lost."],
+        ["Identify quick wins", "We point to the 2–3 areas where AI is most likely to save time or create value for you specifically."],
+        ["Discuss risks", "We talk through what to avoid, what needs human oversight, and what's genuinely not ready yet."],
+        ["Recommend next steps", "You leave with a clear sense of what to do first — whether that's working with us or not."],
+      ] as const).map(([title, body]) => (
+        <article class="card">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ENQUIRY FORM -->
+  <section class="section section-tight">
+    <form id="enquiry-form" class="panel panel-pad" name="contact">
+      <div class="section-header">
+        <p class="eyebrow">Quick enquiry</p>
+        <h2>Tell us about your business.</h2>
+        <p>We'll get back to you within one working day to arrange a call.</p>
+      </div>
+      <div class="form-grid">
+        <label>
+          Name
+          <input name="name" autocomplete="name" required />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+        <label>
+          Company
+          <input name="company" autocomplete="organization" />
+        </label>
+        <label>
+          Industry
+          <select name="industry">
+            <option value="">Choose one</option>
+            <option value="accounting">Accounting</option>
+            <option value="recruitment">Recruitment</option>
+            <option value="legal">Legal</option>
+            <option value="property">Property</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="agency">Agency</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label class="full-width">
+          What's taking the most time, and what would you want AI to help with?
+          <textarea name="context" rows="5"></textarea>
+        </label>
+      </div>
       <button class="button" type="submit">Send enquiry</button>
     </form>
   </section>
 </BaseLayout>
 
 <script define:vars={{ email: SITE.email }}>
-  const form = document.getElementById("quick-enquiry");
+  const form = document.getElementById("enquiry-form");
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -68,10 +106,9 @@ import { industries, SITE } from "../data/site";
       `Email: ${data.get("email") || ""}`,
       `Company: ${data.get("company") || ""}`,
       `Industry: ${data.get("industry") || ""}`,
-      `Team size: ${data.get("team-size") || ""}`,
       "",
-      "Where the time goes / AI help wanted:",
-      `${data.get("time-drain") || ""}`,
+      "Context / what they need help with:",
+      `${data.get("context") || ""}`,
     ].join("\n");
 
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -79,9 +116,21 @@ import { industries, SITE } from "../data/site";
 </script>
 
 <style>
-  form {
+  .form-grid {
     display: grid;
     gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 24px;
+  }
+
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 640px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   label {

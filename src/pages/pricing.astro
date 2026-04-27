@@ -1,69 +1,135 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { packages } from "../data/site";
 ---
 
 <BaseLayout
   title="Pricing"
-  description="Three options depending on team size and how much support you need. Every option starts with a free call."
+  description="Practical AI services for UK SMEs. AI training from £1,500, strategy sessions from £2,500, workflow implementation from £3,500, and ongoing support from £1,000/month."
 >
+  <!-- HERO -->
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">Pricing</p>
-      <h1>Three options, depending on what your team needs.</h1>
+      <h1>Services Priced for SMEs</h1>
       <p>
-        Choose by team size, how much customisation you need, and whether you
-        want ongoing support after the first session. Every option starts with
-        a free call to make sure it's the right fit.
+        Four ways to work with us depending on what your business needs. Every
+        engagement starts with a free discovery call to make sure it's the right fit.
       </p>
-      <a class="button" href="/contact/" data-cta="pricing-book">Book Free Call</a>
+      <a class="button" href="/contact/" data-cta="pricing-hero-book">Book Free Discovery Call</a>
     </div>
     <aside class="panel panel-pad">
-      <h2>The call helps you decide.</h2>
-      <p class="lead">No commitment. We'll talk through what your team needs and which option makes sense before anyone spends anything.</p>
+      <p class="eyebrow">Not sure where to start?</p>
+      <h2>The discovery call helps you decide.</h2>
+      <p class="lead">No commitment. We'll look at your business and tell you which option makes sense before anyone spends anything.</p>
     </aside>
   </section>
 
+  <!-- PRICING CARDS -->
   <section class="section">
-    <div class="grid grid-3">
-      {packages.map((item, index) => (
-        <article class={index === 0 ? "card pricing-card recommended" : "card pricing-card"}>
-          {index === 0 && <span class="badge">Most teams start here</span>}
-          <p class="eyebrow">Package {index + 1}</p>
-          <h2>{item.name}</h2>
-          <strong class="price">{item.price}</strong>
-          <p>{item.fit}</p>
+    <div class="grid grid-4">
+      {([
+        {
+          eyebrow: "Service 01",
+          name: "AI Training Workshops",
+          price: "From £1,500",
+          fit: "Best for teams who haven't used AI confidently yet.",
+          includes: [
+            "Hands-on team session",
+            "Prompting fundamentals",
+            "Best tools by department",
+            "Time-saving use cases",
+            "Safe usage guidance",
+          ],
+          cta: "pricing-training-book",
+        },
+        {
+          eyebrow: "Service 02",
+          name: "Leadership Strategy Sessions",
+          price: "From £2,500",
+          fit: "Best for owners and directors who need a clear AI strategy.",
+          includes: [
+            "Where AI fits your business",
+            "What to ignore",
+            "ROI opportunities mapped",
+            "Team rollout roadmap",
+          ],
+          cta: "pricing-strategy-book",
+        },
+        {
+          eyebrow: "Service 03",
+          name: "Workflow Implementation",
+          price: "From £3,500",
+          fit: "Best for businesses losing hours to repetitive work.",
+          includes: [
+            "Workflow audit and mapping",
+            "AI system design and build",
+            "Team handover and training",
+            "Admin, reporting, and document workflows",
+          ],
+          cta: "pricing-implementation-book",
+        },
+        {
+          eyebrow: "Service 04",
+          name: "Monthly Support Retainer",
+          price: "From £1,000/month",
+          fit: "Best for businesses who want to stay ahead without hiring internally.",
+          includes: [
+            "Ongoing advice and guidance",
+            "Team support",
+            "Tool updates as AI evolves",
+            "Quarterly optimisation",
+          ],
+          cta: "pricing-support-book",
+        },
+      ] as const).map((pkg) => (
+        <article class="card pricing-card">
+          <p class="eyebrow">{pkg.eyebrow}</p>
+          <h3>{pkg.name}</h3>
+          <strong class="price">{pkg.price}</strong>
+          <p>{pkg.fit}</p>
           <ul class="checklist">
-            {item.includes.map((line) => <li>{line}</li>)}
+            {pkg.includes.map((line) => <li>{line}</li>)}
           </ul>
-          <a href="/contact/" data-cta="pricing-option-book">Book Free Call</a>
+          <a href="/contact/" data-cta={pkg.cta}>Enquire</a>
         </article>
       ))}
     </div>
   </section>
 
+  <!-- WHICH IS RIGHT -->
   <section class="section section-tight chapter">
     <div class="panel panel-pad">
       <div class="section-header">
-        <p class="eyebrow">Which one is right?</p>
-        <h2>It depends on how deep you want to go.</h2>
+        <p class="eyebrow">Which one is right for you?</p>
+        <h2>It depends on where you are.</h2>
       </div>
       <div class="grid grid-3">
-        <article class="card"><strong>Team Workshop</strong><p>Best when a whole team needs to get on the same page quickly. One day, tailored to your work.</p></article>
-        <article class="card"><strong>Open Cohort</strong><p>Best for smaller teams or individuals who want to start without committing to a private session.</p></article>
-        <article class="card"><strong>4-Week Programme</strong><p>Best when your team wants ongoing support to actually embed this into how they work day to day.</p></article>
+        <article class="card">
+          <h3>Just getting started</h3>
+          <p>A training workshop gives your team the foundations to use AI confidently in day-to-day work.</p>
+        </article>
+        <article class="card">
+          <h3>Need a clear strategy</h3>
+          <p>A leadership session helps you understand where AI creates ROI for your specific business — before you invest.</p>
+        </article>
+        <article class="card">
+          <h3>Want to embed it properly</h3>
+          <p>Implementation and ongoing support are for businesses who want AI working in their systems, not just in their heads.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="panel panel-pad trust-panel">
-      <p class="eyebrow">Want to understand the approach first?</p>
-      <h2>See how we handle trust, security, and quality control.</h2>
-      <p class="lead">We cover what shouldn't go into public tools, where accuracy matters, and how your team stays in control of everything that goes out.</p>
-      <div class="button-row" style="margin-top: 24px">
-        <a class="button" href="/trust-security/">How we handle trust and security</a>
-        <a class="button button-secondary" href="/results/">See results so far</a>
+  <!-- CTA -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <h2>Not sure which fits?</h2>
+        <p>Book a free discovery call and we'll point you in the right direction.</p>
+      </div>
+      <div class="button-row">
+        <a class="button" href="/contact/" data-cta="pricing-final-book">Book Free Discovery Call</a>
+        <a class="button button-secondary" href="/services/" data-cta="pricing-services">See all services</a>
       </div>
     </div>
   </section>

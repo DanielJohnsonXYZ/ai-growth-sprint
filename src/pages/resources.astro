@@ -1,58 +1,60 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { guides, postLaunchArticles } from "../data/site";
 ---
 
 <BaseLayout
-  title="Resources"
-  description="Industry-specific guides and workflow examples for UK SME teams using AI."
+  title="Free AI Resources for SMEs"
+  description="Useful content to help UK business owners make smarter AI decisions. Guides, templates, and practical advice."
 >
+  <!-- HERO -->
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">Resources</p>
-      <h1>Guides, examples, and practical advice.</h1>
-      <p>
-        Start with one of the practical guides, then use the industry and
-        workflow examples to decide which tasks are worth training first.
-      </p>
-      <a class="button" href="/contact/" data-cta="resources-book">Book Free Call</a>
+      <h1>Free AI Resources for SMEs</h1>
+      <p>Useful content to help business owners make smarter AI decisions.</p>
+      <a class="button" href="/contact/" data-cta="resources-hero-book">Book Free Discovery Call</a>
     </div>
     <aside class="panel panel-pad">
-      <h2>Start with business results.</h2>
-      <p class="lead">Each guide is written around time saved, work improved, and approval staying human.</p>
+      <p class="eyebrow">Practical, not theoretical</p>
+      <h2>Resources written for business owners, not developers.</h2>
+      <p class="lead">No technical jargon. No product pitches. Just useful guidance on how to use AI in your business.</p>
     </aside>
   </section>
 
+  <!-- RESOURCES LIST -->
   <section class="section">
-    <div class="section-header">
-      <p class="eyebrow">Free guides</p>
-      <h2>Useful before a workshop.</h2>
-    </div>
     <div class="grid grid-3">
-      {guides.map((guide) => (
+      {([
+        ["Guide", "AI for SMEs in 2026", "What actually works for small and medium businesses right now — practical tools, common mistakes, and where to start.", "resource-smes-2026"],
+        ["Guide", "How to Train Your Team on AI", "A practical framework for getting your team using AI confidently without chaos or confusion.", "resource-train-team"],
+        ["Guide", "Best AI Tools for Accountants", "A breakdown of which tools actually save time in accounting workflows and which ones to avoid.", "resource-accountants"],
+        ["Template", "AI Policy Template for Small Businesses", "A ready-to-use AI usage policy you can adapt for your team — covering data, approval, and acceptable use.", "resource-policy"],
+        ["Guide", "Where to Start with AI in Operations", "The quickest wins for operations teams — where AI saves the most time with the least disruption.", "resource-operations"],
+      ] as const).map(([type, title, body, cta]) => (
         <article class="card card-interactive">
-          <p class="eyebrow">{guide.audience}</p>
-          <h3>{guide.title}</h3>
-          <p>{guide.intro}</p>
-          <a href={`/guides/${guide.slug}/`}>Read guide</a>
+          <p class="eyebrow">{type}</p>
+          <h3>{title}</h3>
+          <p>{body}</p>
+          <a href="/contact/" data-cta={cta}>
+            {type === "Template" ? "Download template" : "Get the guide"}
+          </a>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-header">
-      <p class="eyebrow">Coming soon</p>
-      <h2>Articles in progress.</h2>
-    </div>
-    <div class="grid grid-3">
-      {postLaunchArticles.map((title, index) => (
-        <article class="card">
-          <span class="tag pending">Coming soon</span>
-          <h3>{title}</h3>
-          <p>{index < 3 ? "One of the first articles we're publishing." : "Coming after the first batch."}</p>
-        </article>
-      ))}
+  <!-- WANT MORE -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">Want personalised advice?</p>
+        <h2>Resources are a starting point. A discovery call goes further.</h2>
+        <p>Book a free call and we'll tell you exactly where AI fits your business — not a generic answer.</p>
+      </div>
+      <div class="button-row">
+        <a class="button" href="/contact/" data-cta="resources-cta-book">Book Free Discovery Call</a>
+        <a class="button button-secondary" href="/services/" data-cta="resources-services">See services</a>
+      </div>
     </div>
   </section>
 </BaseLayout>

@@ -10,54 +10,90 @@ const schema = {
 ---
 
 <BaseLayout
-  title="About"
-  description="About Daniel Johnson and the thinking behind Human Approved AI."
+  title="Human-First AI Adoption"
+  description="Human Approved AI was built for businesses who know AI matters but are tired of hype, jargon, and bad advice."
   schema={schema}
 >
+  <!-- HERO -->
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">About</p>
-      <h1>Built by someone who's worked with teams, not just talked about AI.</h1>
+      <h1>Human-First AI Adoption</h1>
       <p>
-        Human Approved AI came from a simple observation: most teams try AI a
-        couple of times, don't get much out of it, and go back to doing things
-        the old way. The problem isn't the tools. It's that nobody showed them
-        how to use it on the work they actually do.
+        Human Approved AI was built for businesses who know AI matters, but are
+        tired of hype, jargon, and bad advice.
       </p>
-      <a class="button" href="/contact/" data-cta="about-book">Book Free Call</a>
+      <a class="button" href="/contact/" data-cta="about-book">Book a Discovery Call</a>
     </div>
     <aside class="panel panel-pad">
-      <p class="eyebrow">Background</p>
-      <h2>Google for Startups, Techstars, Cambridge, Imperial, UK Space Agency.</h2>
-      <p class="lead">Daniel has trained and mentored teams across programmes backed by these organisations.</p>
+      <p class="eyebrow">Our approach</p>
+      <h2>Commercial thinking. Practical implementation. Plain-English communication.</h2>
+      <p class="lead">We help established businesses modernise intelligently — without the chaos.</p>
     </aside>
   </section>
 
-  <section class="section">
+  <!-- FOUNDER SECTION -->
+  <section class="section chapter">
+    <div class="section-header">
+      <p class="eyebrow">Who we are</p>
+      <h2>We combine commercial thinking, practical implementation, and plain-English communication.</h2>
+      <p>
+        Human Approved AI works with established UK businesses to help them
+        adopt AI in ways that create real value. Not tool demos. Not generic
+        workshops. Practical work built around your business.
+      </p>
+    </div>
     <div class="grid grid-3">
-      <article class="card"><h3>10+ years in growth</h3><p>Hands-on growth marketing and startup support, not theory from a textbook.</p></article>
-      <article class="card"><h3>Two startup exits</h3><p>Built and sold businesses, so understands what it's like when time is the constraint.</p></article>
-      <article class="card"><h3>Practical over clever</h3><p>The training is designed to work on Monday morning, not just sound good on the day.</p></article>
+      {([
+        ["Commercial-first", "We focus on where AI creates ROI, not where it looks impressive."],
+        ["Plain-English", "No jargon. No buzzwords. Just clear advice on what to do and why."],
+        ["Practical delivery", "We train people on real work, not invented examples."],
+      ] as const).map(([title, body]) => (
+        <article class="card">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
     </div>
   </section>
 
+  <!-- WHY WE EXIST -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">Why we exist</p>
+        <h2>Many businesses don't need "AI transformation".</h2>
+        <p>They need:</p>
+      </div>
+      <ul class="checklist">
+        <li>Clear advice</li>
+        <li>Better systems</li>
+        <li>Trained teams</li>
+        <li>Trusted support</li>
+        <li>Commercial results</li>
+      </ul>
+      <p style="margin-top: 20px; font-weight: 700; color: var(--ink)">That's what we deliver.</p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DON'T DO -->
   <section class="section section-tight chapter">
     <div class="split">
       <div class="section-header">
-        <p class="eyebrow">Founder story</p>
-        <h2>Why this is human-approved first.</h2>
+        <p class="eyebrow">What we're not</p>
+        <h2>Not a software vendor. Not a generic trainer.</h2>
         <p>
-          The useful work is not showing a team a clever prompt. It is helping
-          them decide what AI should draft, what people must approve, and what
-          data should stay out of public tools.
+          We're not here to sell you a tool or run a one-size-fits-all
+          workshop. We look at your actual business, find where AI saves time
+          or creates value, and help you act on it.
         </p>
       </div>
       <div class="grid">
-        {[
-          ["SME-first", "Built for busy owners, practice managers, estimators, negotiators, and operators who need time back."],
-          ["Not tool-led", "The training works with the tools your business is allowed to use. The workflow matters more than the software demo."],
-          ["Trust-led", "Sensitive categories get explicit boundaries around confidentiality, accuracy, compliance, and final approval."],
-        ].map(([title, body]) => (
+        {([
+          ["Not software-led", "We work with the tools you already use or recommend the right fit — not sell a subscription."],
+          ["Not theoretical", "Everything is built around real tasks from your business, not invented examples."],
+          ["Not a one-off", "We offer ongoing support because AI keeps changing and your business needs to keep pace."],
+        ] as const).map(([title, body]) => (
           <article class="card">
             <h3>{title}</h3>
             <p>{body}</p>
@@ -67,15 +103,16 @@ const schema = {
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="section section-tight">
     <div class="panel panel-pad">
-      <p class="eyebrow">See the work</p>
-      <h2>What teams actually build in a session.</h2>
-      <p class="lead">Workflow examples from real teams, with time savings and before-and-after comparisons.</p>
-      <div class="button-row" style="margin-top: 24px">
-        <a class="button" href="/results/">See results</a>
-        <a class="button button-secondary" href="/how-it-works/">How it works</a>
-        <a class="button button-secondary" href="/guides/">Read the guides</a>
+      <div class="section-header">
+        <h2>Ready to talk?</h2>
+        <p>Book a free discovery call and we'll figure out where AI can make a real difference in your business.</p>
+      </div>
+      <div class="button-row">
+        <a class="button" href="/contact/" data-cta="about-cta-book">Book a Discovery Call</a>
+        <a class="button button-secondary" href="/services/" data-cta="about-services">See services</a>
       </div>
     </div>
   </section>
