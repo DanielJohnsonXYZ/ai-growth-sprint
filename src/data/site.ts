@@ -486,6 +486,30 @@ export const industries: Industry[] = [
     outreachPhase: "Phase 3",
     proofNote: "Cross-link with recruitment where relevant.",
   },
+  {
+    slug: "agencies",
+    title: "Agencies and Consultancies",
+    shortName: "Agencies",
+    metaTitle: "AI Training for Agencies UK",
+    metaDescription: "AI training for agencies that want faster delivery, better proposals, smoother workflows, and less admin.",
+    hero: "Deliver more, admin less, win better clients.",
+    subhero: "AI workflow training for agencies, consultancies, and advisory firms.",
+    stat: "Agencies live or die by delivery speed, proposal quality, and team productivity.",
+    audience: "Founders, MDs, project managers, and operations managers",
+    size: "Agencies with 5-50 staff",
+    workflows: [
+      { name: "Proposal writing", now: "Teams spend 4-6 hours adapting old decks and case studies.", withAi: "AI helps prepare a tailored proposal from a brief and case-study bank.", timeSaved: "4-6 hours to about 45 minutes for a first pass" },
+      { name: "Client reporting", now: "Teams manually pull notes, data, and updates into reports.", withAi: "AI helps turn delivery notes into a clearer report first pass.", timeSaved: "Hours to about 30 minutes for a first pass" },
+      { name: "Research and benchmarking", now: "Consultants spend half a day gathering market context.", withAi: "AI helps create a structured research brief for human review.", timeSaved: "Half a day to about 30-60 minutes for a first pass" },
+      { name: "Email and client communications", now: "Teams write recurring updates from scratch.", withAi: "AI helps prepare professional, on-tone responses and updates.", timeSaved: "Minutes per message" },
+      { name: "Internal documentation", now: "Processes sit in meeting notes and shared drives.", withAi: "AI helps turn notes into SOPs and action plans.", timeSaved: "A first-pass SOP in under an hour" },
+    ],
+    insights: ["Proposal pressure competes with client delivery.", "Reporting overhead is a margin problem.", "Team adoption needs practical, not theoretical training."],
+    trustNote: "AI supports preparation, research, reporting, and process capture. Final commitments and strategic advice remain with the agency.",
+    relatedUseCases: ["proposals-and-tenders", "client-reporting", "research-and-briefing", "email-and-follow-ups"],
+    outreachPhase: "Phase 3",
+    proofNote: "Cross-link with professional services where relevant.",
+  },
 ];
 
 export type UseCase = {

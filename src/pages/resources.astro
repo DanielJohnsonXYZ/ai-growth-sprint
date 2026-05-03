@@ -12,7 +12,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <p class="eyebrow">Resources</p>
       <h1>Free AI Resources for SMEs</h1>
       <p>Useful content to help business owners make smarter AI decisions.</p>
-      <a class="button" href="/contact/" data-cta="resources-hero-book">Book Free Discovery Call</a>
+      <a class="button" href="/contact/" data-cta="resources-hero-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
     </div>
     <aside class="panel panel-pad">
       <p class="eyebrow">Practical, not theoretical</p>
@@ -29,15 +29,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         ["Guide", "How to Train Your Team on AI", "A practical framework for getting your team using AI confidently without chaos or confusion.", "resource-train-team"],
         ["Guide", "Best AI Tools for Accountants", "A breakdown of which tools actually save time in accounting workflows and which ones to avoid.", "resource-accountants"],
         ["Template", "AI Policy Template for Small Businesses", "A ready-to-use AI usage policy you can adapt for your team — covering data, approval, and acceptable use.", "resource-policy"],
-        ["Guide", "Where to Start with AI in Operations", "The quickest wins for operations teams — where AI saves the most time with the least disruption.", "resource-operations"],
-      ] as const).map(([type, title, body, cta]) => (
-        <article class="card card-interactive">
+        ["Guide", "AI Adoption Checklist for UK SMEs", "Step-by-step checklist for adopting AI in your business — where to start and what to prioritise.", "resource-checklist"],
+      ] as const).map(([type, title, body, id]) => (
+        <article class="card card-interactive lead-magnet-panel">
           <p class="eyebrow">{type}</p>
           <h3>{title}</h3>
           <p>{body}</p>
-          <a href="/contact/" data-cta={cta}>
-            {type === "Template" ? "Download template" : "Get the guide"}
-          </a>
+          <form data-lead-magnet={id} class="lead-magnet-form">
+            <input type="email" placeholder="Your email" required class="lead-magnet-input" />
+            <button class="button button-small" type="submit">{type === "Template" ? "Download" : "Get guide"}</button>
+          </form>
         </article>
       ))}
     </div>
@@ -52,9 +53,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p>Book a free call and we'll tell you exactly where AI fits your business — not a generic answer.</p>
       </div>
       <div class="button-row">
-        <a class="button" href="/contact/" data-cta="resources-cta-book">Book Free Discovery Call</a>
+        <a class="button" href="/contact/" data-cta="resources-cta-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
         <a class="button button-secondary" href="/services/" data-cta="resources-services">See services</a>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  document.querySelectorAll('.lead-magnet-form').forEach(form => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = form.querySelector('input[type="email"]')?.value;
+      if (!email) return;
+      const resourceId = form.dataset.leadMagnet;
+      const subject = `Resource request: ${resourceId}`;
+      const body = `Email: ${email}\n\nPlease send me the resource: ${resourceId}`;
+      window.location.href = `mailto:hello@humanapprovedai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  });
+</script>

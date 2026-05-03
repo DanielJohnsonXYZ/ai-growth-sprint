@@ -14,13 +14,54 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <p>
         AI should create measurable improvements, not just excitement.
       </p>
-      <a class="button" href="/contact/" data-cta="results-book">Book Free Discovery Call</a>
+      <a class="button" href="/contact/" data-cta="results-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
     </div>
     <aside class="panel panel-pad">
       <p class="eyebrow">Our approach to proof</p>
       <h2>No invented numbers. No made-up case studies.</h2>
       <p class="lead">Everything here is confirmed or clearly marked as in progress. We'd rather show less than make things up.</p>
     </aside>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Case studies</p>
+      <h2>Real outcomes from real businesses</h2>
+    </div>
+    <div class="grid grid-3">
+      {([
+        {
+          sector: "Professional services firm",
+          problem: "Proposal writing took 4-6 hours per response.",
+          changed: "Built a proposal workflow using their case studies and scope notes.",
+          workflow: "AI drafts, director reviews and approves.",
+          result: "Proposal time down to 45 minutes for a first pass."
+        },
+        {
+          sector: "Accounting firm",
+          problem: "Client report commentary took 3+ hours each month.",
+          changed: "Created a reporting workflow from reviewed numbers and notes.",
+          workflow: "AI prepares narrative, accountant approves.",
+          result: "Reports down to 30 minutes for a first pass."
+        },
+        {
+          sector: "Property/recruitment business",
+          problem: "Follow-ups slipped, costing viewings and placements.",
+          changed: "Implemented follow-up workflows from CRM notes.",
+          workflow: "AI prepares messages, agent/recruiter approves.",
+          result: "Same-day follow-ups, improved conversion."
+        },
+      ] as const).map((cs) => (
+        <article class="card card-featured">
+          <p class="eyebrow">{cs.sector}</p>
+          <h3>{cs.problem}</h3>
+          <p><strong>What changed:</strong> {cs.changed}</p>
+          <p><strong>Workflow:</strong> {cs.workflow}</p>
+          <p><strong>Result:</strong> {cs.result}</p>
+        </article>
+      ))}
+    </div>
   </section>
 
   <!-- EXAMPLE OUTCOMES -->
@@ -87,6 +128,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <li>Less wasted experimentation</li>
         <li>Clear commercial value</li>
       </ul>
+      <div class="button-row" style="margin-top: 24px;">
+        <a href="/services/" class="button button-secondary">See our services</a>
+      </div>
     </div>
   </section>
 
@@ -97,7 +141,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <h2>Want results like these in your business?</h2>
         <p>Book a free discovery call to find out where AI can save time and create value for you.</p>
       </div>
-      <a class="button" href="/contact/" data-cta="results-final-book">Book Free Discovery Call</a>
+      <a class="button" href="/contact/" data-cta="results-final-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
     </div>
   </section>
 </BaseLayout>

@@ -456,10 +456,20 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
 
   .section {
     padding: 76px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section:last-of-type {
+    border-bottom: none;
   }
 
   .section-tight {
     padding: 56px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-tight:last-of-type {
+    border-bottom: none;
   }
 
   .chapter {
@@ -772,6 +782,100 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
   .pending {
     border: 1px dashed var(--clay);
     background: rgba(189, 97, 55, 0.1);
+    color: var(--clay);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid var(--ink);
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 16px;
+    border: 1px solid var(--line);
+    text-align: left;
+  }
+
+  .comparison-table th {
+    background: var(--surface-strong);
+    font-weight: 700;
+  }
+
+  .comparison-table tr:nth-child(even) {
+    background: var(--paper-soft);
+  }
+
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+
+  .faq-item {
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-small);
+    margin-bottom: 12px;
+  }
+
+  .faq-item summary {
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  .faq-item p {
+    margin-top: 12px;
+    color: var(--muted);
+  }
+
+  .lead-magnet-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .lead-magnet-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    font: inherit;
+    font-size: 0.95rem;
+  }
+
+  .lead-magnet-input:focus {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  .lead-magnet-panel {
+    border-color: var(--moss);
+    background: linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(232, 184, 77, 0.14)), var(--paper-soft);
+  }
+
+  .workflow-diagram {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    overflow-x: auto;
+    padding: 24px 0;
+  }
+
+  .workflow-step {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-align: center;
+  }
+
+  .workflow-arrow {
+    font-size: 2rem;
     color: var(--clay);
   }
 

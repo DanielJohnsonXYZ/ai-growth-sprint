@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Leadership Strategy Sessions for UK SMEs"
+  description="Clear AI strategy and roadmap for owners and directors. From £2,500."
+>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Service</p>
+      <h1>Leadership Strategy Sessions</h1>
+      <p>For owners and directors who need clarity on where AI fits their business.</p>
+      <a class="button" href="/contact/" data-cta="leadership-strategy-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">Best for</p>
+      <h2>Owners and directors who need a clear AI strategy</h2>
+      <p class="lead">You want to understand where AI fits, what you can safely ignore, and what to do first — without being sold software.</p>
+    </aside>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">What's included</p>
+      <h2>Strategic clarity and a clear roadmap.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div>
+        <h3>Where AI fits</h3>
+        <p>Clear assessment of where AI creates ROI in your specific business.</p>
+      </div>
+      <div>
+        <h3>What to ignore</h3>
+        <p>Cut through the hype and focus on what actually works.</p>
+      </div>
+      <div>
+        <h3>ROI opportunities</h3>
+        <p>Mapped opportunities with expected time savings and outcomes.</p>
+      </div>
+      <div>
+        <h3>Team rollout roadmap</h3>
+        <p>Step-by-step plan for rolling out AI across your team.</p>
+      </div>
+      <div>
+        <h3>Tool recommendations</h3>
+        <p>Which tools fit your business and which to avoid.</p>
+      </div>
+      <div>
+        <h3>Risk assessment</h3>
+        <p>What needs human oversight and data safety considerations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU LEAVE WITH -->
+  <section class="section section-tight chapter">
+    <div class="section-header">
+      <p class="eyebrow">What you leave with</p>
+      <h2>A clear AI strategy tailored to your business.</h2>
+    </div>
+    <div class="grid grid-3">
+      {[
+        ["Strategy document", "Clear AI strategy with prioritised opportunities."],
+        ["ROI roadmap", "Mapped opportunities with expected outcomes."],
+        ["Rollout plan", "Step-by-step timeline for your team."],
+        ["Confidence", "You know exactly where to start and why."],
+      ].map(([title, body]) => (
+        <article class="card card-featured">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">When you need this</p>
+      <h2>Situations where strategy sessions help most.</h2>
+    </div>
+    <div class="grid grid-3">
+      {[
+        ["New technology", "AI is moving fast and you need a clear direction."],
+        ["Multiple departments", "Different teams need different AI approaches."],
+        ["Limited budget", "You want to invest in the right areas first."],
+        ["Competitor pressure", "You know AI matters but need a plan."],
+        ["Team confusion", "Staff are experimenting randomly without direction."],
+      ].map(([title, body]) => (
+        <article class="card card-interactive">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- PROBLEM IT SOLVES -->
+  <section class="section section-tight">
+    <div class="split">
+      <div class="panel panel-pad">
+        <p class="eyebrow">Problems it solves</p>
+        <h2>Strategic challenges we address.</h2>
+        <ul class="checklist">
+          <li>Unclear where AI fits your business</li>
+          <li>Wasting money on wrong tools or training</li>
+          <li>Team experimenting without direction</li>
+          <li>No clear ROI measurement</li>
+          <li>Competitor pressure without a plan</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Deliverables</h3>
+        <ul class="checklist">
+          <li>AI strategy document (10-15 pages)</li>
+          <li>Prioritised opportunity list with ROI</li>
+          <li>Team rollout timeline</li>
+          <li>Tool recommendation report</li>
+          <li>Risk and safety assessment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-tight">
+    <div class="section-header">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="grid grid-2">
+      {[
+        ["Do you sell software?", "No. We're a consultancy focused on strategy, not selling tools."],
+        ["How long is the session?", "Typically 3-4 hours of strategy work plus follow-up document."],
+        ["Will you implement the strategy?", "We can, or you can take the plan and implement internally."],
+        ["Is this for technical people?", "No. We explain everything in plain English for business owners."],
+        ["What if we need more support?", "We offer monthly retainers for ongoing guidance."],
+      ].map(([q, a]) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">Pricing</p>
+        <h2>From £2,500</h2>
+      </div>
+      <p>Price depends on business size and number of departments. Book a free discovery call to get an exact quote.</p>
+      <div class="button-row" style="margin-top: 24px;">
+        <a class="button" href="/contact/" data-cta="leadership-strategy-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+        <a class="button button-secondary" href="/pricing/">See all pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <h2>Ready for a clear AI strategy?</h2>
+        <p>Book a free discovery call and we'll help you understand where AI fits your business.</p>
+      </div>
+      <a class="button" href="/contact/" data-cta="leadership-strategy-cta-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+    </div>
+  </section>
+</BaseLayout>

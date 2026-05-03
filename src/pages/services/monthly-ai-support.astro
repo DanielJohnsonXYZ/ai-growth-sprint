@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Monthly AI Support Retainer for UK SMEs"
+  description="Stay ahead as AI evolves with ongoing advice, team support, and quarterly optimisation. From £1,000/month."
+>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Service</p>
+      <h1>Monthly Support Retainer</h1>
+      <p>Stay ahead without hiring internally.</p>
+      <a class="button" href="/contact/" data-cta="monthly-support-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">Best for</p>
+      <h2>Businesses who want to stay ahead without hiring internally</h2>
+      <p class="lead">You've started using AI but want ongoing support, tool updates, and quarterly check-ins to keep momentum.</p>
+    </aside>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">What's included</p>
+      <h2>Ongoing guidance as AI evolves.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div>
+        <h3>Ongoing advice</h3>
+        <p>Access to AI expertise whenever questions come up.</p>
+      </div>
+      <div>
+        <h3>Team support</h3>
+        <p>Help your team with new use cases and challenges.</p>
+      </div>
+      <div>
+        <h3>Tool updates</h3>
+        <p>Stay current as AI tools change and improve.</p>
+      </div>
+      <div>
+        <h3>Quarterly optimisation</h3>
+        <p>Review what's working and find new opportunities.</p>
+      </div>
+      <div>
+        <h3>New workflow reviews</h3>
+        <p>Check any new workflows you've built are working well.</p>
+      </div>
+      <div>
+        <h3>Priority response</h3>
+        <p>Fast answers when you need them most.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU LEAVE WITH -->
+  <section class="section section-tight chapter">
+    <div class="section-header">
+      <p class="eyebrow">What you get</p>
+      <h2>Continuous improvement as AI evolves.</h2>
+    </div>
+    <div class="grid grid-3">
+      {[
+        ["Ongoing confidence", "You always have expert support when needed."],
+        ["Updated workflows", "Your systems stay current as AI improves."],
+        ["Team momentum", "No slowing down as new challenges come up."],
+        ["Competitive edge", "You're always using AI effectively."],
+      ].map(([title, body]) => (
+        <article class="card card-featured">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">When you need this</p>
+      <h2>Situations where ongoing support helps most.</h2>
+    </div>
+    <div class="grid grid-3">
+      {[
+        ["AI is evolving fast", "New tools and features appear constantly."],
+        ["Team has questions", "Staff need answers as they try new things."],
+        ["New use cases", "Your business finds new ways to use AI."],
+        ["Quarterly reviews", "Regular check-ins to optimise what's working."],
+        ["No internal expert", "You don't want to hire a full-time AI person."],
+      ].map(([title, body]) => (
+        <article class="card card-interactive">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- PROBLEM IT SOLVES -->
+  <section class="section section-tight">
+    <div class="split">
+      <div class="panel panel-pad">
+        <p class="eyebrow">Problems it solves</p>
+        <h2>Support challenges we address.</h2>
+        <ul class="checklist">
+          <li>Team stuck on AI questions</li>
+          <li>Tools changing faster than you can keep up</li>
+          <li>New opportunities you might miss</li>
+          <li>No time to research what's new</li>
+          <li>Want expert guidance without hiring</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Deliverables</h3>
+        <ul class="checklist">
+          <li>Unlimited email support</li>
+          <li>Monthly strategy check-in call</li>
+          <li>Quarterly optimisation review</li>
+          <li>Tool update briefings</li>
+          <li>New workflow recommendations</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-tight">
+    <div class="section-header">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="grid grid-2">
+      {[
+        ["Do you sell software?", "No. We provide expert guidance on tools and implementation."],
+        ["How quickly do you respond?", "We aim to respond to all queries within 24 hours."],
+        ["Can we cancel anytime?", "Yes. There's no long-term contract — just monthly agreements."],
+        ["What if we need more help?", "We can increase support or move to implementation projects."],
+        ["Do you work with our existing tools?", "Yes. We work with whatever tools your team uses."],
+      ].map(([q, a]) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">Pricing</p>
+        <h2>From £1,000/month</h2>
+      </div>
+      <p>Price depends on team size and support needs. Book a free discovery call to get an exact quote.</p>
+      <div class="button-row" style="margin-top: 24px;">
+        <a class="button" href="/contact/" data-cta="monthly-support-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+        <a class="button button-secondary" href="/pricing/">See all pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <h2>Ready for ongoing AI support?</h2>
+        <p>Book a free discovery call and we'll discuss the right level of support for your business.</p>
+      </div>
+      <a class="button" href="/contact/" data-cta="monthly-support-cta-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+    </div>
+  </section>
+</BaseLayout>

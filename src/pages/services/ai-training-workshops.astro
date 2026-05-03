@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="AI Training Workshops for UK SMEs"
+  description="Practical AI training workshops for teams who want to use AI confidently on real work. From £1,500."
+>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Service</p>
+      <h1>AI Training Workshops</h1>
+      <p>Hands-on sessions for teams who want to use AI effectively in day-to-day work.</p>
+      <a class="button" href="/contact/" data-cta="training-workshop-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">Best for</p>
+      <h2>Teams who haven't used AI confidently yet</h2>
+      <p class="lead">You know AI can help, but the team needs hands-on guidance and clear examples from your actual work — not a tool demo.</p>
+    </aside>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">What's included</p>
+      <h2>Everything your team needs to start using AI confidently.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div>
+        <h3>Prompting fundamentals</h3>
+        <p>Learn how to write effective prompts that get useful results from AI tools.</p>
+      </div>
+      <div>
+        <h3>Best tools by department</h3>
+        <p>We recommend the right tools for each team's specific workflows.</p>
+      </div>
+      <div>
+        <h3>Time-saving use cases</h3>
+        <p>Real examples from your industry that save hours every week.</p>
+      </div>
+      <div>
+        <h3>Safe usage guidance</h3>
+        <p>Clear rules on what can go into AI tools and what stays private.</p>
+      </div>
+      <div>
+        <h3>Built around your work</h3>
+        <p>We use your actual tasks, not invented examples.</p>
+      </div>
+      <div>
+        <h3>30-day follow-up</h3>
+        <p>Email support to answer questions as they come up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU LEAVE WITH -->
+  <section class="section section-tight chapter">
+    <div class="section-header">
+      <p class="eyebrow">What you leave with</p>
+      <h2>Tangible outputs your team can use immediately.</h2>
+    </div>
+    <div class="grid grid-3">
+      {[
+        ["Confident team", "Your team knows how to use AI on real tasks."],
+        ["Prompt pack", "Tailored to your business and industry."],
+        ["Approval rules", "Clear checklist for what needs human review."],
+        ["30 days support", "Email support as questions come up."],
+      ].map(([title, body]) => (
+        <article class="card card-featured">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Use cases</p>
+      <h2>Where AI saves time for your team.</h2>
+    </div>
+    <div class="grid grid-3">
+      {[
+        ["Proposal writing", "Turn scope and case studies into tailored first drafts."],
+        ["Client reports", "Transform notes and data into readable narratives."],
+        ["Email follow-ups", "Prepare timely, personalized responses from CRM notes."],
+        ["Admin automation", "Reduce repetitive tasks that waste hours every week."],
+        ["Document workflows", "Streamline internal processes and SOPs."],
+      ].map(([title, body]) => (
+        <article class="card card-interactive">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- PROBLEM IT SOLVES -->
+  <section class="section section-tight">
+    <div class="split">
+      <div class="panel panel-pad">
+        <p class="eyebrow">Problems it solves</p>
+        <h2>Common AI adoption challenges we fix.</h2>
+        <ul class="checklist">
+          <li>Team unsure how to start with AI</li>
+          <li>Wasting time on ineffective prompts</li>
+          <li>Using AI for the wrong tasks</li>
+          <li>No clear approval or safety rules</li>
+          <li>Generic training that doesn't fit your business</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Deliverables</h3>
+        <ul class="checklist">
+          <li>Full-day workshop (or split sessions)</li>
+          <li>Prompt library tailored to your work</li>
+          <li>AI policy template for your team</li>
+          <li>Tool recommendations by department</li>
+          <li>30-day email support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-tight">
+    <div class="section-header">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="grid grid-2">
+      {[
+        ["Do you sell software?", "No. We're a consultancy. We help you use the right tools, not sell you one."],
+        ["Is this safe for client data?", "Yes. We never put sensitive client data into public AI tools without your explicit approval and proper safeguards."],
+        ["Do you work with ChatGPT or Copilot?", "Yes. We work with the tools that fit your business and team."],
+        ["Can you train non-technical teams?", "Absolutely. We specialise in practical training for everyday business users."],
+        ["What do we get after the workshop?", "Trained team, prompt library, approval rules, and ongoing support."],
+      ].map(([q, a]) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <p class="eyebrow">Pricing</p>
+        <h2>From £1,500</h2>
+      </div>
+      <p>Price depends on team size and complexity of workflows. Book a free discovery call to get an exact quote.</p>
+      <div class="button-row" style="margin-top: 24px;">
+        <a class="button" href="/contact/" data-cta="training-workshop-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+        <a class="button button-secondary" href="/pricing/">See all pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <h2>Ready to train your team on AI?</h2>
+        <p>Book a free discovery call and we'll figure out the right approach for your business.</p>
+      </div>
+      <a class="button" href="/contact/" data-cta="training-workshop-cta-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -7,6 +7,46 @@ const schema = {
   provider: { "@type": "Organization", name: "Human Approved AI", url: "https://humanapprovedai.com" },
   areaServed: "United Kingdom",
   serviceType: "AI training, workflow implementation, and strategy",
+  mainEntityOfPage: {
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do you sell software?",
+        acceptedAnswer: { "@type": "Answer", text: "No. We're a consultancy. We help you use the right tools, not sell you one." }
+      },
+      {
+        "@type": "Question",
+        name: "Is this safe for client data?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. We never put sensitive client data into public AI tools without your explicit approval and proper safeguards." }
+      },
+      {
+        "@type": "Question",
+        name: "Do you work with ChatGPT or Copilot?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. We work with the tools that fit your business and team." }
+      },
+      {
+        "@type": "Question",
+        name: "Can you train non-technical teams?",
+        acceptedAnswer: { "@type": "Answer", text: "Absolutely. We specialise in practical training for everyday business users." }
+      },
+      {
+        "@type": "Question",
+        name: "What happens on the discovery call?",
+        acceptedAnswer: { "@type": "Answer", text: "We discuss your business, identify quick wins, and recommend next steps. No commitment." }
+      },
+      {
+        "@type": "Question",
+        name: "How do you measure success?",
+        acceptedAnswer: { "@type": "Answer", text: "Time saved, workflows implemented, and team confidence using AI independently." }
+      },
+      {
+        "@type": "Question",
+        name: "What do we get after the workshop?",
+        acceptedAnswer: { "@type": "Answer", text: "Trained team, prompt library, and clear approval rules for ongoing use." }
+      },
+    ]
+  }
 };
 ---
 
@@ -18,13 +58,13 @@ const schema = {
   <!-- HERO -->
   <section class="hero">
     <div class="hero-copy">
-      <h1>Practical AI for Real Businesses</h1>
+      <h1>Turn scattered AI experiments into workflows your team actually uses.</h1>
       <p>
-        We help UK SMEs train teams, improve workflows, and adopt AI in ways
-        that save time, increase output, and actually make commercial sense.
+        We help UK SMEs find where AI saves real time, train teams on real work,
+        and build simple systems for admin, reports, proposals, emails, and internal knowledge.
       </p>
       <div class="hero-actions">
-        <a class="button" href="/contact/" data-cta="hero-book">Book Free Discovery Call</a>
+        <a class="button" href="/contact/" data-cta="hero-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
         <a class="button button-secondary" href="/services/" data-cta="hero-services">See Services</a>
       </div>
     </div>
@@ -40,9 +80,34 @@ const schema = {
     </aside>
   </section>
 
+  <!-- WHAT WE ACTUALLY HELP WITH -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">What we actually help with</p>
+      <h2>Workflows that save real time</h2>
+    </div>
+    <div class="grid grid-3">
+      {([
+        ["Proposal writing", "Turn your scope and case studies into tailored first drafts your team reviews."],
+        ["Client reports", "Transform notes and data into readable narratives for client approval."],
+        ["Sales follow-ups", "Prepare timely, personalized follow-ups from CRM notes."],
+        ["Internal knowledge search", "Make your documents searchable and useful with AI assistants."],
+        ["Meeting notes to actions", "Turn meeting transcripts into structured action items."],
+        ["AI policy and safe usage", "Create clear rules for your team on what AI can and cannot do."],
+        ["Recruitment/admin workflows", "Streamline candidate outreach, onboarding, and document processes."],
+      ] as const).map(([title, body]) => (
+        <article class="card card-interactive">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
   <!-- TRUST STRIP -->
   <section class="section section-tight trust-ribbon" aria-label="Trust strip">
     <p><strong>Helping business owners and teams use AI without jargon, chaos, or expensive mistakes.</strong></p>
+    <a href="/about/" class="button button-secondary" style="margin-left: auto;">About us</a>
   </section>
 
   <!-- PROBLEM SECTION -->
@@ -79,6 +144,35 @@ const schema = {
     </div>
     <div class="button-row" style="margin-top: 28px">
       <a class="button button-secondary" href="/services/" data-cta="services-preview">See All Services</a>
+    </div>
+  </section>
+
+  <!-- WORKFLOW DIAGRAM -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">How it works visually</p>
+      <h2>Your workflow, step by step.</h2>
+    </div>
+    <div class="workflow-diagram">
+      <div class="workflow-step">
+        <h3>1. Current state</h3>
+        <p>Map where the time goes now</p>
+      </div>
+      <div class="workflow-arrow">→</div>
+      <div class="workflow-step">
+        <h3>2. AI drafts</h3>
+        <p>First pass created by AI</p>
+      </div>
+      <div class="workflow-arrow">→</div>
+      <div class="workflow-step">
+        <h3>3. Human review</h3>
+        <p>Your team checks and approves</p>
+      </div>
+      <div class="workflow-arrow">→</div>
+      <div class="workflow-step">
+        <h3>4. Ready to go</h3>
+        <p>Final output, human-approved</p>
+      </div>
     </div>
   </section>
 
@@ -152,6 +246,29 @@ const schema = {
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section section-tight">
+    <div class="section-header">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="grid grid-2">
+      {[
+        ["Do you sell software?", "No. We're a consultancy. We help you use the right tools, not sell you one."],
+        ["Is this safe for client data?", "Yes. We never put sensitive client data into public AI tools without your explicit approval and proper safeguards."],
+        ["Do you work with ChatGPT or Copilot?", "Yes. We work with the tools that fit your business and team."],
+        ["Can you train non-technical teams?", "Absolutely. We specialise in practical training for everyday business users."],
+        ["What happens on the discovery call?", "We discuss your business, identify quick wins, and recommend next steps. No commitment."],
+        ["How do you measure success?", "Time saved, workflows implemented, and team confidence using AI independently."],
+        ["What do we get after the workshop?", "Trained team, prompt library, and clear approval rules for ongoing use."],
+      ].map(([q, a]) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
   <!-- FINAL CTA -->
   <section class="section section-tight">
     <div class="panel panel-pad">
@@ -162,7 +279,7 @@ const schema = {
           we'll make it simple.
         </p>
       </div>
-      <a class="button" href="/contact/" data-cta="final-book">Book Free Discovery Call</a>
+      <a class="button" href="/contact/" data-cta="final-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
     </div>
   </section>
 </BaseLayout>

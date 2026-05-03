@@ -1,11 +1,62 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
----
+
+const pricingSchema = {
+  "@type": "Service",
+  name: "AI Services Pricing for UK SMEs",
+  provider: { "@type": "Organization", name: "Human Approved AI", url: "https://humanapprovedai.com" },
+  areaServed: "United Kingdom",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "AI Services Pricing",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Training Workshop", price: "1500", priceCurrency: "GBP" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Leadership Strategy Session", price: "2500", priceCurrency: "GBP" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Workflow Implementation", price: "3500", priceCurrency: "GBP" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monthly Support Retainer", price: "1000", priceCurrency: "GBP" } },
+    ]
+  },
+  mainEntityOfPage: {
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do you sell software?",
+        acceptedAnswer: { "@type": "Answer", text: "No. We're a consultancy. We help you use the right tools, not sell you one." }
+      },
+      {
+        "@type": "Question",
+        name: "Is this safe for client data?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. We never put sensitive client data into public AI tools without your explicit approval and proper safeguards." }
+      },
+      {
+        "@type": "Question",
+        name: "Do you work with ChatGPT or Copilot?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. We work with the tools that fit your business and team." }
+      },
+      {
+        "@type": "Question",
+        name: "Can you train non-technical teams?",
+        acceptedAnswer: { "@type": "Answer", text: "Absolutely. We specialise in practical training for everyday business users." }
+      },
+      {
+        "@type": "Question",
+        name: "How do you measure success?",
+        acceptedAnswer: { "@type": "Answer", text: "Time saved, workflows implemented, and team confidence using AI independently." }
+      },
+      {
+        "@type": "Question",
+        name: "What happens after we start?",
+        acceptedAnswer: { "@type": "Answer", text: "We begin with a discovery call, then move to implementation based on your chosen service." }
+      },
+    ]
+  }
+};
 
 <BaseLayout
   title="Pricing"
   description="Practical AI services for UK SMEs. AI training from £1,500, strategy sessions from £2,500, workflow implementation from £3,500, and ongoing support from £1,000/month."
->
+  schema={pricingSchema}
   <!-- HERO -->
   <section class="page-hero">
     <div class="page-copy">
@@ -15,7 +66,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         Four ways to work with us depending on what your business needs. Every
         engagement starts with a free discovery call to make sure it's the right fit.
       </p>
-      <a class="button" href="/contact/" data-cta="pricing-hero-book">Book Free Discovery Call</a>
+      <a class="button" href="/contact/" data-cta="pricing-hero-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
     </div>
     <aside class="panel panel-pad">
       <p class="eyebrow">Not sure where to start?</p>
@@ -90,7 +141,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <ul class="checklist">
             {pkg.includes.map((line) => <li>{line}</li>)}
           </ul>
-          <a href="/contact/" data-cta={pkg.cta}>Enquire</a>
+          <a href="/contact/" data-cta="pricing-training-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
         </article>
       ))}
     </div>
@@ -120,6 +171,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section section-tight">
+    <div class="section-header">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="grid grid-2">
+      {[
+        ["Do you sell software?", "No. We're a consultancy. We help you use the right tools, not sell you one."],
+        ["Is this safe for client data?", "Yes. We never put sensitive client data into public AI tools without your explicit approval and proper safeguards."],
+        ["Do you work with ChatGPT or Copilot?", "Yes. We work with the tools that fit your business and team."],
+        ["Can you train non-technical teams?", "Absolutely. We specialise in practical training for everyday business users."],
+        ["How do you measure success?", "Time saved, workflows implemented, and team confidence using AI independently."],
+        ["What happens after we start?", "We begin with a discovery call, then move to implementation based on your chosen service."],
+      ].map(([q, a]) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="section section-tight">
     <div class="panel panel-pad">
@@ -128,7 +201,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p>Book a free discovery call and we'll point you in the right direction.</p>
       </div>
       <div class="button-row">
-        <a class="button" href="/contact/" data-cta="pricing-final-book">Book Free Discovery Call</a>
+        <a class="button" href="/contact/" data-cta="pricing-final-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
         <a class="button button-secondary" href="/services/" data-cta="pricing-services">See all services</a>
       </div>
     </div>

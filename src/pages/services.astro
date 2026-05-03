@@ -1,24 +1,152 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const serviceSchema = {
+  "@type": "Service",
+  name: "AI Services for UK SMEs",
+  provider: { "@type": "Organization", name: "Human Approved AI", url: "https://humanapprovedai.com" },
+  areaServed: "United Kingdom",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "AI Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Training Workshops", price: "1500", priceCurrency: "GBP" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Leadership Strategy Sessions", price: "2500", priceCurrency: "GBP" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Workflow Implementation", price: "3500", priceCurrency: "GBP" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monthly Support Retainer", price: "1000", priceCurrency: "GBP" } },
+    ]
+  },
+  mainEntityOfPage: {
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do you sell software?",
+        acceptedAnswer: { "@type": "Answer", text: "No. We're a consultancy. We help you use the right tools, not sell you one." }
+      },
+      {
+        "@type": "Question",
+        name: "Is this safe for client data?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. We never put sensitive client data into public AI tools without your explicit approval and proper safeguards." }
+      },
+      {
+        "@type": "Question",
+        name: "Do you work with ChatGPT or Copilot?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. We work with the tools that fit your business and team." }
+      },
+      {
+        "@type": "Question",
+        name: "Can you train non-technical teams?",
+        acceptedAnswer: { "@type": "Answer", text: "Absolutely. We specialise in practical training for everyday business users." }
+      },
+      {
+        "@type": "Question",
+        name: "What do we get after the workshop?",
+        acceptedAnswer: { "@type": "Answer", text: "Trained team, prompt library, approval rules, and ongoing support." }
+      },
+    ]
+  }
+};
 ---
 
 <BaseLayout
   title="AI Services for UK SMEs"
   description="Practical AI training, workflow implementation, leadership strategy, and monthly support for UK small and medium businesses."
->
+  schema={serviceSchema}
   <!-- HERO -->
   <section class="page-hero">
     <div class="page-copy">
       <p class="eyebrow">Services</p>
       <h1>AI Services for UK SMEs</h1>
       <p>Practical support for businesses that want results, not hype.</p>
-      <a class="button" href="/contact/" data-cta="services-hero-book">Book Free Discovery Call</a>
+      <a class="button" href="/contact/" data-cta="services-hero-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
     </div>
     <aside class="panel panel-pad">
       <p class="eyebrow">Not sure where to start?</p>
       <h2>Most businesses start with a free discovery call.</h2>
       <p class="lead">We'll tell you which service fits your business and budget before you commit to anything.</p>
     </aside>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Service comparison</p>
+      <h2>Choose the right engagement for your business</h2>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Best for</th>
+            <th>Outcome</th>
+            <th>Starting price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>AI Training Workshop</strong></td>
+            <td>Teams new to AI</td>
+            <td>Confident team using AI on real work</td>
+            <td>£1,500</td>
+          </tr>
+          <tr>
+            <td><strong>Leadership Strategy Session</strong></td>
+            <td>Owners needing clarity</td>
+            <td>Clear AI roadmap and priorities</td>
+            <td>£2,500</td>
+          </tr>
+          <tr>
+            <td><strong>Workflow Implementation</strong></td>
+            <td>Businesses losing hours</td>
+            <td>Built and handed-over workflows</td>
+            <td>£3,500</td>
+          </tr>
+          <tr>
+            <td><strong>Monthly Support Retainer</strong></td>
+            <td>Ongoing guidance</td>
+            <td>Staying ahead as AI evolves</td>
+            <td>£1,000/month</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP OFFER -->
+  <section class="section section-tight">
+    <div class="panel panel-pad highlight" style="border: 3px solid var(--ink);">
+      <div class="section-header">
+        <p class="eyebrow">Flagship offer</p>
+        <h2>AI Adoption Starter Sprint</h2>
+        <p class="price" style="font-size: clamp(2rem, 4vw, 3.5rem);">From £3,500</p>
+      </div>
+      <div class="grid grid-3">
+        <div>
+          <h3>What's included</h3>
+          <ul class="checklist">
+            <li>Discovery session</li>
+            <li>Workflow audit</li>
+            <li>Team training</li>
+            <li>One workflow implementation</li>
+            <li>Prompt library</li>
+            <li>30-day follow-up</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Best for</h3>
+          <p>Businesses ready to move from experimenting to embedding AI in real work.</p>
+        </div>
+        <div>
+          <h3>What you leave with</h3>
+          <p>Trained team, working workflow, prompt library, and clear next steps.</p>
+        </div>
+      </div>
+      <div class="button-row" style="margin-top: 24px;">
+        <a class="button" href="/contact/" data-cta="flagship-enquire-a-free-ai-discovery-call">Book a free AI discovery call</a>
+      </div>
+    </div>
   </section>
 
   <!-- SERVICE 1: AI TRAINING WORKSHOPS -->
@@ -28,14 +156,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p class="eyebrow">Service 01</p>
         <h2>AI Training Workshops</h2>
         <p>Hands-on sessions for teams who want to use AI effectively in day-to-day work.</p>
+        <h3>What's included</h3>
         <ul class="checklist">
           <li>Prompting fundamentals</li>
           <li>Best tools by department</li>
           <li>Time-saving use cases</li>
           <li>Safe usage guidance</li>
+          <li>Built around your real workflows</li>
+        </ul>
+        <h3>What you leave with</h3>
+        <ul class="checklist">
+          <li>Confident team using AI on real tasks</li>
+          <li>Prompt pack tailored to your business</li>
+          <li>Approval rules and safety checklist</li>
+          <li>30-day follow-up support</li>
         </ul>
         <div class="button-row" style="margin-top: 24px">
-          <a class="button" href="/contact/" data-cta="service1-enquire">Enquire</a>
+          <a class="button" href="/contact/" data-cta="service1-enquire">Book a free AI discovery call</a>
           <a class="button button-secondary" href="/pricing/" data-cta="service1-pricing">See pricing</a>
         </div>
       </div>
@@ -65,6 +202,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p class="eyebrow">Service 02</p>
         <h2>Workflow Implementation</h2>
         <p>We identify repetitive work and improve it using AI systems.</p>
+        <h3>What's included</h3>
         <ul class="checklist">
           <li>Admin tasks</li>
           <li>Reporting</li>
@@ -72,8 +210,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <li>Sales follow-up</li>
           <li>Document workflows</li>
         </ul>
+        <h3>What you leave with</h3>
+        <ul class="checklist">
+          <li>Built and tested workflow</li>
+          <li>Team handover and training</li>
+          <li>Documentation and approval rules</li>
+          <li>30-day support period</li>
+        </ul>
         <div class="button-row" style="margin-top: 24px">
-          <a class="button" href="/contact/" data-cta="service2-enquire">Enquire</a>
+          <a class="button" href="/contact/" data-cta="service2-enquire">Book a free AI discovery call</a>
           <a class="button button-secondary" href="/pricing/" data-cta="service2-pricing">See pricing</a>
         </div>
       </div>
@@ -87,14 +232,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p class="eyebrow">Service 03</p>
         <h2>Leadership Strategy Sessions</h2>
         <p>For owners and directors who need clarity.</p>
+        <h3>What's included</h3>
         <ul class="checklist">
           <li>Where AI fits your business</li>
           <li>What to ignore</li>
           <li>ROI opportunities</li>
           <li>Team rollout roadmap</li>
         </ul>
+        <h3>What you leave with</h3>
+        <ul class="checklist">
+          <li>Clear AI strategy document</li>
+          <li>Prioritised opportunity list</li>
+          <li>ROI projection for top 3 areas</li>
+          <li>Team rollout timeline</li>
+        </ul>
         <div class="button-row" style="margin-top: 24px">
-          <a class="button" href="/contact/" data-cta="service3-enquire">Enquire</a>
+          <a class="button" href="/contact/" data-cta="service3-enquire">Book a free AI discovery call</a>
           <a class="button button-secondary" href="/pricing/" data-cta="service3-pricing">See pricing</a>
         </div>
       </div>
@@ -124,14 +277,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p class="eyebrow">Service 04</p>
         <h2>Monthly Support Retainer</h2>
         <p>Stay ahead without hiring internally.</p>
+        <h3>What's included</h3>
         <ul class="checklist">
           <li>Ongoing advice</li>
           <li>Team support</li>
           <li>Tool updates</li>
           <li>Quarterly optimisation</li>
         </ul>
+        <h3>What you leave with</h3>
+        <ul class="checklist">
+          <li>Regular strategy check-ins</li>
+          <li>Updated workflows as AI evolves</li>
+          <li>Team confidence and adoption</li>
+          <li>Access to latest best practices</li>
+        </ul>
         <div class="button-row" style="margin-top: 24px">
-          <a class="button" href="/contact/" data-cta="service4-enquire">Enquire</a>
+          <a class="button" href="/contact/" data-cta="service4-enquire">Book a free AI discovery call</a>
           <a class="button button-secondary" href="/pricing/" data-cta="service4-pricing">See pricing</a>
         </div>
       </div>
@@ -145,7 +306,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <h2>Not sure which service fits?</h2>
         <p>Book a free discovery call and we'll point you in the right direction.</p>
       </div>
-      <a class="button" href="/contact/" data-cta="services-final-book">Book Free Discovery Call</a>
+      <a class="button" href="/contact/" data-cta="services-final-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
     </div>
   </section>
 </BaseLayout>
