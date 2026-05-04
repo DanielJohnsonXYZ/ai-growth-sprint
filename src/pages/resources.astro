@@ -25,19 +25,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section class="section">
     <div class="grid grid-3">
       {([
-        ["Guide", "AI for SMEs in 2026", "What actually works for small and medium businesses right now — practical tools, common mistakes, and where to start.", "resource-smes-2026"],
-        ["Guide", "How to Train Your Team on AI", "A practical framework for getting your team using AI confidently without chaos or confusion.", "resource-train-team"],
-        ["Guide", "Best AI Tools for Accountants", "A breakdown of which tools actually save time in accounting workflows and which ones to avoid.", "resource-accountants"],
-        ["Template", "AI Policy Template for Small Businesses", "A ready-to-use AI usage policy you can adapt for your team — covering data, approval, and acceptable use.", "resource-policy"],
-        ["Guide", "AI Adoption Checklist for UK SMEs", "Step-by-step checklist for adopting AI in your business — where to start and what to prioritise.", "resource-checklist"],
-      ] as const).map(([type, title, body, id]) => (
+        ["Guide", "AI for SMEs in 2026", "What actually works for small and medium businesses right now — practical tools, common mistakes, and where to start.", "resource-smes-2026", null],
+        ["Guide", "How to Train Your Team on AI", "A practical framework for getting your team using AI confidently without chaos or confusion.", "resource-train-team", null],
+        ["Guide", "Best AI Tools for Accountants", "A breakdown of which tools actually save time in accounting workflows and which ones to avoid.", "resource-accountants", null],
+        ["Template", "AI Policy Template for Small Businesses", "A ready-to-use AI usage policy you can adapt for your team — covering data, approval, and acceptable use. Read the full sample online or request by email.", "resource-policy", "/ai-policy-template/"],
+        ["Guide", "AI Adoption Checklist for UK SMEs", "Step-by-step checklist for adopting AI in your business — where to start and what to prioritise.", "resource-checklist", null],
+      ] as const).map(([type, title, body, id, readOnlineHref]) => (
         <article class="card card-interactive lead-magnet-panel">
           <p class="eyebrow">{type}</p>
           <h3>{title}</h3>
           <p>{body}</p>
+          {readOnlineHref ? (
+            <p class="resource-online-link">
+              <a class="text-link" href={readOnlineHref} data-cta={`resources-read-${id}`}>
+                Read the sample policy online
+              </a>
+            </p>
+          ) : null}
           <form data-lead-magnet={id} class="lead-magnet-form">
             <input type="email" placeholder="Your email" required class="lead-magnet-input" />
-            <button class="button button-small" type="submit">{type === "Template" ? "Download" : "Get guide"}</button>
+            <button class="button button-small" type="submit">{type === "Template" ? "Email me a copy" : "Get guide"}</button>
           </form>
         </article>
       ))}
@@ -59,6 +66,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .resource-online-link {
+    margin: 0.35rem 0 0.65rem;
+  }
+  .resource-online-link .text-link {
+    color: var(--accent, #0f766e);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>
 
 <script>
   document.querySelectorAll('.lead-magnet-form').forEach(form => {

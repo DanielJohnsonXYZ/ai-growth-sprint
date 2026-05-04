@@ -1,0 +1,194 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+
+const faqItems: [string, string][] = [
+  [
+    "Do we need a written AI policy if we only use ChatGPT occasionally?",
+    "If more than one person uses AI for work — even occasionally — a short written policy reduces confusion about what can go into tools, what needs approval, and who is responsible for checking outputs. It also helps with GDPR-style accountability: you can show you thought about risk.",
+  ],
+  [
+    "Is this sample policy legal advice?",
+    "No. It is a practical starting point for internal discussion. Have someone with authority in your business (and your lawyer or adviser if you handle sensitive data) adapt it before you rely on it.",
+  ],
+  [
+    "What should an AI policy cover at minimum?",
+    "Typically: allowed use cases, data you must not paste into AI tools, human review rules, record-keeping where needed, and how you handle vendor or client confidential information. See Trust & security for how we train teams on review.",
+  ],
+  [
+    "How do we roll this out without slowing the team?",
+    "Start with one page and a 15-minute team read. Pair it with two or three approved workflows from real work — not a long rulebook. We help teams do this in workshops.",
+  ],
+  [
+    "Can we use this if we use Microsoft Copilot or other enterprise tools?",
+    "Yes — adjust the “Approved tools” section to name what your organisation pays for, and add any IT security rules your provider gives you.",
+  ],
+  [
+    "What if a client forbids AI on their matter?",
+    "Your policy should say that client or contract terms override the default rules. Staff must check matter-specific restrictions before using AI.",
+  ],
+];
+
+const schema = {
+  "@type": "FAQPage",
+  mainEntity: faqItems.map(([name, text]) => ({
+    "@type": "Question",
+    name,
+    acceptedAnswer: { "@type": "Answer", text },
+  })),
+};
+
+const samplePolicy = `AI USE POLICY — SAMPLE (INTERNAL DRAFT)
+
+1. Purpose
+This policy sets out how [Company Name] uses AI tools to support work while protecting clients, colleagues, and confidential information.
+
+2. Scope
+Applies to everyone who uses AI for [Company Name] business, including contractors, unless a contract says otherwise.
+
+3. Principles
+• Human accountability: A named person checks anything that affects a client, a regulator, or a legal commitment.
+• Data minimisation: Do not paste unnecessary personal or confidential data into AI tools.
+• Transparency: If AI helped produce a client-facing document, follow your professional / sector rules on disclosure.
+
+4. Approved tools
+[List approved tools, e.g. company Microsoft 365 / Copilot, approved ChatGPT workspace — or “none until IT approves”.]
+
+5. Not allowed without written approval
+• Pasting client secrets, unreleased financials, health data, or legally privileged material into consumer AI accounts.
+• Using AI to make final decisions on regulated advice without human sign-off.
+• Sharing login credentials for AI tools.
+
+6. Human review
+Outputs from AI are drafts unless a qualified person has checked them for accuracy, tone, and compliance.
+
+7. Data retention
+Follow [Company] record-keeping rules. Do not rely on AI chat history as your official file — save final versions where your business already stores work.
+
+8. Breaches
+Report suspected misuse to [role / email] immediately.
+
+9. Review date
+Next review: [date].`;
+---
+
+<BaseLayout
+  title="AI policy template for UK SMEs"
+  description="A plain-English sample AI usage policy for UK SMEs: what to include, staff rules, and FAQs — adapt with your lawyer before use."
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Template &amp; guide</p>
+      <h1>AI policy template for UK SMEs</h1>
+      <p>
+        A simplified, public sample you can adapt for your team. Pair it with
+        approval rules and real workflows — not a 20-page handbook nobody reads.
+      </p>
+      <div class="button-row">
+        <a class="button" href={SITE.bookingUrl} data-cta="ai-policy-hero-cta">{SITE.primaryCtaNav}</a>
+        <a class="button button-secondary" href="/resources/" data-cta="ai-policy-resources">More resources</a>
+      </div>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">Not legal advice</p>
+      <h2>Use this to start the conversation.</h2>
+      <p class="lead">
+        Every sector has different duties (GDPR, confidentiality, professional rules). Treat this as a structure, then tailor it with whoever owns risk in your business — and legal counsel where needed.
+      </p>
+      <p class="lead">
+        <a href="/trust-security/">Trust &amp; security</a>
+        {" · "}
+        <a href="/privacy/">Privacy</a>
+      </p>
+    </aside>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <h2>Why a short policy beats “we’ll figure it out”</h2>
+      <p>
+        Teams adopt AI faster when the rules are clear: what good use looks like, what needs a second pair of eyes, and what is off-limits. Without that, you get shadow IT, inconsistent quality, and awkward client conversations.
+      </p>
+      <ul class="policy-list">
+        <li><strong>Clauses to include:</strong> purpose, approved tools, prohibited data, human review, client overrides, breach reporting, review date.</li>
+        <li><strong>Staff “do” list:</strong> use AI for first drafts and structure; label assumptions; escalate anything client-facing or regulated.</li>
+        <li><strong>Staff “don’t” list:</strong> paste secrets into personal AI accounts; treat outputs as final; bypass approval for high-risk work.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <h2>Sample policy (copy and edit)</h2>
+      <p class="muted">
+        Replace bracketed placeholders. Remove sections that do not apply. Keep it to one or two pages if you can.
+      </p>
+      <pre class="policy-pre" aria-label="Sample AI policy text">{samplePolicy}</pre>
+      <p>
+        <a class="button button-secondary" href={`mailto:${SITE.email}?subject=${encodeURIComponent("AI policy template — workshop enquiry")}`} data-cta="ai-policy-email">
+          Email us to adapt this for your team
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="section-header">
+      <h2>FAQ</h2>
+      <p>Common questions from owners and ops leads when they first publish an AI policy.</p>
+    </div>
+    <div class="grid grid-2 faq-grid">
+      {faqItems.map(([q, a]) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <h2>Want this operational, not just on paper?</h2>
+        <p>We train UK SME teams on practical workflows, approval habits, and safe defaults — so the policy matches how people actually work.</p>
+      </div>
+      <a class="button" href={SITE.bookingUrl} data-cta="ai-policy-footer-cta">{SITE.primaryCtaNav}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .policy-list {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+    line-height: 1.6;
+  }
+  .policy-list li {
+    margin-bottom: 0.65rem;
+  }
+  .muted {
+    color: var(--muted, #64748b);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .policy-pre {
+    margin: 0;
+    padding: 1.25rem;
+    background: var(--surface-2, #f1f5f9);
+    border: 1px solid var(--line, #e2e8f0);
+    border-radius: 0.5rem;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+</style>
