@@ -44,6 +44,15 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Analytics: GTM high in head; dataLayer — page_context; cta_click; booking_click; calendly_click; form_submit; resource_download. GA4 Config tag + triggers in GTM workspace. -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    {SITE.gtmContainerId ? (
+      <script
+        is:inline
+        set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${SITE.gtmContainerId}');`}
+      />
+    ) : null}
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -58,25 +67,46 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={`${SITE.url}/og-image.png`} />
-    {SITE.gtmContainerId ? (
-      <script
-        is:inline
-        set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${SITE.gtmContainerId}');`}
-      />
-    ) : null}
     <script type="application/ld+json" set:html={JSON.stringify(schemaGraph.length === 1 ? schemaGraph[0] : { "@context": "https://schema.org", "@graph": schemaGraph })} />
     <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "page_context",
+        page_path: window.location.pathname,
+        page_title: document.title,
+        page_location: window.location.href
+      });
+
       document.addEventListener("click", (event) => {
         const target = event.target;
         const link = target instanceof Element ? target.closest("a") : null;
         if (!link) return;
         const label = link.dataset.cta || link.textContent?.trim();
         if (!label) return;
+        const href = link.href || "";
+        const isCalendly = href.includes("calendly.com");
+        let eventName = label.toLowerCase().includes("book") ? "booking_click" : "cta_click";
+        if (isCalendly) eventName = "calendly_click";
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          event: label.toLowerCase().includes("book") ? "booking_click" : "cta_click",
+          event: eventName,
           cta_label: label,
-          cta_href: link.href,
+          cta_href: href,
+          page_path: window.location.pathname
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        const link = target instanceof Element ? target.closest("a[download]") : null;
+        if (!link) return;
+        const href = link.href || "";
+        const label = link.dataset.cta || link.textContent?.trim() || "resource_download";
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "resource_download",
+          download_url: href,
+          download_label: label,
           page_path: window.location.pathname
         });
       });
@@ -88,6 +118,7 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
         window.dataLayer.push({
           event: "form_submit",
           form_id: form.id || form.name || "unknown",
+          form_action: form.action || "unknown",
           page_path: window.location.pathname
         });
       });
