@@ -58,6 +58,12 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={`${SITE.url}/og-image.png`} />
+    {SITE.gtmContainerId ? (
+      <script
+        is:inline
+        set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${SITE.gtmContainerId}');`}
+      />
+    ) : null}
     <script type="application/ld+json" set:html={JSON.stringify(schemaGraph.length === 1 ? schemaGraph[0] : { "@context": "https://schema.org", "@graph": schemaGraph })} />
     <script is:inline>
       document.addEventListener("click", (event) => {
@@ -88,6 +94,17 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
     </script>
   </head>
   <body>
+    {SITE.gtmContainerId ? (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${SITE.gtmContainerId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+          title="Google Tag Manager"
+        />
+      </noscript>
+    ) : null}
     <div class="grain"></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />

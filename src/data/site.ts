@@ -4,6 +4,9 @@ export const SITE = {
     "Practical AI training for UK SME teams that want to save time, improve output, and keep final decisions human.",
   url: "https://humanapprovedai.com",
   bookingUrl: "/contact/",
+  /** Shown in nav/footer — leads to enquiry form (not a live calendar). */
+  primaryCtaNav: "Request a free AI adoption call",
+  gtmContainerId: "GTM-M5NN25K3",
   email: "hello@humanapprovedai.com",
   phone: "",
 };
