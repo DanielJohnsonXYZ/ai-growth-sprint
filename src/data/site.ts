@@ -266,6 +266,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["client-reporting", "client-onboarding-and-admin", "proposals-and-tenders"],
     outreachPhase: "Phase 1",
     proofNote: "Case studies added as they are completed. No invented proof.",
+    faqs: [
+      {
+        q: "Can AI replace qualified accountants or sign off client advice?",
+        a: "No. AI helps with preparation — reports, chasers, onboarding packs, and proposal first passes. Partners and qualified team members still approve anything technical, client-facing, or compliance-critical.",
+      },
+      {
+        q: "What should accountancy teams avoid putting into public AI tools?",
+        a: "Unredacted client identifiers, live figures you have not cleared, privileged advice drafts, and anything that belongs in your practice management or secure systems. Workshops include a practical red-lines list.",
+      },
+      {
+        q: "What does a workshop look like for a typical firm?",
+        a: "We work from real tasks: a management report, a KYC chase, an engagement letter, or a proposal — with clear human review before anything is sent. You leave with prompts and approval rules your team can reuse.",
+      },
+    ],
   },
   {
     slug: "property",
@@ -290,6 +304,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["email-and-follow-ups", "client-reporting", "research-and-briefing"],
     outreachPhase: "Phase 1",
     proofNote: "High priority for named proof.",
+    faqs: [
+      {
+        q: "Can AI replace local judgment on valuations, compliance, or regulated statements?",
+        a: "No. AI helps with listing copy, follow-ups, and report structure from your notes. Negotiators and directors still approve anything that could affect a sale, tenancy, or regulatory position.",
+      },
+      {
+        q: "What should property teams avoid putting into public AI tools?",
+        a: "Live applicant or vendor details you have not cleared, sensitive chain information, and draft advice that has not been checked. We map what can be drafted versus what must stay in your CRM or internal tools.",
+      },
+      {
+        q: "Is this only for big agencies?",
+        a: "No — we train teams from small independents to multi-branch groups. The workflows scale, but the approval rules stay explicit so busy branches do not ship unchecked copy.",
+      },
+    ],
   },
   {
     slug: "recruitment",
@@ -314,6 +342,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["email-and-follow-ups", "client-reporting", "research-and-briefing"],
     outreachPhase: "Phase 2",
     proofNote: "Connect with professional services proof where relevant.",
+    faqs: [
+      {
+        q: "Can AI make final hiring decisions or replace recruiter judgment?",
+        a: "No. AI helps with sourcing, shortlist rationale, and outreach drafts. Recruiters remain responsible for fit, compliance with your processes, and every candidate or client decision.",
+      },
+      {
+        q: "What should recruiters avoid putting into public AI tools?",
+        a: "CVs and candidate details without a clear basis, client exclusives, salary intelligence you treat as confidential, and anything that could identify a person without due care. We set guardrails in the session.",
+      },
+      {
+        q: "Will this work for both perm and contract desks?",
+        a: "Yes — the workflows adapt. The constant is human review before messages go out and before shortlists are presented as final.",
+      },
+    ],
   },
   {
     slug: "legal",
@@ -338,6 +380,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["research-and-briefing", "client-onboarding-and-admin", "documentation-and-sops"],
     outreachPhase: "Phase 2",
     proofNote: "Use proof only where permission and confidentiality allow.",
+    faqs: [
+      {
+        q: "Is this legal advice or AI acting as a lawyer?",
+        a: "Neither. Everything we cover is preparation support: intake summaries, research structure, checklists, and admin drafts. Fee earners approve all advice, filings, and client-facing legal content.",
+      },
+      {
+        q: "What should law firms avoid putting into public AI tools?",
+        a: "Matter details, client identifiers, privileged material, and anything you would not paste into an unsecured channel. Many firms prefer private or firm-approved tools — we align workflows to your risk posture.",
+      },
+      {
+        q: "Where do firms usually start?",
+        a: "Often with intake, research briefing, or billing narratives — high-repeat tasks where a faster first pass is obviously useful and review is already part of the culture.",
+      },
+    ],
   },
   {
     slug: "manufacturing",
@@ -362,6 +418,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["proposals-and-tenders", "documentation-and-sops"],
     outreachPhase: "Phase 2",
     proofNote: "Use after construction credibility exists.",
+    faqs: [
+      {
+        q: "Does this cover the factory floor or shopfloor automation?",
+        a: "We focus on office workflows: RFQs, supplier comms, ISO documentation, proposals, and SOPs. Production systems and safety-critical controls stay with your engineers and ops leads.",
+      },
+      {
+        q: "Who signs off AI-assisted quotes and compliance documents?",
+        a: "Commercial, quality, and technical owners still approve anything customer-facing or audit-ready. AI produces structure and first passes from approved inputs.",
+      },
+      {
+        q: "What should we avoid putting into public AI tools?",
+        a: "Live customer specs, pricing you have not cleared, supplier terms marked confidential, and unapproved quality records. We build a simple “draft vs internal only” rule set with your team.",
+      },
+    ],
   },
   {
     slug: "retail",
@@ -386,6 +456,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["email-and-follow-ups", "research-and-briefing", "client-reporting"],
     outreachPhase: "Phase 3",
     proofNote: "Collect after Phase 1 proof.",
+    faqs: [
+      {
+        q: "Will AI-generated product copy be accurate for compliance (allergens, claims, pricing)?",
+        a: "AI drafts from your facts and tone rules — merchandising and management still approve claims, allergens, and price-sensitive wording before anything goes live.",
+      },
+      {
+        q: "What should retail teams avoid putting into public AI tools?",
+        a: "Unreleased ranges, supplier cost data, individual customer order detail you have not cleared, and promotional claims that have not been verified.",
+      },
+      {
+        q: "Is this useful for both shops and ecommerce?",
+        a: "Yes. The same patterns apply: batch copy, campaign first passes, and planning summaries — always with a human check before publishing or ordering.",
+      },
+    ],
   },
   {
     slug: "hospitality",
@@ -410,6 +494,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["email-and-follow-ups", "documentation-and-sops"],
     outreachPhase: "Phase 3",
     proofNote: "Collect after Phase 1 proof.",
+    faqs: [
+      {
+        q: "Will AI replace managers approving guest-facing messages?",
+        a: "No. AI helps draft replies, menus, and campaign copy from your notes. Managers approve tone, accuracy, and anything that could affect bookings or reputation.",
+      },
+      {
+        q: "What should hospitality teams avoid putting into public AI tools?",
+        a: "Guest payment details, private event contracts, staff personal data, and unresolved complaints that could identify individuals. Use approved tools and redact where needed.",
+      },
+      {
+        q: "Can you help with reviews and reputation?",
+        a: "We train teams to produce first-pass responses for review — still human-approved — so reviews get timely, consistent replies without copy-paste tone-deafness.",
+      },
+    ],
   },
   {
     slug: "logistics",
@@ -434,6 +532,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["email-and-follow-ups", "client-reporting", "documentation-and-sops"],
     outreachPhase: "Phase 3",
     proofNote: "Collect after Phase 1 proof.",
+    faqs: [
+      {
+        q: "Does AI decide routes, loads, or compliance outcomes?",
+        a: "No. AI helps structure planning notes, stakeholder updates, and documentation first passes. Dispatch, compliance, and operations teams remain accountable for decisions.",
+      },
+      {
+        q: "What should logistics teams avoid putting into public AI tools?",
+        a: "Live customer delivery data, driver identifiers, unapproved rates, and contract terms marked confidential. We align drafts to what can safely leave your TMS or internal systems.",
+      },
+      {
+        q: "Where is the quickest win?",
+        a: "Usually status updates and daily comms — turning one messy source note into clear customer or internal updates with a consistent format.",
+      },
+    ],
   },
   {
     slug: "healthcare",
@@ -458,6 +570,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["client-onboarding-and-admin", "email-and-follow-ups", "documentation-and-sops"],
     outreachPhase: "Phase 3",
     proofNote: "Use cautiously and with clear permission.",
+    faqs: [
+      {
+        q: "Is this clinical AI or diagnostic support?",
+        a: "No. We only train admin, communication, documentation formatting, and operations workflows. Clinical decisions stay with registered professionals and your governance.",
+      },
+      {
+        q: "What should healthcare teams avoid putting into public AI tools?",
+        a: "Identifiable patient data, clinical notes you have not cleared for de-identification, and anything regulated under your IG policies. Prefer approved systems and explicit redaction rules.",
+      },
+      {
+        q: "Who approves patient-facing messages?",
+        a: "Practice staff and clinicians approve every patient-facing message before it is sent. AI may draft from approved templates and notes only.",
+      },
+    ],
   },
   {
     slug: "agriculture",
@@ -482,6 +608,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["documentation-and-sops", "research-and-briefing", "email-and-follow-ups"],
     outreachPhase: "Phase 3",
     proofNote: "Collect after Phase 1 proof.",
+    faqs: [
+      {
+        q: "Can AI submit grant or subsidy applications for us?",
+        a: "No. AI helps organize evidence and prepare first-pass answers from your data. Owners and advisors still verify accuracy before anything is submitted.",
+      },
+      {
+        q: "What should farm offices avoid putting into public AI tools?",
+        a: "Live subsidy identifiers, supplier pricing you treat as sensitive, and personal staff data. Treat public tools like a whiteboard — draft, then move sensitive detail to approved storage.",
+      },
+      {
+        q: "Is this relevant if we are a small family farm?",
+        a: "Yes — the wins are usually in the office: grants, records, buyer comms, and seasonal planning notes turned into clearer briefs.",
+      },
+    ],
   },
   {
     slug: "professional-services",
@@ -506,6 +646,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["proposals-and-tenders", "client-reporting", "research-and-briefing", "documentation-and-sops"],
     outreachPhase: "Phase 3",
     proofNote: "Cross-link with recruitment where relevant.",
+    faqs: [
+      {
+        q: "Will AI write client deliverables or strategic recommendations?",
+        a: "No. AI speeds up proposals, research briefs, reports, and comms as first passes. Leads and partners still own judgment, commitments, and final client outputs.",
+      },
+      {
+        q: "What should consultancies avoid putting into public AI tools?",
+        a: "Client confidential briefs, unreleased work product, pricing and margin detail, and personal data. Use your firm’s classification rules — we help operationalize them in prompts.",
+      },
+      {
+        q: "How do we avoid generic AI tone in client work?",
+        a: "We build tone rules, exemplar snippets, and review checkpoints so drafts sound like your firm — and nothing goes out without a human sign-off.",
+      },
+    ],
   },
   {
     slug: "agencies",
@@ -530,6 +684,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["proposals-and-tenders", "client-reporting", "research-and-briefing", "email-and-follow-ups"],
     outreachPhase: "Phase 3",
     proofNote: "Cross-link with professional services where relevant.",
+    faqs: [
+      {
+        q: "Does AI replace strategists, creatives, or account leads?",
+        a: "No. It removes friction in proposals, reporting, research prep, and internal docs. Final creative and strategic calls stay with your team — and with client approval where needed.",
+      },
+      {
+        q: "What should agencies avoid putting into public AI tools?",
+        a: "Unreleased client work, media plans, unreconciled performance data, and anything under NDA. Many agencies use a “sanitized brief” pattern — we show how.",
+      },
+      {
+        q: "We are already using AI — why training?",
+        a: "To make it consistent: shared prompts, approval rules, and handoffs so quality does not depend on one power user. That is how margins and trust hold up at scale.",
+      },
+    ],
   },
 ];
 

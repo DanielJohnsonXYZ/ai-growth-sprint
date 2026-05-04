@@ -33,13 +33,25 @@ const guideSlugByIndustry: Record<string, string> = {
   property: "estate-agent-ai-follow-up"
 };
 const guideHref = `/guides/${guideSlugByIndustry[industry.slug] ?? "uk-sme-ai-opportunities"}/`;
-const schema = {
+const serviceSchema = {
   "@type": "Service",
   name: `AI training for ${industry.title}`,
   provider: { "@type": "Organization", name: SITE.name, url: SITE.url },
   areaServed: "United Kingdom",
   serviceType: "AI workflow training",
 };
+const faqSchema =
+  industry.faqs && industry.faqs.length > 0
+    ? {
+        "@type": "FAQPage",
+        mainEntity: industry.faqs.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      }
+    : null;
+const schema = faqSchema ? [serviceSchema, faqSchema] : serviceSchema;
 ---
 
 <BaseLayout title={industry.metaTitle} description={industry.metaDescription} schema={schema}>
