@@ -9,6 +9,8 @@ export const SITE = {
   gtmContainerId: "GTM-M5NN25K3",
   email: "hello@humanapprovedai.com",
   phone: "",
+  /** Optional — footer only shows a link when set. */
+  linkedInUrl: "",
 };
 
 export const packages = [
@@ -173,6 +175,8 @@ export type Industry = {
   relatedUseCases: string[];
   outreachPhase: string;
   proofNote: string;
+  /** Optional sector FAQs — add over time; renders FAQ-style block on /industries/[slug]/ */
+  faqs?: { q: string; a: string }[];
 };
 
 export const industries: Industry[] = [
@@ -224,6 +228,20 @@ export const industries: Industry[] = [
     relatedUseCases: ["proposals-and-tenders", "documentation-and-sops", "email-and-follow-ups"],
     outreachPhase: "Phase 1",
     proofNote: "Highest priority for named proof.",
+    faqs: [
+      {
+        q: "Can AI replace our estimators or sign off RAMS and tenders?",
+        a: "No. AI helps structure first passes from your templates and site notes. Estimators, PMs, and directors still approve pricing, compliance, and anything client-facing.",
+      },
+      {
+        q: "What should teams avoid putting into public AI tools?",
+        a: "Live bids before approval, identifiable client or site detail you have not cleared, and anything legally sensitive. Workshops include a short red-lines list tailored to how your firm works.",
+      },
+      {
+        q: "What does a practical workshop cover?",
+        a: "Real tasks your team recognises: tender first passes, RAMS structure from project notes, subcontractor updates, and progress reports—with clear human review before anything is sent.",
+      },
+    ],
   },
   {
     slug: "accounting",

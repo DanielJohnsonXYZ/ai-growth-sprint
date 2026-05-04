@@ -154,6 +154,23 @@ const schema = {
     </div>
   </section>
 
+  {industry.faqs && industry.faqs.length > 0 && (
+    <section class="section section-tight" aria-label={`${industry.shortName} FAQs`}>
+      <div class="section-header">
+        <p class="eyebrow">Common questions</p>
+        <h2>FAQ for {industry.shortName.toLowerCase()} teams.</h2>
+      </div>
+      <div class="grid grid-2">
+        {industry.faqs.map(({ q, a }) => (
+          <details class="faq-item">
+            <summary>{q}</summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  )}
+
   <section class="section">
     <div class="section-header">
       <p class="eyebrow">Related workflows</p>

@@ -30,10 +30,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       {([
         ["Accountants", "Reduce admin, improve client comms, streamline documents.", "/industries/accounting/"],
         ["Recruitment", "Candidate outreach, job ad creation, CRM workflows.", "/industries/recruitment/"],
+        ["Construction", "Tenders, RAMS, estimates, progress reports, subcontractor comms.", "/industries/construction/"],
         ["Legal", "Drafting support, admin efficiency, internal knowledge tools.", "/industries/legal/"],
         ["Property", "Enquiries, listings, marketing, operations.", "/industries/property/"],
         ["Manufacturing", "Reporting, SOPs, admin processes.", "/industries/manufacturing/"],
-        ["Agencies", "Delivery systems, sales workflows, content operations.", "/contact/"],
+        ["Agencies", "Delivery systems, sales workflows, content operations.", "/industries/agencies/"],
       ] as const).map(([title, body, href]) => (
         <article class="card highlight card-interactive">
           <p class="eyebrow">{title}</p>
