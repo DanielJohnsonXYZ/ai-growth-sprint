@@ -553,6 +553,19 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
     padding-bottom: 48px;
   }
 
+  .hero-proof-strip-wrap {
+    padding-top: 28px;
+    padding-bottom: 36px;
+    border-bottom: none;
+  }
+
+  .hero-proof-strip-tagline {
+    margin-top: 18px;
+    text-align: center;
+    max-width: 920px;
+    margin-inline: auto;
+  }
+
   .trust-ribbon {
     display: flex;
     justify-content: space-between;
@@ -850,6 +863,35 @@ const pageTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
   }
 
   .footer-links a:hover {
+    color: var(--ink);
+  }
+
+  .footer-legal-meta {
+    display: grid;
+    gap: 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    max-width: 860px;
+  }
+
+  .footer-legal-meta p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .footer-legal-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .footer-legal-nav a {
+    color: var(--muted);
+    font-size: 0.92rem;
+    text-decoration: none;
+  }
+
+  .footer-legal-nav a:hover {
     color: var(--ink);
   }
 

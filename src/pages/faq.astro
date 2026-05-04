@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+
+const faqItems: [string, string][] = [
+  [
+    "How much does this cost?",
+    "Work is scoped to your team and sector. Public pricing on the site is a starting point — we confirm scope, format (remote vs on-site), and deliverables before you commit. See the pricing page for workshop and programme anchors.",
+  ],
+  [
+    "How long until we see results?",
+    "Many teams get useful drafts in the first workshop. Deeper adoption depends on how many workflows you prioritise and how consistently managers reinforce new habits. We set realistic milestones on the discovery call.",
+  ],
+  [
+    "Is our business too small or too large?",
+    "We focus on UK SMEs: typically teams where AI can remove hours of repeatable admin each week. If you are unsure, book a call — we will say honestly if we are not the right fit.",
+  ],
+  [
+    "Is client and company data safe?",
+    "Yes — we design workflows so sensitive data is handled with clear rules: what may be drafted in AI, what must stay internal, and what needs partner or director sign-off. See Trust & security for how we think about human review and tooling.",
+  ],
+  [
+    "Will our staff actually adopt it?",
+    "Adoption sticks when workflows are tied to real work, not slides. We train on live examples, agree approval rules, and give simple templates your team can reuse. Managers play a big part — we help you set expectations.",
+  ],
+  [
+    "Do you sell or push a specific AI product?",
+    "No. We are tool-neutral. We help you use what fits your risk profile and stack — whether that is ChatGPT, Copilot, or other options — without a software commission.",
+  ],
+  [
+    "What happens after a workshop?",
+    "You leave with trained people, prompt patterns, and approval rules. Many clients add implementation support or a retainer for Q&A and workflow refinement. There is no obligation to buy ongoing support.",
+  ],
+  [
+    "Can you deliver remotely or only in person?",
+    "Both. Remote works well for distributed teams; on-site can be better for intensive workshops. We agree the format when we scope the work.",
+  ],
+  [
+    "Do we need prior AI experience?",
+    "No. We work with everyday business users — from admin to leadership. If you have already experimented with AI, we build structure around what you have learned.",
+  ],
+  [
+    "What happens on the free discovery call?",
+    "We discuss your business, where time is lost, and what “good” would look like. You get clear next-step options. There is no software pitch and no pressure to buy on the call.",
+  ],
+];
+
+const schema = {
+  "@type": "FAQPage",
+  mainEntity: faqItems.map(([name, text]) => ({
+    "@type": "Question",
+    name,
+    acceptedAnswer: { "@type": "Answer", text },
+  })),
+};
+---
+
+<BaseLayout
+  title="FAQ"
+  description="Pricing, timelines, data safety, staff adoption, and what to expect from Human Approved AI — plain answers for UK SMEs."
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">FAQ</p>
+      <h1>Questions cautious buyers ask</h1>
+      <p>
+        Straight answers on price, timelines, data, adoption, and what happens
+        after training — before you book a call.
+      </p>
+      <a class="button" href={SITE.bookingUrl} data-cta="faq-primary-cta">{SITE.primaryCtaNav}</a>
+    </div>
+    <aside class="panel panel-pad">
+      <p class="eyebrow">No hype</p>
+      <h2>If something is not a fit, we will say so.</h2>
+      <p class="lead">
+        Use this page to pre-sell the call internally. Still unsure?{" "}
+        <a href={`mailto:${SITE.email}`}>Email us</a>.
+      </p>
+    </aside>
+  </section>
+
+  <section class="section section-tight">
+    <div class="grid grid-2 faq-grid">
+      {faqItems.map(([q, a]) => (
+        <details class="faq-item">
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="panel panel-pad">
+      <div class="section-header">
+        <h2>Ready to talk?</h2>
+        <p>Tell us about your team and we will recommend a sensible first step.</p>
+      </div>
+      <a class="button" href={SITE.bookingUrl} data-cta="faq-footer-cta">{SITE.primaryCtaNav}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .faq-grid {
+    align-items: start;
+  }
+</style>

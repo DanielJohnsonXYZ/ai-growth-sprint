@@ -42,9 +42,29 @@ import { SITE } from "../data/site";
       <h3>Industries</h3>
       <a href="/industries/accounting/">Accounting</a>
       <a href="/industries/recruitment/">Recruitment</a>
+      <a href="/industries/construction/">Construction</a>
       <a href="/industries/legal/">Legal</a>
       <a href="/industries/property/">Property</a>
       <a href="/industries/manufacturing/">Manufacturing</a>
     </div>
+  </div>
+
+  <div class="footer-legal-meta">
+    <p>
+      <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      {SITE.linkedInUrl ? (
+        <>
+          {" · "}
+          <a href={SITE.linkedInUrl} rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        </>
+      ) : null}
+    </p>
+    <nav class="footer-legal-nav" aria-label="Legal and policies">
+      <a href="/privacy/">Privacy</a>
+      <a href="/privacy/#cookies">Cookies</a>
+      <a href="/terms/">Terms of use</a>
+      <a href="/trust-security/">Trust &amp; security</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
   </div>
 </footer>
