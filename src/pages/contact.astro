@@ -88,6 +88,16 @@ import { SITE } from "../data/site";
           <textarea name="context" rows="5"></textarea>
         </label>
       </div>
+      <!-- Honeypot: leave empty (spam bots often fill hidden fields) -->
+      <label class="form-hp" aria-hidden="true">
+        <span>Company website (optional)</span>
+        <input name="company_website" type="text" tabindex="-1" autocomplete="off" />
+      </label>
+      <p class="form-privacy">
+        By sending this enquiry, you agree that we may contact you about your
+        request. We will not add you to a mailing list unless you ask us to. See
+        our <a href="/privacy/">privacy policy</a>.
+      </p>
       <button class="button" type="submit">Send enquiry</button>
     </form>
   </section>
@@ -100,6 +110,10 @@ import { SITE } from "../data/site";
     event.preventDefault();
 
     const data = new FormData(form);
+    const hp = (data.get("company_website") as string)?.trim();
+    if (hp) {
+      return;
+    }
     const subject = `Human Approved AI enquiry from ${data.get("company") || data.get("name") || "website"}`;
     const body = [
       `Name: ${data.get("name") || ""}`,
@@ -161,5 +175,30 @@ import { SITE } from "../data/site";
 
   button {
     cursor: pointer;
+  }
+
+  .form-hp {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .form-privacy {
+    margin: 0 0 20px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 52ch;
+  }
+
+  .form-privacy a {
+    color: var(--moss);
+    font-weight: 700;
   }
 </style>

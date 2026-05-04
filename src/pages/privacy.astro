@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+---
+
+<BaseLayout
+  title="Privacy"
+  description="How we use information you send through the Human Approved AI website, including the contact form."
+>
+  <section class="page-hero">
+    <div class="page-copy">
+      <p class="eyebrow">Privacy</p>
+      <h1>How we handle your information</h1>
+      <p>
+        This page summarises what happens when you use our contact form or get
+        in touch by email. It is written in plain English for UK SMEs — it is
+        not a substitute for legal advice.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel panel-pad prose">
+      <h2>Who we are</h2>
+      <p>
+        <strong>{SITE.name}</strong> ({SITE.url}). For privacy questions about
+        data you have submitted through this site, contact us at{" "}
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+      </p>
+
+      <h2>Contact form and email</h2>
+      <p>
+        When you submit the enquiry form, your details are sent to us by your
+        email app (mailto link) or copied for you to send manually — we do not
+        store submissions on this website. We use what you send only to respond
+        to your enquiry and, if you later agree, to discuss services.
+      </p>
+      <p>
+        We will <strong>not</strong> add you to a mailing list or newsletter
+        unless you ask us to.
+      </p>
+
+      <h2>Lawful basis</h2>
+      <p>
+        We process enquiry data on the basis of{" "}
+        <strong>legitimate interests</strong> (responding to your request) and,
+        where relevant, steps prior to a contract at your request.
+      </p>
+
+      <h2>Retention</h2>
+      <p>
+        We keep enquiry emails only as long as needed to reply and manage any
+        follow-up you want. You can ask us to delete correspondence at any time.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>
+        Under UK GDPR you may have rights including access, correction, erasure,
+        and objection. Contact us at the email above and we will respond within
+        a reasonable time.
+      </p>
+
+      <p class="muted">
+        For how we approach AI, data handling in training, and quality control,
+        see <a href="/trust-security/">Trust and security</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose h2 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .prose p {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .prose .muted {
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+</style>
