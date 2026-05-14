@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const topics = [
+  { title: "AI tools overview", body: "A hands-on tour of the tools most relevant to your team — no jargon, just practical demos." },
+  { title: "AI for marketing & comms", body: "Drafting, editing, repurposing content and emails faster than ever before." },
+  { title: "AI for admin & operations", body: "Automating repetitive tasks, summarising documents, and streamlining day-to-day workflows." },
+  { title: "AI for customer service", body: "Handling common queries, drafting responses, and improving response times without hiring." },
+  { title: "Prompt writing fundamentals", body: "How to ask AI the right questions to get consistent, reliable, useful outputs every time." },
+  { title: "Building lasting habits", body: "How to make AI adoption stick — practical strategies for embedding new tools into daily routines." },
+];
+
+const formats = [
+  {
+    name: "Half-Day Workshop",
+    duration: "3 hours",
+    ideal: "Teams new to AI who want a clear, practical introduction.",
+    includes: ["AI tools overview and live demos", "One core use-case focus area", "Q&A and team discussion", "Resource pack and prompt templates"],
+  },
+  {
+    name: "Full-Day Workshop",
+    duration: "6 hours",
+    ideal: "Teams ready to cover multiple areas and build real momentum.",
+    includes: ["Comprehensive AI tools overview", "3–4 use-case focus areas", "Hands-on practice sessions", "Team action planning", "Full resource pack and templates"],
+    featured: true,
+  },
+  {
+    name: "Multi-Session Programme",
+    duration: "4–8 weeks",
+    ideal: "Businesses serious about deep, sustainable AI adoption.",
+    includes: ["Weekly sessions with your team", "Progressive skill building", "Between-session implementation support", "Monthly check-in calls", "Ongoing prompt and template library"],
+  },
+];
+---
+
+<Layout
+  title="AI Workshops & Team Training"
+  description="Practical, hands-on AI workshops for small business teams. Get your staff using AI confidently and consistently — tailored to your industry."
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-16 pb-14 bg-white border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <a href="/services" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-brand-600 mb-6 transition-colors">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+            All Services
+          </a>
+          <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">Workshops & Training</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
+            Get your whole team using AI — confidently
+          </h1>
+          <p class="text-gray-500 text-lg leading-relaxed mb-8">
+            Practical, hands-on workshops for non-technical teams. No lectures, no jargon — just real tools, real practice, and real results. Tailored to your industry and your team's actual daily workflows.
+          </p>
+          <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm">
+            Book a Workshop Discovery Call
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="py-16 bg-brand-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Who this is for</h2>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              These workshops are designed for small business owners who have a team to upskill — and who know that AI adoption needs to be a team effort, not just a founder experiment.
+            </p>
+            <ul class="space-y-3">
+              {[
+                "Business owners with teams of 5–50 people",
+                "Teams that have heard about AI but don't know where to start",
+                "Organisations that bought AI tools but saw low adoption",
+                "Any industry — retail, hospitality, professional services, trades, and more",
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <div class="mt-0.5 w-5 h-5 rounded-full flex-shrink-0 bg-brand-200 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                  <span class="text-gray-700 text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="reveal reveal-delay-2 bg-white rounded-2xl p-8 border border-brand-100 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand-600 mb-4">After the workshop, your team will have</p>
+            <ul class="space-y-4">
+              {[
+                { icon: "🛠️", text: "Hands-on experience with the AI tools most relevant to their role" },
+                { icon: "📝", text: "A bank of ready-made prompts they can use from day one" },
+                { icon: "🗺️", text: "A clear 30-day action plan for continued adoption" },
+                { icon: "💡", text: "Confidence — not anxiety — about AI in the workplace" },
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="text-xl">{item.icon}</span>
+                  <span class="text-gray-700 text-sm leading-relaxed">{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topics covered -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-12 reveal">
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">What gets covered</h2>
+          <p class="text-gray-500">Topics are selected and adapted based on your team's roles and industry. Sessions are always practical, never theoretical.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {topics.map((t, i) => (
+            <div class={`reveal reveal-delay-${(i % 4) + 1} bg-gray-50 rounded-xl p-6 border border-gray-100`}>
+              <h3 class="font-semibold text-gray-900 mb-2">{t.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{t.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Format options -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-12 reveal">
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose your format</h2>
+          <p class="text-gray-500">Available in-person or virtually. Every format includes a resource pack and post-session support.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {formats.map((f, i) => (
+            <div class={`reveal reveal-delay-${i + 1} rounded-2xl p-7 ${f.featured ? 'bg-brand-700 ring-2 ring-brand-500 shadow-lg' : 'bg-white border border-gray-200 shadow-sm'}`}>
+              {f.featured && <span class="inline-block px-3 py-1 bg-brand-500 text-white text-xs font-semibold rounded-full mb-4">Most popular</span>}
+              <h3 class={`font-bold text-lg mb-1 ${f.featured ? 'text-white' : 'text-gray-900'}`}>{f.name}</h3>
+              <p class={`text-sm mb-1 ${f.featured ? 'text-brand-300' : 'text-brand-600'} font-medium`}>{f.duration}</p>
+              <p class={`text-sm mb-5 ${f.featured ? 'text-brand-200' : 'text-gray-500'} leading-relaxed`}>Ideal for: {f.ideal}</p>
+              <ul class="space-y-2.5">
+                {f.includes.map((item) => (
+                  <li class="flex items-start gap-2.5">
+                    <svg class={`w-4 h-4 mt-0.5 flex-shrink-0 ${f.featured ? 'text-brand-300' : 'text-brand-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span class={`text-sm ${f.featured ? 'text-brand-100' : 'text-gray-600'}`}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial + CTA -->
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <figure class="bg-brand-50 rounded-2xl p-8 mb-10">
+          <blockquote class="text-gray-800 text-lg leading-relaxed mb-5">
+            "By the end of the day, people were actually excited about AI. That was not what I expected. Three months on, the team uses it every single day without prompting from me."
+          </blockquote>
+          <figcaption class="text-sm text-gray-500 font-medium">Sarah Mitchell — Managing Partner, Mitchell & Co Accountants</figcaption>
+        </figure>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Ready to get your team started?</h2>
+        <p class="text-gray-500 mb-7">Book a free 20-minute call to talk through your team, your industry, and which format makes the most sense.</p>
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm">
+          Book a Workshop Discovery Call
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

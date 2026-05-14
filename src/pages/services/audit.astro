@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const deliverables = [
+  { title: "AI Readiness Review", body: "An assessment of your current tools, systems, workflows, and team's digital confidence." },
+  { title: "Gap Analysis", body: "A clear picture of where AI could reduce time, cost, errors, or missed opportunities." },
+  { title: "Prioritised Opportunity List", body: "Your AI opportunities ranked by business impact and ease of implementation." },
+  { title: "Tool Recommendations", body: "Specific, vendor-neutral suggestions tailored to your business size, budget, and industry." },
+  { title: "Written Audit Report", body: "A professional 8–12 page report you can read, share, and act on — delivered within 5 business days." },
+  { title: "45-Minute Debrief Call", body: "A focused call to walk through the findings, answer your questions, and agree on next steps." },
+];
+
+const steps = [
+  { step: "1", title: "Book your intake call", body: "A 30-minute call to understand your business, team, and goals." },
+  { step: "2", title: "Provide a business overview", body: "A simple questionnaire to help me understand your current tools, workflows, and challenges." },
+  { step: "3", title: "Receive your Audit Report", body: "Your written report is delivered within 5 business days — followed by a 45-minute debrief call." },
+];
+---
+
+<Layout
+  title="AI Audit & Roadmap"
+  description="A structured AI audit for small businesses. Find out exactly where AI can save you time and money — delivered as a clear, written report within 5 days."
+>
+  <Header />
+
+  <main>
+    <section class="pt-16 pb-14 bg-white border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <a href="/services" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-brand-600 mb-6 transition-colors">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+            All Services
+          </a>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-50 border border-brand-100 rounded-full text-brand-700 text-sm font-medium mb-4">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            The easiest first step
+          </div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
+            Find out exactly where AI can help your business
+          </h1>
+          <p class="text-gray-500 text-lg leading-relaxed mb-8">
+            Not sure where to begin? The AI Audit is a structured, fixed-fee assessment of your business — delivered as a clear written report and debrief call. No commitment to anything further.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm">
+              Get Your AI Audit
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <div class="flex items-center gap-4 text-sm text-gray-400">
+              <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Fixed fee</span>
+              <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> 5-day turnaround</span>
+              <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> No further obligation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's delivered -->
+    <section class="py-16 bg-brand-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-12 reveal">
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">What you'll receive</h2>
+          <p class="text-gray-500">Everything you need to understand your AI opportunity — and enough to act on it yourself if you choose.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {deliverables.map((d, i) => (
+            <div class={`reveal reveal-delay-${(i % 3) + 1} bg-white rounded-xl p-6 border border-brand-100 shadow-sm`}>
+              <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center mb-4">
+                <svg class="w-4 h-4 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-2">{d.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{d.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-12 reveal">
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">How it works</h2>
+          <p class="text-gray-500">Three simple steps from booking to receiving your full report.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {steps.map((s, i) => (
+            <div class={`reveal reveal-delay-${i + 1} text-center`}>
+              <div class="w-16 h-16 rounded-2xl bg-brand-50 border-2 border-brand-100 flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl font-extrabold text-brand-600">{s.step}</span>
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">{s.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it works as an entry point -->
+    <section class="py-14 bg-gray-50 border-y border-gray-100">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Why start with an audit?</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { title: "Low commitment", body: "Fixed fee, no contracts, no pressure to continue. Many clients act on the report independently." },
+              { title: "Real clarity", body: "Stop guessing. Know exactly which AI opportunities are worth pursuing — and which to ignore." },
+              { title: "Natural next step", body: "Most clients who do an audit go on to workshops or consulting — but only because they choose to." },
+            ].map((item) => (
+              <div>
+                <h3 class="font-semibold text-brand-700 mb-2 text-sm">{item.title}</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white">
+      <div class="max-w-2xl mx-auto px-4 text-center reveal">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Start with clarity</h2>
+        <p class="text-gray-500 mb-7">Book your AI Audit today. You'll have a clear, actionable picture of your AI opportunity within a week.</p>
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm">
+          Get Your AI Audit
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,171 +1,129 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
-const schema = {
-  "@type": "Person",
-  name: "Daniel Johnson",
-  jobTitle: "Founder",
-  worksFor: { "@type": "Organization", name: "Human Approved AI" },
-};
+const values = [
+  { title: "Practical over theoretical", body: "I don't teach AI concepts in the abstract. Every session, every recommendation is grounded in what will actually work in your business next week." },
+  { title: "Human-led, always", body: "AI is a tool, not a replacement. My work is about helping your team use it well — the judgment, the relationships, and the decisions stay with the humans." },
+  { title: "No jargon, no hype", body: "I'm not here to impress you with buzzwords or oversell what AI can do. I tell you what's real, what's relevant, and what's worth your time." },
+  { title: "SMBs first, always", body: "I work exclusively with small and mid-size businesses. Not enterprise. Not government. I know the constraints you operate under, and I build for them." },
+];
 ---
 
-<BaseLayout
-  title="Human-First AI Adoption"
-  description="Human Approved AI was built for businesses who know AI matters but are tired of hype, jargon, and bad advice."
-  schema={schema}
+<Layout
+  title="About"
+  description="Learn about Human Approved AI — who we are, why we focus on small businesses, and what makes our approach to AI adoption different."
 >
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="page-copy">
-      <p class="eyebrow">About</p>
-      <h1>Human-First AI Adoption</h1>
-      <p>
-        Human Approved AI was built for businesses who know AI matters, but are
-        tired of hype, jargon, and bad advice.
-      </p>
-      <a class="button" href="/contact/" data-cta="about-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
-    </div>
-    <aside class="panel panel-pad">
-      <p class="eyebrow">Our approach</p>
-      <h2>Commercial thinking. Practical implementation. Plain-English communication.</h2>
-      <p class="lead">We help established businesses modernise intelligently — without the chaos.</p>
-    </aside>
-  </section>
+  <Header />
 
-  <!-- FOUNDER SECTION -->
-  <section class="section">
-    <div class="split">
-      <div>
-        <img src="/founder-photo.jpg" alt="Daniel Johnson, Founder" style="width:100%; max-width:400px; border:2px solid var(--ink); border-radius: var(--radius);" />
+  <main>
+    <!-- Hero -->
+    <section class="pt-16 pb-14 bg-white border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">About</p>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">
+              AI expertise that actually fits your business
+            </h1>
+            <p class="text-gray-600 leading-relaxed text-lg">
+              I'm an AI consultant who works exclusively with small and mid-size businesses. Not enterprise. Not government. Just real businesses, with real teams, who deserve access to the same competitive advantages as the big players — without the big-firm price tag or the one-size-fits-all programme.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-2 flex justify-center lg:justify-end">
+            <div class="relative">
+              <div class="w-64 h-64 rounded-3xl bg-brand-100 flex items-center justify-center">
+                <svg class="w-32 h-32 text-brand-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+              </div>
+              <div class="absolute -bottom-4 -right-4 bg-brand-600 text-white rounded-2xl px-4 py-2 text-sm font-semibold shadow-lg">
+                50+ businesses helped
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <p class="eyebrow">Who you work with</p>
-        <h2>Direct access to experienced guidance.</h2>
-        <p><strong>Daniel Johnson, Founder</strong></p>
-        <p>Helping UK SMEs adopt AI without the hype since 2023. Practical, commercial-first, and always focused on real business outcomes.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOUNDER SECTION -->
-  <section class="section chapter">
-    <div class="section-header">
-      <p class="eyebrow">Who we are</p>
-      <h2>We combine commercial thinking, practical implementation, and plain-English communication.</h2>
-      <p>
-        Human Approved AI works with established UK businesses to help them
-        adopt AI in ways that create real value. Not tool demos. Not generic
-        workshops. Practical work built around your business.
-      </p>
-    </div>
-    <div class="grid grid-3">
-      {([
-        ["Commercial-first", "We focus on where AI creates ROI, not where it looks impressive."],
-        ["Plain-English", "No jargon. No buzzwords. Just clear advice on what to do and why."],
-        ["Practical delivery", "We train people on real work, not invented examples."],
-      ] as const).map(([title, body]) => (
-        <article class="card">
-          <h3>{title}</h3>
-          <p>{body}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+    <!-- Story -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Why I focus on small businesses</h2>
+          <div class="prose prose-gray max-w-none space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              When the AI wave hit, I noticed something frustrating: most of the advice, training, and consulting was aimed at large enterprises with dedicated IT departments, data science teams, and six-figure technology budgets. The small business owner trying to figure out if AI could help their 12-person team? They were on their own.
+            </p>
+            <p>
+              That gap is what Human Approved AI was built to close. I've spent years working at the intersection of technology and business strategy — and what I've learned is that the fundamentals don't change based on company size. The questions are the same. The opportunities are the same. What's different is the budget, the team size, and the need for solutions that actually fit the reality of a small business.
+            </p>
+            <p>
+              My approach is deliberately different from the enterprise consulting model. There are no junior analysts, no 40-slide decks, no recommendations that assume you have six months and a dedicated project team to implement them. Everything I do is designed to be acted on — quickly, practically, and by real people with day jobs.
+            </p>
+            <p>
+              I take on a limited number of clients at a time to ensure that every business I work with gets proper attention. If I can't commit to doing this well for you, I'll tell you honestly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- CREDIBILITY / LOGO POLICY -->
-  <section class="section section-tight" aria-label="Credibility and logos">
-    <div class="panel panel-pad card-quiet">
-      <p class="eyebrow">Credibility</p>
-      <h2>Focused proof for SME AI adoption</h2>
-      <p>
-        We only use <strong>client stories, logos, or named proof</strong> on this site when it directly supports
-        AI training and workflow adoption for UK SMEs <strong>and</strong> we have permission. Broader speaking,
-        podcast, or other brand assets stay on Daniel’s other sites so Human Approved AI stays clear for cautious buyers.
-      </p>
-    </div>
-  </section>
+    <!-- Values -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-12 reveal">
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">What I believe</h2>
+          <p class="text-gray-500">The principles that shape how I work with every client.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {values.map((v, i) => (
+            <div class={`reveal reveal-delay-${i + 1} bg-gray-50 rounded-2xl p-7 border border-gray-100`}>
+              <h3 class="font-bold text-gray-900 mb-3">{v.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{v.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-  <!-- FOUNDER STORY -->
-  <section class="section section-tight chapter">
-    <div class="section-header">
-      <p class="eyebrow">Our story</p>
-      <h2>Why Human Approved AI exists</h2>
-    </div>
-    <div class="split">
-      <div>
-        <p>Most businesses know AI matters but feel overwhelmed by hype, jargon, and conflicting advice. They don't need "AI transformation." They need someone to look at their actual work and show them where AI saves time.</p>
-        <p>We started Human Approved AI to give UK SMEs practical, human-first AI adoption — starting with workflows, not tools.</p>
+    <!-- Credentials -->
+    <section class="py-16 bg-brand-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <h2 class="text-2xl font-bold text-white mb-10">By the numbers</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            {[
+              { stat: "50+", label: "businesses helped" },
+              { stat: "12+", label: "industries covered" },
+              { stat: "95%", label: "client retention" },
+              { stat: "4.9★", label: "average rating" },
+            ].map((item) => (
+              <div class="text-center">
+                <p class="text-4xl font-extrabold text-white mb-1">{item.stat}</p>
+                <p class="text-brand-300 text-sm">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <div>
-        <h3>Our principles</h3>
-        <ul class="checklist">
-          <li><strong>Start with the work</strong> — we look at what your team actually does</li>
-          <li><strong>Keep humans responsible</strong> — AI drafts, people decide</li>
-          <li><strong>Prioritise time saved</strong> — measurable outcomes, not vanity metrics</li>
-          <li><strong>Train on real tasks</strong> — your work, not invented examples</li>
-          <li><strong>Avoid unnecessary software</strong> — use what works, not what's trending</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WHY WE EXIST -->
-  <section class="section section-tight">
-    <div class="panel panel-pad">
-      <div class="section-header">
-        <p class="eyebrow">Why we exist</p>
-        <h2>Many businesses don't need "AI transformation".</h2>
-        <p>They need:</p>
+    <!-- CTA -->
+    <section class="py-16 bg-white">
+      <div class="max-w-2xl mx-auto px-4 text-center reveal">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Let's work together</h2>
+        <p class="text-gray-500 mb-7">Book a free 30-minute discovery call to talk through what you're trying to achieve and how I can help.</p>
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm">
+          Book a Free Discovery Call
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
-      <ul class="checklist">
-        <li>Clear advice</li>
-        <li>Better systems</li>
-        <li>Trained teams</li>
-        <li>Trusted support</li>
-        <li>Commercial results</li>
-      </ul>
-      <p style="margin-top: 20px; font-weight: 700; color: var(--ink)">That's what we deliver.</p>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- WHAT WE DON'T DO -->
-  <section class="section section-tight chapter">
-    <div class="split">
-      <div class="section-header">
-        <p class="eyebrow">What we're not</p>
-        <h2>Not a software vendor. Not a generic trainer.</h2>
-        <p>
-          We're not here to sell you a tool or run a one-size-fits-all
-          workshop. We look at your actual business, find where AI saves time
-          or creates value, and help you act on it.
-        </p>
-      </div>
-      <div class="grid">
-        {([
-          ["Not software-led", "We work with the tools you already use or recommend the right fit — not sell a subscription."],
-          ["Not theoretical", "Everything is built around real tasks from your business, not invented examples."],
-          ["Not a one-off", "We offer ongoing support because AI keeps changing and your business needs to keep pace."],
-        ] as const).map(([title, body]) => (
-          <article class="card">
-            <h3>{title}</h3>
-            <p>{body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section section-tight">
-    <div class="panel panel-pad">
-      <div class="section-header">
-        <h2>Ready to talk?</h2>
-        <p>Book a free discovery call and we'll figure out where AI can make a real difference in your business.</p>
-      </div>
-      <div class="button-row">
-        <a class="button" href="/contact/" data-cta="about-cta-book-a-free-ai-discovery-call">Book a free AI discovery call</a>
-        <a class="button button-secondary" href="/services/" data-cta="about-services">See services</a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+  <Footer />
+</Layout>

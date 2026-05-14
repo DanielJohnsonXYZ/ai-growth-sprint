@@ -1,109 +1,156 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { SITE } from "../data/site";
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
-const faqItems: [string, string][] = [
-  [
-    "How much does this cost?",
-    "Work is scoped to your team and sector. Public pricing on the site is a starting point — we confirm scope, format (remote vs on-site), and deliverables before you commit. See the pricing page for workshop and programme anchors.",
-  ],
-  [
-    "How long until we see results?",
-    "Many teams get useful drafts in the first workshop. Deeper adoption depends on how many workflows you prioritise and how consistently managers reinforce new habits. We set realistic milestones on the discovery call.",
-  ],
-  [
-    "Is our business too small or too large?",
-    "We focus on UK SMEs: typically teams where AI can remove hours of repeatable admin each week. If you are unsure, book a call — we will say honestly if we are not the right fit.",
-  ],
-  [
-    "Is client and company data safe?",
-    "Yes — we design workflows so sensitive data is handled with clear rules: what may be drafted in AI, what must stay internal, and what needs partner or director sign-off. See Trust & security for how we think about human review and tooling.",
-  ],
-  [
-    "Will our staff actually adopt it?",
-    "Adoption sticks when workflows are tied to real work, not slides. We train on live examples, agree approval rules, and give simple templates your team can reuse. Managers play a big part — we help you set expectations.",
-  ],
-  [
-    "Do you sell or push a specific AI product?",
-    "No. We are tool-neutral. We help you use what fits your risk profile and stack — whether that is ChatGPT, Copilot, or other options — without a software commission.",
-  ],
-  [
-    "What happens after a workshop?",
-    "You leave with trained people, prompt patterns, and approval rules. Many clients add implementation support or a retainer for Q&A and workflow refinement. There is no obligation to buy ongoing support.",
-  ],
-  [
-    "Can you deliver remotely or only in person?",
-    "Both. Remote works well for distributed teams; on-site can be better for intensive workshops. We agree the format when we scope the work.",
-  ],
-  [
-    "Do we need prior AI experience?",
-    "No. We work with everyday business users — from admin to leadership. If you have already experimented with AI, we build structure around what you have learned.",
-  ],
-  [
-    "What happens on the free discovery call?",
-    "We discuss your business, where time is lost, and what “good” would look like. You get clear next-step options. There is no software pitch and no pressure to buy on the call.",
-  ],
+const faqs = [
+  {
+    group: "About AI",
+    questions: [
+      {
+        q: "Is AI really relevant for a business my size?",
+        a: "Yes — and in many ways, small businesses benefit more quickly than large ones. You have less bureaucracy, faster decision-making, and the ability to implement changes across the whole business in days rather than months. Most of the AI tools I work with are designed for individual users and small teams, and many are free or low-cost. The question isn't whether AI is relevant — it's which parts of your business to start with.",
+      },
+      {
+        q: "My team isn't tech-savvy — will this actually work for us?",
+        a: "This is the most common concern I hear, and it's almost always unfounded. The AI tools I teach don't require any technical knowledge — if your team can use email and Google, they can use these tools. My workshops are designed specifically for non-technical people. I've worked with teams where the average age was 50+, where staff had previously refused to use new software, and within a day they were using AI tools independently and confidently.",
+      },
+    ],
+  },
+  {
+    group: "About the process",
+    questions: [
+      {
+        q: "How long does it take to start seeing results?",
+        a: "It depends on the service. Workshop clients typically see their team using AI tools the following morning — we're talking practical, immediate impact. Consulting clients usually have a clear roadmap within the first two weeks and see measurable time savings within 30–60 days. The AI Audit delivers a full written report within 5 business days of the intake call.",
+      },
+      {
+        q: "What tools do you recommend? Will I need to buy anything?",
+        a: "I give vendor-neutral advice based on your specific business needs. Many of the tools I recommend have free tiers that are more than sufficient for small businesses getting started. Where paid tools are recommended, I'll always explain the cost, the alternative, and whether it's genuinely worth it for your situation. I have no commercial relationships with any AI tool vendors — my job is to recommend what's right for you, not what pays me a referral fee.",
+      },
+      {
+        q: "What happens after the training — is there ongoing support?",
+        a: "All workshop clients receive a resource pack, a set of prompt templates, and a 30-day action plan. For consulting clients, ongoing access is built into the engagement. For workshop-only clients who want continued support, I offer a monthly retainer option. I also produce regular free content through the Resources section of this site that clients are encouraged to use.",
+      },
+    ],
+  },
+  {
+    group: "About working with me",
+    questions: [
+      {
+        q: "How much does it cost?",
+        a: "Pricing varies based on the engagement type, team size, and scope. The AI Audit is fixed-fee and clearly priced. Workshop pricing is per session, with discounts for multi-session programmes. Consulting is available as a project-based or monthly retainer engagement. I'm transparent about pricing on the discovery call — there are no hidden fees, no locked-in contracts, and no pressure to commit to anything beyond what you've agreed to.",
+      },
+      {
+        q: "Do you work with specific industries?",
+        a: "I work across a wide range of industries — professional services, retail, hospitality, property, healthcare, construction, creative services, and more. My approach is to understand your specific workflows and adapt the training accordingly. If you're unsure whether your industry is a good fit, book a free call and I'll tell you honestly.",
+      },
+      {
+        q: "How is working with you different from watching YouTube tutorials or just using ChatGPT?",
+        a: "Three things: context, structure, and accountability. YouTube tutorials are generic — they don't know your business, your team, or your workflows. I do. I tailor everything to your specific situation. Secondly, having a structured programme with someone guiding you means you actually implement things, rather than learning and forgetting. And thirdly, you get someone to ask questions to in real time — not just a video you have to pause and rewind.",
+      },
+      {
+        q: "What if we try AI and it doesn't work for our business?",
+        a: "In my experience, AI can add genuine value to almost any business — the question is where and how. That said, I won't recommend a service if I don't think it's the right fit. The AI Audit exists precisely to help you understand what's possible before committing to anything larger. If after an audit the honest answer is \"this isn't the right moment for AI in your business\", I'll say so.",
+      },
+    ],
+  },
 ];
-
-const schema = {
-  "@type": "FAQPage",
-  mainEntity: faqItems.map(([name, text]) => ({
-    "@type": "Question",
-    name,
-    acceptedAnswer: { "@type": "Answer", text },
-  })),
-};
 ---
 
-<BaseLayout
-  title="FAQ"
-  description="Pricing, timelines, data safety, staff adoption, and what to expect from Human Approved AI — plain answers for UK SMEs."
-  schema={schema}
+<Layout
+  title="Frequently Asked Questions"
+  description="Answers to the most common questions about AI adoption for small businesses, and about working with Human Approved AI."
 >
-  <section class="page-hero">
-    <div class="page-copy">
-      <p class="eyebrow">FAQ</p>
-      <h1>Questions cautious buyers ask</h1>
-      <p>
-        Straight answers on price, timelines, data, adoption, and what happens
-        after training — before you book a call.
-      </p>
-      <a class="button" href={SITE.bookingUrl} data-cta="faq-primary-cta">{SITE.primaryCtaNav}</a>
-    </div>
-    <aside class="panel panel-pad">
-      <p class="eyebrow">No hype</p>
-      <h2>If something is not a fit, we will say so.</h2>
-      <p class="lead">
-        Use this page to pre-sell the call internally. Still unsure?{" "}
-        <a href={`mailto:${SITE.email}`}>Email us</a>.
-      </p>
-    </aside>
-  </section>
+  <Header />
 
-  <section class="section section-tight">
-    <div class="grid grid-2 faq-grid">
-      {faqItems.map(([q, a]) => (
-        <details class="faq-item">
-          <summary>{q}</summary>
-          <p>{a}</p>
-        </details>
-      ))}
-    </div>
-  </section>
-
-  <section class="section section-tight">
-    <div class="panel panel-pad">
-      <div class="section-header">
-        <h2>Ready to talk?</h2>
-        <p>Tell us about your team and we will recommend a sensible first step.</p>
+  <main>
+    <!-- Hero -->
+    <section class="pt-16 pb-14 bg-white border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">FAQ</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
+          Questions worth asking
+        </h1>
+        <p class="text-gray-500 text-lg max-w-xl mx-auto">
+          Honest answers to the questions I hear most often from small business owners. If yours isn't here, just ask.
+        </p>
       </div>
-      <a class="button" href={SITE.bookingUrl} data-cta="faq-footer-cta">{SITE.primaryCtaNav}</a>
-    </div>
-  </section>
-</BaseLayout>
+    </section>
 
-<style>
-  .faq-grid {
-    align-items: start;
-  }
-</style>
+    <!-- FAQ accordion -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {faqs.map((group) => (
+          <div class="reveal">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-5">{group.group}</h2>
+            <div class="space-y-3">
+              {group.questions.map((item, i) => (
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm" data-faq>
+                  <button
+                    class="w-full text-left flex items-center justify-between gap-4 px-6 py-5 hover:bg-gray-50 transition-colors"
+                    aria-expanded="false"
+                    data-faq-trigger
+                  >
+                    <span class="font-semibold text-gray-900 text-sm leading-snug pr-4">{item.q}</span>
+                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300" data-faq-icon fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
+                    </svg>
+                  </button>
+                  <div class="faq-body hidden px-6 pb-5" data-faq-body>
+                    <div class="border-t border-gray-100 pt-4">
+                      <p class="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white border-t border-gray-100">
+      <div class="max-w-2xl mx-auto px-4 text-center reveal">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Still have questions?</h2>
+        <p class="text-gray-500 mb-7">
+          Book a free 20-minute call and I'll answer anything — no commitment, no hard sell. Just a conversation.
+        </p>
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm">
+          Book a Free 20-Minute Call
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('[data-faq]').forEach((faq) => {
+    const trigger = faq.querySelector('[data-faq-trigger]') as HTMLButtonElement;
+    const body    = faq.querySelector('[data-faq-body]') as HTMLElement;
+    const icon    = faq.querySelector('[data-faq-icon]') as SVGElement;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      document.querySelectorAll('[data-faq]').forEach((other) => {
+        if (other !== faq) {
+          (other.querySelector('[data-faq-trigger]') as HTMLButtonElement).setAttribute('aria-expanded', 'false');
+          (other.querySelector('[data-faq-body]') as HTMLElement).classList.add('hidden');
+          (other.querySelector('[data-faq-icon]') as SVGElement).style.transform = '';
+        }
+      });
+
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      body.classList.toggle('hidden', isOpen);
+      icon.style.transform = isOpen ? '' : 'rotate(45deg)';
+    });
+  });
+</script>

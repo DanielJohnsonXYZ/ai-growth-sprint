@@ -1,230 +1,147 @@
 ---
-import { SITE } from "../data/site";
-
-const navItems = [
-  { href: "/services/", label: "Services" },
-  { href: "/industries/", label: "Industries" },
-  { href: "/about/", label: "About" },
-  { href: "/results/", label: "Results" },
-  { href: "/resources/", label: "Resources" },
-  { href: "/pricing/", label: "Pricing" },
+const navLinks = [
+  { label: 'Services', href: '/services', hasDropdown: true },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'About', href: '/about' },
+  { label: 'Resources', href: '/resources' },
 ];
+
+const serviceLinks = [
+  { label: 'AI Workshops & Team Training', href: '/services/workshops' },
+  { label: '1:1 Strategy Consulting',      href: '/services/consulting' },
+  { label: 'AI Audit & Roadmap',           href: '/services/audit' },
+];
+
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="site-header">
-  <a class="brand" href="/" aria-label={`${SITE.name} home`}>
-    <span class="brand-mark">AI</span>
-    <span>
-      <strong>{SITE.name}</strong>
-      <small>Practical AI, human sign-off</small>
-    </span>
-  </a>
-  <nav aria-label="Main navigation">
-    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
-  </nav>
-  <a class="button button-small" href={SITE.bookingUrl} data-cta="header-book">{SITE.primaryCtaNav}</a>
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
 
-  <!-- Mobile hamburger button -->
-  <button
-    class="hamburger"
-    type="button"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="mobile-nav"
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5 group flex-shrink-0">
+        <div class="w-8 h-8 bg-brand-700 rounded-lg flex items-center justify-center group-hover:bg-brand-600 transition-colors">
+          <svg viewBox="0 0 20 20" fill="none" class="w-5 h-5">
+            <path d="M3 15l4-8 3 5.5 2.5-4L17 15H3z" fill="white" opacity="0.95"/>
+            <circle cx="15" cy="5" r="2.5" fill="#86efad"/>
+          </svg>
+        </div>
+        <span class="font-bold text-gray-900 text-lg tracking-tight leading-none">
+          Human Approved<span class="text-brand-600"> AI</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <div class="relative group">
+            <a
+              href={link.href}
+              class:list={[
+                'flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors',
+                currentPath.startsWith(link.href)
+                  ? 'text-brand-700 bg-brand-50'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50',
+              ]}
+            >
+              {link.label}
+              {link.hasDropdown && (
+                <svg class="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              )}
+            </a>
+
+            {link.hasDropdown && (
+              <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-left">
+                <div class="p-2">
+                  {serviceLinks.map((s) => (
+                    <a
+                      href={s.href}
+                      class="block px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition-colors"
+                    >
+                      {s.label}
+                    </a>
+                  ))}
+                  <div class="border-t border-gray-100 mt-2 pt-2">
+                    <a
+                      href="/services"
+                      class="block px-3 py-2.5 rounded-lg text-sm font-medium text-brand-600 hover:bg-brand-50 transition-colors"
+                    >
+                      View all services →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a
+          href="/contact"
+          class="px-5 py-2.5 bg-brand-600 text-white text-sm font-semibold rounded-lg hover:bg-brand-700 transition-colors shadow-sm"
+        >
+          Book a Free Call
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menu-btn"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+      >
+        <svg id="menu-icon-open" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden border-t border-gray-100 bg-white"
   >
-    <span class="hamburger-line"></span>
-    <span class="hamburger-line"></span>
-    <span class="hamburger-line"></span>
-  </button>
-
-  <!-- Mobile nav overlay -->
-  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
-  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <nav>
-      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
-    </nav>
-    <a class="button mobile-nav-cta" href={SITE.bookingUrl} data-cta="mobile-book">{SITE.primaryCtaNav}</a>
+    <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+      <a href="/services" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Services</a>
+      <div class="pl-4 space-y-1">
+        {serviceLinks.map((s) => (
+          <a href={s.href} class="block px-3 py-2 rounded-lg text-sm text-gray-500 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+            {s.label}
+          </a>
+        ))}
+      </div>
+      <a href="/case-studies" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Case Studies</a>
+      <a href="/about"        class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">About</a>
+      <a href="/resources"    class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Resources</a>
+      <div class="pt-3 pb-1">
+        <a href="/contact" class="block text-center px-4 py-3 bg-brand-600 text-white text-sm font-semibold rounded-lg hover:bg-brand-700 transition-colors">
+          Book a Free Call
+        </a>
+      </div>
+    </div>
   </div>
 </header>
 
-<style>
-  /* Hamburger button — hidden on desktop */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
-    position: relative;
-  }
-
-  .hamburger-line {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--ink);
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  /* Animate to X when open */
-  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  /* Backdrop */
-  .mobile-nav-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 999;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .mobile-nav-backdrop.is-visible {
-    display: block;
-    opacity: 1;
-  }
-
-  /* Mobile nav panel */
-  .mobile-nav {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: min(320px, 85vw);
-    height: 100dvh;
-    background: var(--paper);
-    z-index: 1000;
-    padding: 96px 28px 40px;
-    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .mobile-nav.is-open {
-    display: flex;
-    flex-direction: column;
-    transform: translateX(0);
-  }
-
-  .mobile-nav nav {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .mobile-nav nav a {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 10px 12px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--ink);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.15s ease;
-  }
-
-  .mobile-nav nav a:hover {
-    background: var(--paper-soft);
-    color: var(--moss);
-  }
-
-  .mobile-nav-cta {
-    margin-top: 24px;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  @media (max-width: 980px) {
-    .hamburger {
-      display: flex;
-    }
-  }
-</style>
-
 <script>
-  function initMobileNav() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.getElementById('mobile-nav');
-    const backdrop = document.getElementById('mobile-nav-backdrop');
+  const btn    = document.getElementById('menu-btn')!;
+  const menu   = document.getElementById('mobile-menu')!;
+  const iconO  = document.getElementById('menu-icon-open')!;
+  const iconC  = document.getElementById('menu-icon-close')!;
 
-    if (!hamburger || !mobileNav || !backdrop) return;
-    if (hamburger.dataset.navReady === 'true') return;
-    hamburger.dataset.navReady = 'true';
-
-    function openMenu() {
-      hamburger.setAttribute('aria-expanded', 'true');
-      hamburger.setAttribute('aria-label', 'Close menu');
-      backdrop.classList.add('is-visible');
-      mobileNav.classList.add('is-open');
-      // Force reflow so the transition plays after display:flex is applied
-      mobileNav.offsetHeight;
-      mobileNav.style.transform = 'translateX(0)';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.setAttribute('aria-label', 'Open menu');
-      mobileNav.style.transform = '';
-      backdrop.classList.remove('is-visible');
-      document.body.style.overflow = '';
-      // Wait for transition then hide
-      setTimeout(() => {
-        mobileNav.classList.remove('is-open');
-      }, 300);
-    }
-
-    function isOpen() {
-      return hamburger.getAttribute('aria-expanded') === 'true';
-    }
-
-    hamburger.addEventListener('click', () => {
-      if (isOpen()) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
-
-    backdrop.addEventListener('click', closeMenu);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen()) {
-        closeMenu();
-        hamburger.focus();
-      }
-    });
-  }
-
-  // Run on initial load
-  initMobileNav();
-
-  // Re-run after Astro client-side navigation (View Transitions)
-  document.addEventListener('astro:after-swap', initMobileNav);
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!open));
+    iconO.classList.toggle('hidden');
+    iconC.classList.toggle('hidden');
+  });
 </script>

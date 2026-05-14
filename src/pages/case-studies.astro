@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const cases = [
+  {
+    industry: "Professional Services",
+    company: "Mitchell & Co Accountants",
+    size: "8 staff · London",
+    service: "Workshops + 1:1 Consulting",
+    challenge: "Partners wanted AI adoption but feared staff confusion and compliance issues. Three previous tool introductions had quietly failed.",
+    approach: "Full-day workshop introducing the team to AI tools matched to their specific roles, followed by a 90-day strategy engagement to embed AI into core workflows.",
+    stats: [
+      { value: "14hrs", label: "saved per week" },
+      { value: "100%", label: "team adoption" },
+      { value: "6 wks", label: "to see results" },
+    ],
+    quote: "By the end of the workshop, people were actually excited. I did not expect that. Three months on, I can't imagine going back.",
+    author: "Sarah Mitchell, Managing Partner",
+    featured: true,
+  },
+  {
+    industry: "Property Management",
+    company: "Okafor Property Services",
+    size: "12 staff · Manchester",
+    service: "AI Audit + 1:1 Consulting",
+    challenge: "The founder had tried AI tools independently for months but couldn't get consistent results or team buy-in.",
+    approach: "An AI Audit to identify the highest-value opportunities, followed by a 6-week strategy sprint to implement two key workflows — tenant communications and maintenance reporting.",
+    stats: [
+      { value: "8hrs", label: "saved per week" },
+      { value: "2 days", label: "faster response times" },
+      { value: "£4k", label: "est. annual savings" },
+    ],
+    quote: "One strategy session gave me more clarity than six months of reading articles and watching tutorials.",
+    author: "James Okafor, Founder",
+    featured: false,
+  },
+  {
+    industry: "Retail",
+    company: "Bloom Interiors",
+    size: "5 staff · Edinburgh",
+    service: "Half-Day Workshop",
+    challenge: "A small but growing independent retailer needed to compete with larger players without increasing headcount.",
+    approach: "A half-day workshop focused on AI for marketing, product descriptions, and customer communications — immediately applicable to their daily work.",
+    stats: [
+      { value: "3x", label: "faster content creation" },
+      { value: "40%", label: "reduction in admin time" },
+      { value: "1 day", label: "workshop to results" },
+    ],
+    quote: "I honestly didn't expect it to be this practical. We were using it the next morning.",
+    author: "Claire Dunn, Owner",
+    featured: false,
+  },
+  {
+    industry: "Hospitality",
+    company: "The Anchor Group",
+    size: "25 staff · 3 venues · Bristol",
+    service: "Multi-Session Programme",
+    challenge: "A multi-venue hospitality group with high staff turnover needed AI adoption that was simple enough for any new hire to pick up quickly.",
+    approach: "A 6-week multi-session programme across the management team, resulting in AI-powered SOPs, shift briefing templates, and a customer complaint response workflow.",
+    stats: [
+      { value: "5hrs", label: "per manager per week" },
+      { value: "3 wks", label: "to full adoption" },
+      { value: "0", label: "technical issues" },
+    ],
+    quote: "The team now trains new starters on our AI tools as part of onboarding. It's become part of how we work.",
+    author: "Tom Barker, Operations Director",
+    featured: false,
+  },
+];
+---
+
+<Layout
+  title="Case Studies & Results"
+  description="Real results from real SMBs. See how Human Approved AI has helped small businesses across the UK save time, reduce costs, and build teams that use AI every day."
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-16 pb-14 bg-white border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">Results</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
+          Real businesses. Real results.
+        </h1>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+          Every business here was in the same position you might be in now — curious, cautious, and not sure where to start. Here's what happened when they took the first step.
+        </p>
+      </div>
+    </section>
+
+    <!-- Featured case study -->
+    <section class="py-16 bg-brand-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-brand-800 rounded-3xl overflow-hidden reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="p-10 lg:p-14">
+              <span class="inline-block px-3 py-1 bg-brand-600 text-white text-xs font-semibold rounded-full mb-6 uppercase tracking-wider">Featured Case Study</span>
+              <p class="text-brand-300 text-sm font-medium mb-2">{cases[0].industry} · {cases[0].size}</p>
+              <h2 class="text-2xl font-bold text-white mb-6">{cases[0].company}</h2>
+
+              <div class="space-y-5 mb-8">
+                <div>
+                  <p class="text-brand-400 text-xs font-semibold uppercase tracking-wider mb-1.5">The Challenge</p>
+                  <p class="text-brand-100 text-sm leading-relaxed">{cases[0].challenge}</p>
+                </div>
+                <div>
+                  <p class="text-brand-400 text-xs font-semibold uppercase tracking-wider mb-1.5">What We Did</p>
+                  <p class="text-brand-100 text-sm leading-relaxed">{cases[0].approach}</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3 mb-8">
+                {cases[0].stats.map((s) => (
+                  <div class="text-center bg-brand-700 rounded-xl py-4 px-2">
+                    <p class="text-2xl font-extrabold text-white">{s.value}</p>
+                    <p class="text-brand-300 text-xs mt-0.5">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="bg-brand-900 p-10 lg:p-14 flex flex-col justify-center">
+              <svg class="w-10 h-10 text-brand-500 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <blockquote class="text-white text-xl leading-relaxed mb-8 font-light">"{cases[0].quote}"</blockquote>
+              <p class="text-brand-300 text-sm">{cases[0].author}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other case studies -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cases.slice(1).map((c, i) => (
+            <article class={`reveal reveal-delay-${i + 1} bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm`}>
+              <div class="p-6 border-b border-gray-100">
+                <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">{c.industry}</span>
+                <h3 class="font-bold text-gray-900 text-lg mt-1 mb-0.5">{c.company}</h3>
+                <p class="text-gray-400 text-sm">{c.size}</p>
+              </div>
+              <div class="p-6">
+                <div class="grid grid-cols-3 gap-2 mb-5">
+                  {c.stats.map((s) => (
+                    <div class="text-center bg-brand-50 rounded-lg py-2.5">
+                      <p class="text-lg font-extrabold text-brand-700">{s.value}</p>
+                      <p class="text-gray-400 text-xs mt-0.5">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">{c.challenge}</p>
+                <blockquote class="border-l-2 border-brand-200 pl-4 italic text-gray-600 text-sm">
+                  "{c.quote}"
+                  <footer class="text-gray-400 not-italic mt-1 text-xs">{c.author}</footer>
+                </blockquote>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white border-t border-gray-100">
+      <div class="max-w-2xl mx-auto px-4 text-center reveal">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Want results like these?</h2>
+        <p class="text-gray-500 mb-7">Every one of these businesses started with a single conversation. Book a free 30-minute call to see what's possible for yours.</p>
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm">
+          Book a Free Discovery Call
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

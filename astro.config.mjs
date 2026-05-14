@@ -1,10 +1,7 @@
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: "https://humanapprovedai.com",
-  devToolbar: {
-    enabled: false,
-  },
-  integrations: [sitemap()],
+  integrations: [tailwind()],
+  site: 'https://humanapprovedai.com',
 });

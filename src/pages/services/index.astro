@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const services = [
+  {
+    number: "01",
+    tag: "For teams of 5–50",
+    title: "AI Workshops & Team Training",
+    tagline: "Get your whole team using AI — practically, not theoretically.",
+    description: "Hands-on, practical workshops delivered in-person or virtually. Tailored to your team's roles and your industry, these sessions are designed for non-technical staff who need to build real skills, not sit through a lecture.",
+    outcomes: [
+      "Your team actively using AI tools in their daily work",
+      "A curated toolkit of recommended tools for each role",
+      "Ready-made prompt templates for your most common tasks",
+      "A 30-day action plan to embed AI across the business",
+    ],
+    format: "Half-day · Full-day · Multi-session programme",
+    href: "/services/workshops",
+    cta: "Explore Workshops",
+    bg: "bg-brand-50",
+    accent: "text-brand-700",
+  },
+  {
+    number: "02",
+    tag: "For founders & CEOs",
+    title: "1:1 Strategy Consulting",
+    tagline: "Personalised AI strategy built around your business.",
+    description: "A trusted advisor relationship for business leaders who want a clear AI roadmap without the overwhelm. We work together to identify opportunities, select the right tools, and plan implementation — at a pace that fits your business.",
+    outcomes: [
+      "A prioritised AI roadmap tailored to your business model",
+      "Measurable time savings within the first 90 days",
+      "Reduced technology spend through smarter tool selection",
+      "Competitive advantage through faster, smarter AI adoption",
+    ],
+    format: "Project-based · Monthly retainer",
+    href: "/services/consulting",
+    cta: "Explore Consulting",
+    bg: "bg-gray-50",
+    accent: "text-gray-900",
+  },
+  {
+    number: "03",
+    tag: "Best first step",
+    title: "AI Audit & Roadmap",
+    tagline: "Find out exactly where AI can save you time and money.",
+    description: "Not ready to commit to a full programme? The AI Audit is a structured, fixed-fee assessment of your business that uncovers the highest-impact AI opportunities — delivered as a written report and 45-minute debrief call.",
+    outcomes: [
+      "A clear picture of your current AI readiness",
+      "Prioritised list of AI opportunities ranked by impact",
+      "Specific tool and solution recommendations for your business",
+      "A written Audit Report (8–12 pages) within 5 business days",
+    ],
+    format: "Fixed-fee · 5-day turnaround · Written report + debrief",
+    href: "/services/audit",
+    cta: "Get Your Audit",
+    bg: "bg-brand-700",
+    accent: "text-white",
+    dark: true,
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="AI training, strategy consulting, and audit services for small and mid-size businesses. Find the right way to work with Human Approved AI."
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-16 pb-14 bg-white border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">Services</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
+            Three ways to work together
+          </h1>
+          <p class="text-gray-500 text-lg leading-relaxed">
+            Whether your team needs hands-on training, your business needs strategic direction, or you simply want to understand where AI can help — there's a service designed for exactly where you are right now.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services list -->
+    {services.map((s, i) => (
+      <section class={`py-16 lg:py-24 ${s.bg}`}>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 !== 0 ? 'lg:grid-flow-dense' : ''}`}>
+            <div class={`reveal ${i % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
+              <div class="flex items-center gap-3 mb-4">
+                <span class={`text-5xl font-black opacity-20 ${s.dark ? 'text-white' : 'text-brand-700'}`}>{s.number}</span>
+                <span class={`px-3 py-1 rounded-full text-xs font-semibold ${s.dark ? 'bg-brand-600 text-white' : 'bg-brand-100 text-brand-700'}`}>{s.tag}</span>
+              </div>
+              <h2 class={`text-3xl font-extrabold mb-3 ${s.dark ? 'text-white' : 'text-gray-900'}`}>{s.title}</h2>
+              <p class={`text-lg font-medium mb-4 ${s.dark ? 'text-brand-200' : 'text-brand-600'}`}>{s.tagline}</p>
+              <p class={`leading-relaxed mb-6 ${s.dark ? 'text-brand-100' : 'text-gray-600'}`}>{s.description}</p>
+              <p class={`text-sm font-semibold mb-2 ${s.dark ? 'text-brand-300' : 'text-gray-400'} uppercase tracking-wider`}>Format</p>
+              <p class={`text-sm mb-8 ${s.dark ? 'text-brand-200' : 'text-gray-600'}`}>{s.format}</p>
+              <a
+                href={s.href}
+                class={`inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-xl transition-all text-sm ${s.dark ? 'bg-white text-brand-700 hover:bg-brand-50' : 'bg-brand-600 text-white hover:bg-brand-700'} shadow-sm`}
+              >
+                {s.cta}
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class={`reveal reveal-delay-2 ${i % 2 !== 0 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+              <div class={`rounded-2xl p-8 ${s.dark ? 'bg-brand-800' : 'bg-white border border-gray-200'} shadow-sm`}>
+                <p class={`text-xs font-semibold uppercase tracking-wider mb-4 ${s.dark ? 'text-brand-300' : 'text-brand-600'}`}>What you'll get</p>
+                <ul class="space-y-3">
+                  {s.outcomes.map((o) => (
+                    <li class="flex items-start gap-3">
+                      <div class={`mt-0.5 w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center ${s.dark ? 'bg-brand-600' : 'bg-brand-100'}`}>
+                        <svg class={`w-3 h-3 ${s.dark ? 'text-white' : 'text-brand-600'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                      </div>
+                      <span class={`text-sm leading-relaxed ${s.dark ? 'text-brand-100' : 'text-gray-700'}`}>{o}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Not sure CTA -->
+    <section class="py-16 bg-white border-t border-gray-100">
+      <div class="max-w-2xl mx-auto px-4 text-center reveal">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Not sure which is right for you?</h2>
+        <p class="text-gray-500 mb-8">Book a free 20-minute call and I'll help you figure out the best starting point for your business. No commitment required.</p>
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm">
+          Book a Free Call
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
